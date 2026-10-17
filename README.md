@@ -139,11 +139,11 @@ Fetched price text is preserved in `data.json` as unstructured `price_excerpts`,
 
 ## Developer Infrastructure Suite
 
-| Infrastructure | Explore |
-|---|---|
-| Residential Proxies | [https://proxy.mybskm.top](https://proxy.mybskm.top) |
-| GPU Cloud | [https://gpu.mybskm.top](https://gpu.mybskm.top) |
-| Global Payments | [https://pay.mybskm.top](https://pay.mybskm.top) |
-| Scraping APIs | [https://scrape.mybskm.top](https://scrape.mybskm.top) |
+| Infrastructure | Explore | Repository |
+|---|---|---|
+| Residential Proxies | [https://proxy.mybskm.top](https://proxy.mybskm.top) | [GitHub repository](https://github.com/600me/awesome-residential-proxies-benchmark) |
+| GPU Cloud | [https://gpu.mybskm.top](https://gpu.mybskm.top) | [GitHub repository](https://github.com/600me/awesome-gpu-cloud-pricing-benchmark) |
+| Global Payments | [https://pay.mybskm.top](https://pay.mybskm.top) | [GitHub repository](https://github.com/600me/awesome-indie-global-payments-matrix) |
+| Scraping APIs | [https://scrape.mybskm.top](https://scrape.mybskm.top) | [GitHub repository](https://github.com/600me/awesome-web-scraping-apis-benchmark) |
 
 Build the smallest stack that fits your workload: proxy access, GPU compute, payments and scraping APIs, connected through one developer infrastructure suite.
