@@ -1,0 +1,563 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-17T12:22:38Z",
+  "currency": "USD",
+  "methodology": {
+    "fallback_order": [
+      "live",
+      "cache",
+      "baseline",
+      "N/A"
+    ],
+    "request_timeout_seconds": 60,
+    "live_collection": "Public pricing-page metadata only",
+    "performance_tested": false,
+    "baseline_source": "DIRECTIVE_PHASE_1.md",
+    "baseline_year_label": 2026,
+    "cost_scenario_multipliers": [
+      1,
+      5,
+      25
+    ]
+  },
+  "infrastructure_suite": [
+    {
+      "name": "Residential Proxies",
+      "url": "https://proxy.mybskm.top"
+    },
+    {
+      "name": "GPU Cloud",
+      "url": "https://gpu.mybskm.top"
+    },
+    {
+      "name": "Global Payments",
+      "url": "https://pay.mybskm.top"
+    },
+    {
+      "name": "Scraping APIs",
+      "url": "https://scrape.mybskm.top"
+    }
+  ],
+  "vendors": [
+    {
+      "id": "zenrows",
+      "name": "ZenRows",
+      "success_rate_pct": 98.5,
+      "latency_seconds": 1.8,
+      "monthly_price_usd": 49,
+      "included_credits": 250000,
+      "cost_10k_estimate_usd": 1.96,
+      "free_trial_units": 5000,
+      "free_trial_unit": "credits",
+      "free_trial_terms": "No card required (supplied baseline)",
+      "positioning": "Cloudflare Turnstile, DataDome and Akamai; premium residential IPs and CSS/XPath extraction",
+      "features": [
+        "Automatic anti-bot handling",
+        "JavaScript rendering",
+        "Residential proxies",
+        "CSS/XPath extraction"
+      ],
+      "strengths": "A focused shortlist option for difficult anti-bot targets and extraction in one API.",
+      "limitations": "Premium proxies and rendering can multiply credit usage; validate each protected target.",
+      "pricing_url": "https://www.zenrows.com/pricing",
+      "relay_url": "https://go.272738.xyz/zenrows",
+      "public_metadata": {
+        "source_url": "https://www.zenrows.com/pricing",
+        "observed_at": "2026-10-17T12:22:37Z",
+        "title": "Pricing Â· Zenrows. From first agent to enterprise scale.",
+        "description": "Fetch, extract, batch, and operate the web through one reliable API. Start free, scale to protected sites, browser workflows, and high-volume data pipelines.",
+        "price_excerpts": [
+          "Recommended Free Test everything. $ 0 /mo 5,000 credits/month · no card Everything unlocked except sta",
+          "d Build Ship your first workloads. $ 16 /mo 45K credits/month Everything in Free 20 concurrent requests",
+          "h Reliable web data in production. $ 58 /mo 250K credits/month Everything in Build 50 concurrent request",
+          "ded Growth Scale across your team. $ 166 /mo 1.2M credits/month Everything in Launch 100 concurrent reque"
+        ],
+        "content_sha256": "8bb564c14935b69dcb8f508314a94321f2ec2b587e1677a7684394b39c81220b",
+        "http_status": 200,
+        "page_fetch_seconds": 1.364
+      },
+      "metadata_source": "live",
+      "probe": {
+        "ok": true,
+        "checked_at": "2026-10-17T12:22:37Z",
+        "http_status": 200
+      },
+      "field_sources": {
+        "success_rate_pct": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "latency_seconds": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "monthly_price_usd": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "included_credits": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "cost_10k_estimate_usd": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "free_trial_units": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "free_trial_unit": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "free_trial_terms": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "positioning": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "features": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "strengths": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "limitations": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        }
+      },
+      "metrics_basis": "Supplied Phase 1 baseline; no authenticated target benchmark performed",
+      "performance_measured": false,
+      "unit_cost_usd": 0.000196,
+      "normalized_cost_per_10k_credits_usd": 1.96,
+      "billing_tiers": [
+        {
+          "name": "Supplied starting-plan baseline",
+          "monthly_price_usd": 49,
+          "included_credits": 250000,
+          "currency": "USD",
+          "billing_period": "month",
+          "source": "DIRECTIVE_PHASE_1.md",
+          "verified_current_plan": false
+        }
+      ],
+      "cost_scenarios": [
+        {
+          "credits_per_request_assumption": 1,
+          "requests": 10000,
+          "allocated_cost_usd": 1.96,
+          "trial_request_capacity": 5000
+        },
+        {
+          "credits_per_request_assumption": 5,
+          "requests": 10000,
+          "allocated_cost_usd": 9.8,
+          "trial_request_capacity": 1000
+        },
+        {
+          "credits_per_request_assumption": 25,
+          "requests": 10000,
+          "allocated_cost_usd": 49.0,
+          "trial_request_capacity": 200
+        }
+      ],
+      "cost_note": "Supplied 10k estimate is retained separately. Normalized costs allocate plan credits, not a separately purchasable 10k batch. JS/premium multipliers are illustrative assumptions, not verified vendor rates. Crawlbase's paid included volume is unspecified; conversions are N/A."
+    },
+    {
+      "id": "scrapingbee",
+      "name": "ScrapingBee",
+      "success_rate_pct": 97.8,
+      "latency_seconds": 2.4,
+      "monthly_price_usd": 49,
+      "included_credits": 150000,
+      "cost_10k_estimate_usd": 3.26,
+      "free_trial_units": 1000,
+      "free_trial_unit": "credits",
+      "free_trial_terms": "No card required (supplied baseline)",
+      "positioning": "Headless browser rendering, rotating proxies and stealth workflows for Instagram, Amazon and LinkedIn",
+      "features": [
+        "Headless browser rendering",
+        "Proxy rotation",
+        "JavaScript scenarios",
+        "Extraction rules"
+      ],
+      "strengths": "A useful starting point when browser interaction and JavaScript dominate the workload.",
+      "limitations": "Browser and premium modes need a separate credit budget; social targets require target-level checks.",
+      "pricing_url": "https://www.scrapingbee.com/pricing/",
+      "relay_url": "https://go.272738.xyz/scrapingbee",
+      "public_metadata": {
+        "source_url": "https://www.scrapingbee.com/pricing/",
+        "observed_at": "2026-10-17T12:22:37Z",
+        "title": "Pricing - ScrapingBee Web Scraping API",
+        "description": "Simple, transparent pricing for ScrapingBee web scraping API. Choose from Hobby, Freelance, Startup, Business, or Business + plans. Cancel anytime.",
+        "price_excerpts": [
+          "ount Manager Team Management Hobby $19 /mo 75,000 25 - - - Try now Freelance $49 /mo 250,000 50 - - - T",
+          "75,000 25 - - - Try now Freelance $49 /mo 250,000 50 - - - Try now Recommended Startup $99 /mo 1,000,0",
+          "- - - Try now Recommended Startup $99 /mo 1,000,000 100 - - - Try now Recommended Business $249 /mo 3,",
+          "- - - Try now Recommended Business $249 /mo 3,000,000 200 Try now Recommended Business + $599 /mo 8,000,"
+        ],
+        "content_sha256": "05349daeaaaa6b6c442368a2601e3bb4a4e089c287b5dcc0fa069adb95f73a33",
+        "http_status": 200,
+        "page_fetch_seconds": 1.29
+      },
+      "metadata_source": "live",
+      "probe": {
+        "ok": true,
+        "checked_at": "2026-10-17T12:22:37Z",
+        "http_status": 200
+      },
+      "field_sources": {
+        "success_rate_pct": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "latency_seconds": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "monthly_price_usd": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "included_credits": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "cost_10k_estimate_usd": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "free_trial_units": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "free_trial_unit": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "free_trial_terms": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "positioning": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "features": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "strengths": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "limitations": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        }
+      },
+      "metrics_basis": "Supplied Phase 1 baseline; no authenticated target benchmark performed",
+      "performance_measured": false,
+      "unit_cost_usd": 0.0003266666666666667,
+      "normalized_cost_per_10k_credits_usd": 3.27,
+      "billing_tiers": [
+        {
+          "name": "Supplied starting-plan baseline",
+          "monthly_price_usd": 49,
+          "included_credits": 150000,
+          "currency": "USD",
+          "billing_period": "month",
+          "source": "DIRECTIVE_PHASE_1.md",
+          "verified_current_plan": false
+        }
+      ],
+      "cost_scenarios": [
+        {
+          "credits_per_request_assumption": 1,
+          "requests": 10000,
+          "allocated_cost_usd": 3.27,
+          "trial_request_capacity": 1000
+        },
+        {
+          "credits_per_request_assumption": 5,
+          "requests": 10000,
+          "allocated_cost_usd": 16.33,
+          "trial_request_capacity": 200
+        },
+        {
+          "credits_per_request_assumption": 25,
+          "requests": 10000,
+          "allocated_cost_usd": 81.67,
+          "trial_request_capacity": 40
+        }
+      ],
+      "cost_note": "Supplied 10k estimate is retained separately. Normalized costs allocate plan credits, not a separately purchasable 10k batch. JS/premium multipliers are illustrative assumptions, not verified vendor rates. Crawlbase's paid included volume is unspecified; conversions are N/A."
+    },
+    {
+      "id": "scraperapi",
+      "name": "ScraperAPI",
+      "success_rate_pct": 96.5,
+      "latency_seconds": 2.1,
+      "monthly_price_usd": 49,
+      "included_credits": 100000,
+      "cost_10k_estimate_usd": 4.9,
+      "free_trial_units": 5000,
+      "free_trial_unit": "credits",
+      "free_trial_terms": "7-day trial (supplied baseline)",
+      "positioning": "50M+ proxy pool, CAPTCHA handling and geotargeting with standard and premium request modes",
+      "features": [
+        "Rotating proxy pool",
+        "CAPTCHA handling",
+        "Geotargeting",
+        "Standard and premium modes"
+      ],
+      "strengths": "A practical shortlist option for broad proxy-backed collection and familiar HTTP integration.",
+      "limitations": "Country access and premium features depend on the plan; rendering changes request economics.",
+      "pricing_url": "https://www.scraperapi.com/pricing/",
+      "relay_url": "https://go.272738.xyz/scraperapi",
+      "public_metadata": {
+        "source_url": "https://www.scraperapi.com/pricing/",
+        "observed_at": "2026-10-17T12:22:37Z",
+        "title": "Compare Plans and Get Started for Free - ScraperAPI Pricing",
+        "description": "Not sure which ScraperAPI plan is right for you? Quickly compare our plans to choose the one that best fits your needs and budget.",
+        "price_excerpts": [
+          "r small projects and personal use. $49 /month $44.10 /month billed annually Start Trial 100,000 API Cre",
+          "jects and personal use. $49 /month $44.10 /month billed annually Start Trial 100,000 API Credits 20 Concur",
+          "For low-volume scraping workflows. $149 /month $134.10 /month billed annually Start Trial 1,000,000 API",
+          "me scraping workflows. $149 /month $134.10 /month billed annually Start Trial 1,000,000 API Credits 50 Conc"
+        ],
+        "content_sha256": "5729d25af00f9ba746954e7be32ae5bfc069ce4255c46428beb0624bbfca146a",
+        "http_status": 200,
+        "page_fetch_seconds": 1.41
+      },
+      "metadata_source": "live",
+      "probe": {
+        "ok": true,
+        "checked_at": "2026-10-17T12:22:37Z",
+        "http_status": 200
+      },
+      "field_sources": {
+        "success_rate_pct": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "latency_seconds": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "monthly_price_usd": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "included_credits": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "cost_10k_estimate_usd": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "free_trial_units": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "free_trial_unit": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "free_trial_terms": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "positioning": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "features": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "strengths": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "limitations": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        }
+      },
+      "metrics_basis": "Supplied Phase 1 baseline; no authenticated target benchmark performed",
+      "performance_measured": false,
+      "unit_cost_usd": 0.00049,
+      "normalized_cost_per_10k_credits_usd": 4.9,
+      "billing_tiers": [
+        {
+          "name": "Supplied starting-plan baseline",
+          "monthly_price_usd": 49,
+          "included_credits": 100000,
+          "currency": "USD",
+          "billing_period": "month",
+          "source": "DIRECTIVE_PHASE_1.md",
+          "verified_current_plan": false
+        }
+      ],
+      "cost_scenarios": [
+        {
+          "credits_per_request_assumption": 1,
+          "requests": 10000,
+          "allocated_cost_usd": 4.9,
+          "trial_request_capacity": 5000
+        },
+        {
+          "credits_per_request_assumption": 5,
+          "requests": 10000,
+          "allocated_cost_usd": 24.5,
+          "trial_request_capacity": 1000
+        },
+        {
+          "credits_per_request_assumption": 25,
+          "requests": 10000,
+          "allocated_cost_usd": 122.5,
+          "trial_request_capacity": 200
+        }
+      ],
+      "cost_note": "Supplied 10k estimate is retained separately. Normalized costs allocate plan credits, not a separately purchasable 10k batch. JS/premium multipliers are illustrative assumptions, not verified vendor rates. Crawlbase's paid included volume is unspecified; conversions are N/A."
+    },
+    {
+      "id": "crawlbase",
+      "name": "Crawlbase",
+      "success_rate_pct": 95.2,
+      "latency_seconds": 1.9,
+      "monthly_price_usd": 29,
+      "included_credits": null,
+      "cost_10k_estimate_usd": 2.9,
+      "free_trial_units": 5000,
+      "free_trial_unit": "requests",
+      "free_trial_terms": "Free calls (supplied baseline)",
+      "positioning": "Formerly ProxyCrawl; AI structured scraping, crawler storage and concurrent crawling infrastructure",
+      "features": [
+        "Structured scraping",
+        "Crawler storage",
+        "Concurrent crawling",
+        "JavaScript crawling"
+      ],
+      "strengths": "Consider it when collection, storage and crawler operations belong in the same workflow.",
+      "limitations": "The supplied baseline does not specify included paid requests; request-level pricing needs checking.",
+      "pricing_url": "https://crawlbase.com/pricing/",
+      "relay_url": "https://go.272738.xyz/crawlbase",
+      "public_metadata": {
+        "source_url": "https://crawlbase.com/pricing",
+        "observed_at": "2026-10-17T12:22:38Z",
+        "title": "Pricing: One Rate Card for Every Product | Crawlbase",
+        "description": "One pay as you go rate card covers the Crawling API, the Crawler, Smart AI Proxy and Cloud Storage. Pay only for successful requests. Start free.",
+        "price_excerpts": [
+          "the same rate card. Pay as you go $0 monthly fee No monthly fee and no card to start. You are charged",
+          "l as your volume grows. Rates from $3.00 down to $0.02 per 1,000 Optional hard spend cap Billed monthly i",
+          "me grows. Rates from $3.00 down to $0.02 per 1,000 Optional hard spend cap Billed monthly in arrears, for",
+          "used Start free Subscription From $99 / mo A monthly block of credits at a lower effective rate. Usage"
+        ],
+        "content_sha256": "35d97379e61abf33f1bc6bc99c364988ca72fb4ea2d139c63b631013a80ff2f2",
+        "http_status": 200,
+        "page_fetch_seconds": 1.936
+      },
+      "metadata_source": "live",
+      "probe": {
+        "ok": true,
+        "checked_at": "2026-10-17T12:22:38Z",
+        "http_status": 200
+      },
+      "field_sources": {
+        "success_rate_pct": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "latency_seconds": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "monthly_price_usd": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "included_credits": {
+          "selected_from": "N/A",
+          "origin": "N/A"
+        },
+        "cost_10k_estimate_usd": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "free_trial_units": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "free_trial_unit": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "free_trial_terms": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "positioning": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "features": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "strengths": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        },
+        "limitations": {
+          "selected_from": "cache",
+          "origin": "directive_baseline"
+        }
+      },
+      "metrics_basis": "Supplied Phase 1 baseline; no authenticated target benchmark performed",
+      "performance_measured": false,
+      "unit_cost_usd": null,
+      "normalized_cost_per_10k_credits_usd": null,
+      "billing_tiers": [
+        {
+          "name": "Supplied starting-plan baseline",
+          "monthly_price_usd": 29,
+          "included_credits": null,
+          "currency": "USD",
+          "billing_period": "month",
+          "source": "DIRECTIVE_PHASE_1.md",
+          "verified_current_plan": false
+        }
+      ],
+      "cost_scenarios": [
+        {
+          "credits_per_request_assumption": 1,
+          "requests": 10000,
+          "allocated_cost_usd": null,
+          "trial_request_capacity": null
+        },
+        {
+          "credits_per_request_assumption": 5,
+          "requests": 10000,
+          "allocated_cost_usd": null,
+          "trial_request_capacity": null
+        },
+        {
+          "credits_per_request_assumption": 25,
+          "requests": 10000,
+          "allocated_cost_usd": null,
+          "trial_request_capacity": null
+        }
+      ],
+      "cost_note": "Supplied 10k estimate is retained separately. Normalized costs allocate plan credits, not a separately purchasable 10k batch. JS/premium multipliers are illustrative assumptions, not verified vendor rates. Crawlbase's paid included volume is unspecified; conversions are N/A."
+    }
+  ]
+}
