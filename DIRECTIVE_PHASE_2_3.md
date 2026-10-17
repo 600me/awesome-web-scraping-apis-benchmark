@@ -110,3 +110,18 @@
 
 ## 五、交付指令
 立即无条件执行上述全部动作，完成验收后退出，严禁设立人工等待。
+
+
+## 执行验收记录（2026-10-17）
+
+- [x] `.github/workflows/daily-benchmark.yml` 已提交；每日 UTC 13:47，支持手动触发，Python 3.11，按要求执行探针并仅提交三个产物。
+- [x] 独立密钥 `~/.ssh/id_ed25519_scraping_benchmark` 已生成，仓库 Deploy Key 启用写权限；本地 `core.sshCommand` 已按施工令配置，首次 `git push -u origin main` 成功。
+- [x] 公开仓库：https://github.com/600me/awesome-web-scraping-apis-benchmark 。
+- [x] Cloudflare A 记录 `scrape.mybskm.top -> 96.9.225.9`，`proxied=false`，自动 TTL；API 已读回确认。
+- [x] 美西 VPS 已部署三个静态产物、启用指定 Nginx 虚拟主机并平滑 reload。
+- [x] 按指定非交互 Certbot 命令成功签发及配置 HTTPS；证书到期日 2027-01-15，Certbot 已配置自动续期。
+- [x] 追加四条指定 302 中继；既有配置逐字保留，备份路径 `/etc/nginx/sites-available/kais-proxy-links.bak-20261017T123523Z`。
+- [x] 从 `us-server` 执行本令第 IV 节公网验收：`nginx -t` 退出 0；Google DNS 返回 `96.9.225.9`；站点 HTTPS 200；四条新中继目标域名正确、均为 302；RunPod/Firstbase 均为 302；GitHub 页面 200。
+- [x] Actions 手动实跑成功：https://github.com/600me/awesome-web-scraping-apis-benchmark/actions/runs/39033363325 。已验证探针与 bot 自动 commit/push，更新提交 `8ae409f` 已拉取并同步 VPS。
+
+验收边界：本机网络仍缓存 NXDOMAIN，因此未把本机直接 dig/curl 标为通过；公网 DNS 通过 Google DNS-over-HTTPS 和 VPS 上直接查询双路核实，本机指定 IP 的可信 HTTPS 连接同样返回 200。手动 Actions 成功不代表每日定时已自然执行。四条新中继按工单保留 `ref=REPLACE_ME` 占位参数，不代表已获得联盟追踪或佣金资格。工作流依施工令只更新 GitHub 产物，VPS 本次已同步；没有另增周期部署工序。
