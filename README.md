@@ -14,7 +14,7 @@ Cloudflare Turnstile and DataDome blocks can interrupt price monitoring, lead re
 
 Compare the supplied starting-plan baselines of **$29–$49/month**, free-trial allowances, and 10,000-request cost examples below. [Start with ZenRows](https://go.272738.xyz/zenrows) or use the trial links in the comparison to test the pages that matter to your business.
 
-**Snapshot:** 2026-10-17T16:39:28Z. **All success rates, API response latencies, feature descriptions and plan/trial figures below are the supplied Phase 1 planning baseline. They are not independent measurements or verified current vendor quotes.** The probe refreshes public pricing-page metadata only. Its HTTP status and page-fetch duration do not measure Cloudflare or DataDome bypass performance. Official pricing can differ from this preserved baseline.
+**Snapshot:** 2026-10-18T16:54:05Z. **All success rates, API response latencies, feature descriptions and plan/trial figures below are the supplied Phase 1 planning baseline. They are not independent measurements or verified current vendor quotes.** The probe refreshes public pricing-page metadata only. Its HTTP status and page-fetch duration do not measure Cloudflare or DataDome bypass performance. Official pricing can differ from this preserved baseline.
 
 ## Scraping API comparison: cost, baseline success and free trials
 
@@ -130,10 +130,10 @@ One script fetches four public pricing pages concurrently with a **60-second tim
 
 ## Public metadata sources
 
-- [ZenRows official pricing source](https://www.zenrows.com/pricing): live; last observed 2026-10-17T16:39:27Z. Latest attempt HTTP 200.
-- [ScrapingBee official pricing source](https://www.scrapingbee.com/pricing/): live; last observed 2026-10-17T16:39:27Z. Latest attempt HTTP 200.
-- [ScraperAPI official pricing source](https://www.scraperapi.com/pricing/): live; last observed 2026-10-17T16:39:27Z. Latest attempt HTTP 200.
-- [Crawlbase official pricing source](https://crawlbase.com/pricing/): live; last observed 2026-10-17T16:39:28Z. Latest attempt HTTP 200.
+- [ZenRows official pricing source](https://www.zenrows.com/pricing): live; last observed 2026-10-18T16:54:04Z. Latest attempt HTTP 200.
+- [ScrapingBee official pricing source](https://www.scrapingbee.com/pricing/): live; last observed 2026-10-18T16:54:05Z. Latest attempt HTTP 200.
+- [ScraperAPI official pricing source](https://www.scraperapi.com/pricing/): live; last observed 2026-10-18T16:54:04Z. Latest attempt HTTP 200.
+- [Crawlbase official pricing source](https://crawlbase.com/pricing/): live; last observed 2026-10-18T16:54:05Z. Latest attempt HTTP 200.
 
 Fetched price text is preserved in `data.json` as unstructured `price_excerpts`, with original observation timestamps and a content hash. Fetching a page does not validate a pricing interpretation. Cached observations retain their original age. Product CTAs use fixed relay URLs; source links above identify reference material. Relay destinations and affiliate arrangements are not verified by this metadata probe.
 
