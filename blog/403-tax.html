@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The 403 Tax: What Anti-Bot Protection Really Does to Your Scraping Bill | Scraping API Benchmark</title>
+<meta name="description" content="A cost-first teardown of scraping APIs under Cloudflare and Turnstile pressure: credit multipliers, retry amplification, and the only metric that survives production.">
+<link rel="canonical" href="https://scrape.mybskm.top/blog/403-tax.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="600me">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Scraping API Benchmark">
+<meta property="og:title" content="The 403 Tax: What Anti-Bot Protection Really Does to Your Scraping Bill">
+<meta property="og:description" content="A cost-first teardown of scraping APIs under Cloudflare and Turnstile pressure: credit multipliers, retry amplification, and the only metric that survives production.">
+<meta property="og:url" content="https://scrape.mybskm.top/blog/403-tax.html">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-10-18T14:35:51Z">
+<meta property="article:modified_time" content="2026-10-18T16:00:00Z">
+<meta property="article:author" content="600me">
+<meta property="article:section" content="Anti-Bot Economics">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The 403 Tax: What Anti-Bot Protection Really Does to Your Scraping Bill">
+<meta name="twitter:description" content="A cost-first teardown of scraping APIs under Cloudflare and Turnstile pressure: credit multipliers, retry amplification, and the only metric that survives production.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The 403 Tax: What Anti-Bot Protection Really Does to Your Scraping Bill",
+  "description": "A cost-first teardown of scraping APIs under Cloudflare and Turnstile pressure: credit multipliers, retry amplification, and the only metric that survives production.",
+  "author": {
+    "@type": "Person",
+    "name": "600me",
+    "url": "https://scrape.mybskm.top/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Scraping API Benchmark",
+    "url": "https://scrape.mybskm.top/"
+  },
+  "datePublished": "2026-10-18T14:35:51Z",
+  "dateModified": "2026-10-18T16:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://scrape.mybskm.top/blog/403-tax.html"
+  },
+  "url": "https://scrape.mybskm.top/blog/403-tax.html",
+  "articleSection": "Anti-Bot Economics",
+  "keywords": "webscraping, cloudflare, python, api",
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<style>
+:root{color-scheme:dark;--bg:#090c12;--panel:#111722;--line:#263142;--ink:#e9eff9;--body:#ccd8e8;--muted:#a0afc2;--green:#88f5bd;--blue:#9bbdff;--amber:#e1c991}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 78% -6%,#12353188,transparent 44%),var(--bg);color:var(--ink);font:16px/1.75 system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}a:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.skip{position:absolute;left:-9999px}.skip:focus{left:16px;top:16px;z-index:20;background:var(--panel);padding:10px 14px;border-radius:8px}
+.shell{max-width:960px;margin:0 auto;padding:0 26px}
+header.site{border-bottom:1px solid var(--line);background:#090c12e6;position:sticky;top:0;backdrop-filter:blur(8px);z-index:5}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:68px;max-width:1100px}
+.brand{font:700 15px ui-monospace,monospace;color:var(--ink);white-space:nowrap}.brand b{color:var(--green)}
+header nav{display:flex;gap:20px;flex-wrap:wrap}header nav a{font-size:12.5px;color:var(--muted)}header nav a:hover{color:var(--green)}
+.backlink{margin:22px 0 0;font:12.5px ui-monospace,monospace}.backlink a{color:var(--muted)}.backlink a:hover{color:var(--green)}
+main{padding:26px 0 70px}
+.eyebrow{font:11.5px ui-monospace,monospace;color:var(--green);letter-spacing:1.8px;text-transform:uppercase;margin:12px 0 0}
+h1{font-size:clamp(30px,4.6vw,52px);line-height:1.12;letter-spacing:-1.6px;margin:18px 0;max-width:900px}
+.standfirst{font-size:18px;color:var(--muted);max-width:780px;margin:0 0 18px}
+.meta{display:flex;gap:18px;flex-wrap:wrap;font:12px ui-monospace,monospace;color:var(--muted);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:0 0 26px}
+.meta strong{color:var(--ink)}
+.ftc{border:1px solid #796239;background:#dba6430d;color:var(--amber);border-radius:10px;padding:16px 18px;font-size:13.5px;line-height:1.62;margin:0 0 30px}
+.ftc strong{color:#f0d9a3}
+.content{max-width:840px}
+.content h2{font-size:24px;letter-spacing:-.5px;margin:46px 0 12px}
+.content p{margin:0 0 18px;color:var(--body)}
+.content strong{color:#fff}
+.content ul,.content ol{margin:0 0 20px;padding-left:22px;color:var(--body)}
+.content li{margin:0 0 8px}.content li::marker{color:var(--green)}
+.content code{font:13px ui-monospace,SFMono-Regular,monospace;background:#182231;border:1px solid #2a3648;border-radius:5px;padding:1.5px 6px;color:#b9f7d9;overflow-wrap:anywhere}
+.content pre{background:#070b11;border:1px solid var(--line);border-radius:10px;padding:16px 18px;overflow:auto;margin:0 0 22px;line-height:1.6}
+.content pre code{background:none;border:0;padding:0;font-size:12.8px;color:#c7f5df;white-space:pre}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:0 0 22px;background:#0c121b}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:560px}
+th{font:600 11px ui-monospace,monospace;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);background:#101826;text-align:left}
+th,td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}tbody tr:hover{background:#131c29}
+td.num{font-family:ui-monospace,monospace;color:var(--green);white-space:nowrap}
+.cta-panel{max-width:840px;border:1px solid #2b5e50;background:linear-gradient(100deg,#102a26,#122030);border-radius:14px;padding:22px;margin:34px 0}
+.cta-panel h2{font-size:19px;margin:0 0 6px;letter-spacing:-.3px}
+.cta-panel p{color:var(--muted);font-size:13.5px;margin:0 0 16px}
+.btn{display:inline-block;background:var(--green);color:#082318;padding:11px 16px;border-radius:8px;font:750 13.5px system-ui,sans-serif;margin:0 10px 8px 0}
+.btn:hover{background:#b5ffdb;text-decoration:none}
+.btn.alt{background:#202c3c;color:var(--ink)}.btn.alt:hover{background:#2a3a4e}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);font-size:12px}
+footer nav{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:10px}
+@media(max-width:640px){.shell{padding:0 16px}.bar{flex-wrap:wrap;gap:8px;padding-top:12px;padding-bottom:12px}header nav{width:100%;gap:14px}h1{letter-spacing:-1px}table{min-width:520px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#article">Skip to article</a>
+<header class="site"><div class="shell bar"><a class="brand" href="https://scrape.mybskm.top/"><b>&#9639;</b> SCRAPE / STACK</a><nav aria-label="Sister projects"><a href="https://scrape.mybskm.top/">Live benchmark</a><a href="https://proxy.mybskm.top/">Residential proxies</a><a href="https://gpu.mybskm.top/">GPU cloud</a></nav></div></header>
+<div class="shell"><p class="backlink"><a href="https://scrape.mybskm.top/">&larr; Back to Live Scraping API Benchmark</a></p></div>
+<main id="article" class="shell">
+<article>
+<div class="eyebrow">ANTI-BOT ECONOMICS / COST TEARDOWN</div>
+<h1>The 403 Tax: What Anti-Bot Protection Really Does to Your Scraping Bill</h1>
+<p class="standfirst">A cost-first teardown of scraping APIs under Cloudflare and Turnstile pressure: credit multipliers, retry amplification, and the only metric that survives production.</p>
+<p class="meta"><span>By <strong>600me</strong></span><span><time datetime="2026-10-18T14:35:51Z">18 October 2026</time></span><span>1,698 words &middot; ~8 min read</span></p>
+<aside class="ftc"><strong>Affiliate disclosure (FTC).</strong> Some links on this page are affiliate links. If you buy a service through them, I may earn a commission at no extra cost to you. Commissions never change the price you pay and do not buy a ranking: every table here is built from the same public planning baselines as the live dashboard. Verify current pricing and terms with each provider before purchasing.</aside>
+
+<div class="cta-panel">
+<h2>Price your own targets, not the sticker price</h2>
+<p>Start with a free trial, run the 200-URL pilot from this teardown, and measure cost per 1,000 usable pages before you commit to a plan.</p>
+<a class="btn" href="https://go.272738.xyz/scraperapi?utm_source=scrape_blog&amp;utm_medium=article&amp;utm_campaign=403_tax&amp;src=article_403tax" rel="sponsored nofollow noopener">ScraperAPI &nearr;</a><a class="btn alt" href="https://go.272738.xyz/smartproxy?utm_source=scrape_blog&amp;utm_medium=article&amp;utm_campaign=403_tax&amp;src=article_403tax" rel="sponsored nofollow noopener">Smartproxy / Decodo &nearr;</a>
+<p class="cta-note">Affiliate links. See the disclosure above.</p>
+</div>
+<div class="content">
+<p>The crawl finished at 06:00. The job log says 100,000 requests. The dataset has 68,000 usable rows, 22,000 challenge pages, and 10,000 timeouts. The invoice counts 100,000 requests plus every retry, every JavaScript render, and every premium-proxy attempt.</p>
+<p>That gap between requests sent and pages usable is the 403 tax. It is invisible on a pricing page, and it is the number that decides whether a scraping API is cheap or expensive.</p>
+<p>This is a cost-first teardown of the problem. I use the normalized plan inputs published on <a href="https://scrape.mybskm.top/?utm_source=devto&amp;utm_medium=article&amp;utm_campaign=scraping_api_benchmark">scrape.mybskm.top</a>, walk through the arithmetic, and then show a two-hour pilot that produces a better buying decision than any vendor comparison table.</p>
+<h2>The invoice counts attempts, not answers</h2>
+<p>A scraping API is not a bandwidth pipe. It is a request orchestrator: it chooses an IP, opens a TLS session, may execute JavaScript, may solve or wait out a challenge, and may retry. Every one of those steps can consume a credit.</p>
+<p>That is why two providers can both advertise "$49 per month" and produce very different bills. The useful unit is not the request. It is the <strong>usable page</strong>: a response that contains the fields your pipeline needs, at the time you need them.</p>
+<p>A 200 response with a Cloudflare interstitial is a failure. A 403 with a valid cached copy may still be a success if your pipeline is allowed to use the cache. A timeout after 30 seconds may have consumed a credit even though it produced nothing. Your accounting has to follow the output, not the status code.</p>
+<h2>A residential IP is not a Turnstile pass</h2>
+<p>Cloudflare, DataDome, and Akamai do not make a single decision. They combine signals:</p>
+<ul><li>IP reputation and ASN type.</li><li>TLS fingerprint and HTTP/2 settings.</li><li>Header order and browser fingerprint.</li><li>Cookie and challenge-token state.</li><li>Request rate, navigation pattern, and mouse or keyboard behavior.</li></ul>
+<p>A residential IP helps with the first signal. It does not automatically produce a valid Turnstile token. Turnstile requires JavaScript execution in a browser-like environment, and that execution is usually billed at a higher credit multiplier. DataDome and Akamai apply similar layered checks.</p>
+<p>This is the practical reason "just buy residential proxies" often disappoints. You can move the IP and still fail the browser and token checks. A managed scraping API bundles the browser, the proxy, and the retry logic, but it charges for all three.</p>
+<h2>The credit multiplier is the real price list</h2>
+<p>The public calculator normalizes four providers to a common baseline. The inputs below were observed on 2026-10-17. They are planning baselines, not fresh vendor quotes, and the site explicitly labels them that way.</p>
+<div class="tablewrap"><table>
+<thead><tr>
+<th>API (baseline input)</th>
+<th style="text-align:right">Plan</th>
+<th style="text-align:right">Included credits</th>
+<th style="text-align:right">Cost / credit</th>
+<th style="text-align:right">10k @ 1 credit</th>
+<th style="text-align:right">10k @ 5 credits</th>
+<th style="text-align:right">10k @ 25 credits</th>
+</tr></thead><tbody>
+<tr>
+<td>ZenRows</td>
+<td class="num">$49</td>
+<td class="num">250,000</td>
+<td class="num">$0.000196</td>
+<td class="num">$1.96</td>
+<td class="num">$9.80</td>
+<td class="num">$49.00</td>
+</tr>
+<tr>
+<td>ScrapingBee</td>
+<td class="num">$49</td>
+<td class="num">150,000</td>
+<td class="num">$0.000327</td>
+<td class="num">$3.27</td>
+<td class="num">$16.33</td>
+<td class="num">$81.67</td>
+</tr>
+<tr>
+<td>ScraperAPI</td>
+<td class="num">$49</td>
+<td class="num">100,000</td>
+<td class="num">$0.000490</td>
+<td class="num">$4.90</td>
+<td class="num">$24.50</td>
+<td class="num">$122.50</td>
+</tr>
+<tr>
+<td>Crawlbase</td>
+<td class="num">$29</td>
+<td class="num">not specified</td>
+<td class="num">n/a</td>
+<td class="num">n/a</td>
+<td class="num">n/a</td>
+<td class="num">n/a</td>
+</tr>
+</tbody></table></div>
+<p>The formula is simple:</p>
+<pre><code>cost per request = plan price / included credits * credits per request</code></pre>
+<p>At one credit per request, the difference between the cheapest and most expensive normalized option is $2.94 per 10,000 requests. At 25 credits per request, it is $73.50. The multiplier, not the plan price, controls the spread.</p>
+<p>Crawlbase is deliberately left as n/a. Its supplied baseline does not state the included paid request volume, so the $2.90 per 10,000 estimate cannot be converted into a per-credit rate. Treating it as comparable would be a spreadsheet error dressed up as analysis.</p>
+<h2>Retry amplification: the line item finance never sees</h2>
+<p>Suppose you need 100,000 URLs. Thirty percent hit a challenge or a 403. A naive retry policy tries each failed URL three times. You now bill:</p>
+<pre><code>70,000 non-challenged attempts + 30,000 challenged URLs * 3 attempts = 160,000 billed attempts</code></pre>
+<p>If every attempt costs one credit, the allocated cost at the normalized rates is:</p>
+<div class="tablewrap"><table>
+<thead><tr>
+<th>Billing assumption</th>
+<th style="text-align:right">Billed credits</th>
+<th style="text-align:right">ZenRows</th>
+<th style="text-align:right">ScrapingBee</th>
+<th style="text-align:right">ScraperAPI</th>
+</tr></thead><tbody>
+<tr>
+<td>1 credit per attempt</td>
+<td class="num">160,000</td>
+<td class="num">$31.36</td>
+<td class="num">$52.27</td>
+<td class="num">$78.40</td>
+</tr>
+<tr>
+<td>5 credits per challenged retry</td>
+<td class="num">520,000</td>
+<td class="num">$101.92</td>
+<td class="num">$169.87</td>
+<td class="num">$254.80</td>
+</tr>
+</tbody></table></div>
+<p>The second row is the important one. It assumes 70,000 clean requests at one credit and 30,000 challenged requests at three attempts times five credits. That is 520,000 credits for a job that "only" had 100,000 URLs.</p>
+<p>These are allocated plan costs, not necessarily the provider's overage price. Overage rates can be higher, and plans may throttle or block before overage. The point is directional: a retry policy without a credit budget is an open-ended invoice.</p>
+<h2>Cost per 1,000 usable pages</h2>
+<p>The metric to put in the budget is:</p>
+<pre><code>cost per 1,000 usable pages =
+  (cost per credit * credits per attempt) / usable yield * 1,000</code></pre>
+<p>Using the normalized rates and an explicit 70% yield assumption:</p>
+<div class="tablewrap"><table>
+<thead><tr>
+<th>API</th>
+<th style="text-align:right">$ / 1k attempts (1 credit)</th>
+<th style="text-align:right">$ / 1k usable at 70%, 1 credit</th>
+<th style="text-align:right">$ / 1k usable at 70%, 5 credits</th>
+</tr></thead><tbody>
+<tr>
+<td>ZenRows</td>
+<td class="num">$0.196</td>
+<td class="num">$0.280</td>
+<td class="num">$1.400</td>
+</tr>
+<tr>
+<td>ScrapingBee</td>
+<td class="num">$0.327</td>
+<td class="num">$0.467</td>
+<td class="num">$2.333</td>
+</tr>
+<tr>
+<td>ScraperAPI</td>
+<td class="num">$0.490</td>
+<td class="num">$0.700</td>
+<td class="num">$3.500</td>
+</tr>
+</tbody></table></div>
+<p>Seventy percent is an assumption, not a measurement. It is there to make the arithmetic visible. If the supplied baseline success rates of 98.5%, 97.8%, and 96.5% held, the one-credit numbers would be $0.199, $0.334, and $0.508 per 1,000 usable pages. Those rates are supplied planning inputs, not independent target measurements, so your own pilot still decides.</p>
+<p>The 5-credit column is the part most teams miss. A provider with a lower per-credit price can lose on a target that forces JavaScript rendering on every request. The opposite is also true: a provider with a higher per-credit price can win if it avoids retries and returns clean data on the first attempt.</p>
+<h2>A two-hour pilot that beats any comparison table</h2>
+<p>You do not need a 10,000-request benchmark to make a good decision. You need a representative sample, a definition of usable, and honest accounting.</p>
+<ol><li><strong>Pick 200 URLs.</strong> Stratify by template, not by random pages. Include the pages that produce the most revenue or the most support tickets.</li><li><strong>Define usable before you run.</strong> A product page is usable only if the price, currency, and availability fields are present. A listing page is usable only if it returns the expected number of items. Hash the relevant fragment, not the whole HTML, so rotating ads do not create false negatives.</li><li><strong>Run three times.</strong> Morning, midday, and evening in the target geography. Use the same session settings and the same timeout. Record status, latency, bytes, and credits consumed.</li><li><strong>Count retries as cost.</strong> If your client retries three times, the pilot must record three attempts. Otherwise the result is a demo, not an economic measurement.</li><li><strong>Compute the useful number.</strong> Cost per 1,000 usable pages, not cost per request. Add the engineering time spent on the integration.</li></ol>
+<p>A minimal standard-library probe looks like this:</p>
+<pre><code>import hashlib
+import json
+import time
+import urllib.request
+
+TARGET = &quot;https://example.com/product/123&quot;
+MARKER = &quot;Add to cart&quot;
+
+def probe(url):
+    request = urllib.request.Request(
+        url, headers={&quot;User-Agent&quot;: &quot;cost-pilot/1.0&quot;})
+    started = time.perf_counter()
+    with urllib.request.urlopen(request, timeout=30) as response:
+        body = response.read()
+        status = response.status
+    return {
+        &quot;status&quot;: status,
+        &quot;seconds&quot;: round(time.perf_counter() - started, 3),
+        &quot;usable&quot;: MARKER.encode() in body,
+        &quot;sha256&quot;: hashlib.sha256(body).hexdigest()[:16],
+    }
+
+print(json.dumps(probe(TARGET)))</code></pre>
+<p>Run that through your provider's endpoint and through a direct baseline. The direct baseline tells you what the target does without a proxy. The provider result tells you what you are buying. If the direct baseline is already 95% usable, a managed API may still be worth it for maintenance and IP rotation, but you should price it as an operational convenience, not as a magic bypass.</p>
+<h2>What I would do with a $49 budget</h2>
+<p>Start with the free trial, not the annual plan. Run the 200-URL pilot. Measure usable yield and credits per usable page. Then decide whether the problem is IP reputation, browser execution, or your own parser.</p>
+<p>Three rules have saved me more money than any vendor comparison:</p>
+<ul><li><strong>Cache before you crawl.</strong> A page that has not changed does not need a new credit.</li><li><strong>Use the official API when one exists.</strong> It is usually cheaper, more stable, and less likely to trigger a challenge than scraping the HTML.</li><li><strong>Set a retry budget.</strong> If a URL fails three times, park it and alert. Infinite retries convert a temporary block into a permanent cost.</li></ul>
+<h2>The conclusion that survives contact with production</h2>
+<p>The cheapest scraping API is not the one with the lowest sticker price. It is the one with the lowest cost per usable page at your target, your geography, and your required freshness.</p>
+<p>That number depends on three variables you control: the credit multiplier of the request mode, the yield of the target, and the retry policy. A provider that looks 60% cheaper per credit can be 2.5x more expensive per usable page once rendering is included. A provider that looks expensive can win if it returns clean data on the first attempt.</p>
+<p>Run the arithmetic before you run the invoice. The calculator and the underlying baseline are public:</p>
+<ul><li><strong>Scraping API cost calculator:</strong> <a href="https://scrape.mybskm.top/?utm_source=devto&amp;utm_medium=article&amp;utm_campaign=scraping_api_benchmark">scrape.mybskm.top</a></li><li><strong>Residential proxy economics:</strong> <a href="https://proxy.mybskm.top/?utm_source=devto&amp;utm_medium=article&amp;utm_campaign=proxy_benchmark">proxy.mybskm.top</a></li><li><strong>Methodology and data:</strong> <a href="https://github.com/600me/awesome-web-scraping-apis-benchmark?utm_source=devto&amp;utm_medium=article&amp;utm_campaign=scraping_api_benchmark">GitHub repository</a></li></ul>
+<p><strong>Disclosure:</strong> Some outbound links on this page are affiliate links. If you buy a service through them, I may earn a commission at no extra cost to you. The baseline figures are supplied planning inputs, not independently measured target results or current vendor quotes. Verify current pricing and terms with each provider before purchasing.</p>
+<p><strong>Data note:</strong> Normalized plan inputs observed 2026-10-17T12:39:14Z. Success rates and 10k estimates are supplied baselines, and performance was not independently measured. HTTP 200 is not proof of bypass success.</p>
+</div>
+
+<div class="cta-panel">
+<h2>Price your own targets, not the sticker price</h2>
+<p>Start with a free trial, run the 200-URL pilot from this teardown, and measure cost per 1,000 usable pages before you commit to a plan.</p>
+<a class="btn" href="https://go.272738.xyz/scraperapi?utm_source=scrape_blog&amp;utm_medium=article&amp;utm_campaign=403_tax&amp;src=article_403tax" rel="sponsored nofollow noopener">ScraperAPI &nearr;</a><a class="btn alt" href="https://go.272738.xyz/smartproxy?utm_source=scrape_blog&amp;utm_medium=article&amp;utm_campaign=403_tax&amp;src=article_403tax" rel="sponsored nofollow noopener">Smartproxy / Decodo &nearr;</a>
+<p class="cta-note">Affiliate links. See the disclosure above.</p>
+</div>
+<p class="backlink"><a href="https://scrape.mybskm.top/">&larr; Back to Live Scraping API Benchmark</a></p>
+</article>
+</main>
+<footer><div class="shell"><nav aria-label="Sister projects"><a href="https://proxy.mybskm.top/">Residential Proxies</a> &middot; <a href="https://gpu.mybskm.top/">GPU Cloud</a> &middot; <a href="https://pay.mybskm.top/">Global Payments</a></nav><p>Cost analysis built on public planning baselines. Affiliate links are disclosed on this page and never change the rate you pay.</p><p>&copy; 2026 Scraping API Benchmark. Rates and baselines are dated observations, not quotes or guarantees.</p></div></footer>
+</body>
+</html>
