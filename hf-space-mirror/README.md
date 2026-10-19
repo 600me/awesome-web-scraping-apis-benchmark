@@ -37,8 +37,14 @@ All six inputs synchronize to URL query parameters. The **Copy share link** butt
 
 ## Links
 
+All four calculators in this matrix are mirrored as zero-dependency Hugging Face Static Spaces:
+
+1. GPU Fit & Cost Calculator: https://huggingface.co/spaces/600me/llm-gpu-cost-calculator
+2. **This Space** — LLM & RAG web-scraping TCO: https://huggingface.co/spaces/600me/rag-web-scraping-cost-calculator
+3. Residential proxy sticky-session & `cf_clearance` loss: https://huggingface.co/spaces/600me/residential-proxy-sticky-session-calculator
+4. MoR vs US LLC + Stripe breakeven: https://huggingface.co/spaces/600me/ai-saas-stripe-vs-mor-tax-calculator
+
 - Main-site calculator: https://scrape.mybskm.top/calculator/
-- First Space — GPU Fit & Cost Calculator: https://huggingface.co/spaces/600me/llm-gpu-cost-calculator
 - CLI audit — `check-proxy-tax`: https://github.com/600me/check-proxy-tax
 
 ## Scope and disclosure
