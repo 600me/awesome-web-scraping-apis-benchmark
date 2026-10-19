@@ -137,6 +137,16 @@ One script fetches four public pricing pages concurrently with a **60-second tim
 
 Fetched price text is preserved in `data.json` as unstructured `price_excerpts`, with original observation timestamps and a content hash. Fetching a page does not validate a pricing interpretation. Cached observations retain their original age. Product CTAs use fixed relay URLs; source links above identify reference material. Relay destinations and affiliate arrangements are not verified by this metadata probe.
 
+## Research, calculator and open-source CLI
+
+- [True-cost calculator: DIY vs managed API](/calculator/)
+- [All research (blog index)](/blog/)
+- [The 403 tax — what anti-bot protection really costs](/blog/403-tax.html)
+- [The $0.49 proxy illusion — 1,000 usable requests, audited](/blog/proxy-cost-audit.html)
+- [Smartproxy (Decodo) vs ScraperAPI TCO](/blog/smartproxy-vs-scraperapi.html)
+- [Open-source CLI: check-proxy-tax](https://github.com/600me/check-proxy-tax)
+- [HF Space: RAG web-scraping cost calculator](https://huggingface.co/spaces/600me/rag-web-scraping-cost-calculator)
+
 ## Developer Infrastructure Suite
 
 | Infrastructure | Explore | Repository |
