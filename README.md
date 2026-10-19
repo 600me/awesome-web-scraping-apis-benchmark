@@ -12,18 +12,20 @@
 
 Cloudflare Turnstile and DataDome blocks can interrupt price monitoring, lead research and data pipelines. For a team budgeting **$5,000+ per month** for crawler engineering, proxy maintenance and incident response, a managed API deserves a focused trial. That budget is a planning scenario, not an industry salary survey: 80 engineering hours at $65/hour already totals **$5,200/month**.
 
-Compare the supplied starting-plan baselines of **$29–$49/month**, free-trial allowances, and 10,000-request cost examples below. [Start with ZenRows](https://go.272738.xyz/zenrows) or use the trial links in the comparison to test the pages that matter to your business.
+Compare the supplied starting-plan baselines of **$29–$49/month**, free-trial allowances, and 10,000-request cost examples below. [Start the ScraperAPI free trial (5,000 credits)](https://go.272738.xyz/scraperapi?src=scrape_home_hero), or [compare the Smartproxy (Decodo) residential pool](https://go.272738.xyz/smartproxy?src=scrape_home_decodo) before you commit.
 
-**Snapshot:** 2026-10-18T16:54:05Z. **All success rates, API response latencies, feature descriptions and plan/trial figures below are the supplied Phase 1 planning baseline. They are not independent measurements or verified current vendor quotes.** The probe refreshes public pricing-page metadata only. Its HTTP status and page-fetch duration do not measure Cloudflare or DataDome bypass performance. Official pricing can differ from this preserved baseline.
+> **FTC Affiliate Disclosure: Some outbound vendor links on this page (via go.272738.xyz, such as ScraperAPI, Smartproxy/Decodo, RunPod, Vast.ai, and Firstbase) are affiliate links that may earn a commission at no extra cost to you. Unaffiliated vendors and open-source baselines are included using identical objective formulas.**
+
+**Snapshot:** 2026-10-19T14:52:25Z. **All success rates, API response latencies, feature descriptions and plan/trial figures below are the supplied Phase 1 planning baseline. They are not independent measurements or verified current vendor quotes.** The probe refreshes public pricing-page metadata only. Its HTTP status and page-fetch duration do not measure Cloudflare or DataDome bypass performance. Official pricing can differ from this preserved baseline.
 
 ## Scraping API comparison: cost, baseline success and free trials
 
 | Provider / trial | Baseline success | Baseline API latency | Baseline monthly | Included credits | Supplied 10k estimate* | Baseline free trial | Action |
 |---|---:|---:|---:|---:|---:|---|---|
-| [ZenRows](https://go.272738.xyz/zenrows) | 98.5% | 1.8s | $49.00 | 250,000 | ~$1.96 | 5,000 credits | [Start free trial](https://go.272738.xyz/zenrows) |
-| [ScrapingBee](https://go.272738.xyz/scrapingbee) | 97.8% | 2.4s | $49.00 | 150,000 | ~$3.26 | 1,000 credits | [Start free trial](https://go.272738.xyz/scrapingbee) |
-| [ScraperAPI](https://go.272738.xyz/scraperapi) | 96.5% | 2.1s | $49.00 | 100,000 | ~$4.90 | 5,000 credits | [Start free trial](https://go.272738.xyz/scraperapi) |
-| [Crawlbase](https://go.272738.xyz/crawlbase) | 95.2% | 1.9s | $29.00 | N/A | ~$2.90 | 5,000 requests | [Start free trial](https://go.272738.xyz/crawlbase) |
+| [ZenRows](https://www.zenrows.com) | 98.5% | 1.8s | $49.00 | 250,000 | ~$1.96 | 5,000 credits | [Official site](https://www.zenrows.com) |
+| [ScrapingBee](https://www.scrapingbee.com) | 97.8% | 2.4s | $49.00 | 150,000 | ~$3.26 | 1,000 credits | [Official site](https://www.scrapingbee.com) |
+| [ScraperAPI](https://go.272738.xyz/scraperapi?src=scrape_table_row) | 96.5% | 2.1s | $49.00 | 100,000 | ~$4.90 | 5,000 credits | [Start free trial](https://go.272738.xyz/scraperapi?src=scrape_card_scraperapi) |
+| [Crawlbase](https://crawlbase.com) | 95.2% | 1.9s | $29.00 | N/A | ~$2.90 | 5,000 requests | [Official site](https://crawlbase.com) |
 
 *The directive supplies ~$1.96 / ~$3.26 / ~$4.90 / ~$2.90 for 10k high-protection/JS requests. These are retained as **unverified supplied estimates**. They do not establish actual protected-request prices. At one credit per request, $49 / 250,000 × 10,000 = **$1.96**; $49 / 150,000 × 10,000 rounds to **$3.27**, not the supplied $3.26. A 25-credit request makes the first example **$49.00 per 10k**, allocated from the plan. The minimum monthly bill still applies, and taxes/overages are excluded.
 
@@ -52,7 +54,7 @@ Cloudflare Turnstile, DataDome and Akamai; premium residential IPs and CSS/XPath
 
 **Trade-offs:** Premium proxies and rendering can multiply credit usage; validate each protected target.
 
-**Trial:** 5,000 credits; No card required (supplied baseline). [Try ZenRows free](https://go.272738.xyz/zenrows).
+**Trial:** 5,000 credits; No card required (supplied baseline). [Official ZenRows site](https://www.zenrows.com).
 ### ScrapingBee
 
 Headless browser rendering, rotating proxies and stealth workflows for Instagram, Amazon and LinkedIn.
@@ -61,7 +63,7 @@ Headless browser rendering, rotating proxies and stealth workflows for Instagram
 
 **Trade-offs:** Browser and premium modes need a separate credit budget; social targets require target-level checks.
 
-**Trial:** 1,000 credits; No card required (supplied baseline). [Try ScrapingBee free](https://go.272738.xyz/scrapingbee).
+**Trial:** 1,000 credits; No card required (supplied baseline). [Official ScrapingBee site](https://www.scrapingbee.com).
 ### ScraperAPI
 
 50M+ proxy pool, CAPTCHA handling and geotargeting with standard and premium request modes.
@@ -70,7 +72,7 @@ Headless browser rendering, rotating proxies and stealth workflows for Instagram
 
 **Trade-offs:** Country access and premium features depend on the plan; rendering changes request economics.
 
-**Trial:** 5,000 credits; 7-day trial (supplied baseline). [Try ScraperAPI free](https://go.272738.xyz/scraperapi).
+**Trial:** 5,000 credits; 7-day trial (supplied baseline). [Start the ScraperAPI free trial](https://go.272738.xyz/scraperapi?src=scrape_card_scraperapi).
 ### Crawlbase
 
 Formerly ProxyCrawl; AI structured scraping, crawler storage and concurrent crawling infrastructure.
@@ -79,7 +81,7 @@ Formerly ProxyCrawl; AI structured scraping, crawler storage and concurrent craw
 
 **Trade-offs:** The supplied baseline does not specify included paid requests; request-level pricing needs checking.
 
-**Trial:** 5,000 requests; Free calls (supplied baseline). [Try Crawlbase free](https://go.272738.xyz/crawlbase).
+**Trial:** 5,000 requests; Free calls (supplied baseline). [Official Crawlbase site](https://crawlbase.com).
 
 ## Best scraping API for Cloudflare and bypass DataDome scraping API workflows
 
@@ -130,12 +132,12 @@ One script fetches four public pricing pages concurrently with a **60-second tim
 
 ## Public metadata sources
 
-- [ZenRows official pricing source](https://www.zenrows.com/pricing): live; last observed 2026-10-18T16:54:04Z. Latest attempt HTTP 200.
-- [ScrapingBee official pricing source](https://www.scrapingbee.com/pricing/): live; last observed 2026-10-18T16:54:05Z. Latest attempt HTTP 200.
-- [ScraperAPI official pricing source](https://www.scraperapi.com/pricing/): live; last observed 2026-10-18T16:54:04Z. Latest attempt HTTP 200.
-- [Crawlbase official pricing source](https://crawlbase.com/pricing/): live; last observed 2026-10-18T16:54:05Z. Latest attempt HTTP 200.
+- [ZenRows official pricing source](https://www.zenrows.com/pricing): live; last observed 2026-10-19T14:52:24Z. Latest attempt HTTP 200.
+- [ScrapingBee official pricing source](https://www.scrapingbee.com/pricing/): live; last observed 2026-10-19T14:52:24Z. Latest attempt HTTP 200.
+- [ScraperAPI official pricing source](https://www.scraperapi.com/pricing/): live; last observed 2026-10-19T14:52:24Z. Latest attempt HTTP 200.
+- [Crawlbase official pricing source](https://crawlbase.com/pricing/): live; last observed 2026-10-19T14:52:25Z. Latest attempt HTTP 200.
 
-Fetched price text is preserved in `data.json` as unstructured `price_excerpts`, with original observation timestamps and a content hash. Fetching a page does not validate a pricing interpretation. Cached observations retain their original age. Product CTAs use fixed relay URLs; source links above identify reference material. Relay destinations and affiliate arrangements are not verified by this metadata probe.
+Fetched price text is preserved in `data.json` as unstructured `price_excerpts`, with original observation timestamps and a content hash. Fetching a page does not validate a pricing interpretation. Cached observations retain their original age. Activated partner CTAs use attributed `go.272738.xyz` relay URLs; vendors without an activated partnership link straight to their own websites, so no outbound click depends on an inactive affiliate account.
 
 ## Research, calculator and open-source CLI
 
