@@ -100,14 +100,10 @@ OFFICIAL_SITES = {
     "crawlbase": "https://crawlbase.com",
 }
 # Activated partners used as the primary and secondary page-level CTAs.
-HERO_PRIMARY = ("https://go.272738.xyz/scraperapi?src=scrape_home_hero",
-                "Start ScraperAPI Free Trial (5,000 Credits)")
-HERO_SECONDARY = ("https://go.272738.xyz/smartproxy?src=scrape_home_decodo",
-                  "Try Smartproxy (Decodo) Residential Pool")
-FOOTER_CTA = ("https://go.272738.xyz/scraperapi?src=scrape_home_footer",
-              "Start ScraperAPI Free Trial (5,000 Credits)")
-FOOTER_CTA_SECONDARY = ("https://go.272738.xyz/smartproxy?src=scrape_home_footer_decodo",
-                        "Try Smartproxy (Decodo) Residential Pool")
+HERO_PRIMARY = "https://go.272738.xyz/scraperapi?src=scrape_home_hero"
+HERO_SECONDARY = "https://go.272738.xyz/smartproxy?src=scrape_home_decodo"
+FOOTER_CTA = "https://go.272738.xyz/scraperapi?src=scrape_home_footer"
+FOOTER_CTA_SECONDARY = "https://go.272738.xyz/smartproxy?src=scrape_home_footer_decodo"
 DISCLOSURE = ("FTC Affiliate Disclosure: Some outbound vendor links on this page (via go.272738.xyz, "
               "such as ScraperAPI, Smartproxy/Decodo, RunPod, Vast.ai, and Firstbase) are affiliate links "
               "that may earn a commission at no extra cost to you. Unaffiliated vendors and open-source "
@@ -333,7 +329,7 @@ def render_readme(data):
 
 Cloudflare Turnstile and DataDome blocks can interrupt price monitoring, lead research and data pipelines. For a team budgeting **$5,000+ per month** for crawler engineering, proxy maintenance and incident response, a managed API deserves a focused trial. That budget is a planning scenario, not an industry salary survey: 80 engineering hours at $65/hour already totals **$5,200/month**.
 
-Compare the supplied starting-plan baselines of **$29–$49/month**, free-trial allowances, and 10,000-request cost examples below. [Start the ScraperAPI free trial (5,000 credits)]({HERO_PRIMARY[0]}), or [compare the Smartproxy (Decodo) residential pool]({HERO_SECONDARY[0]}) before you commit.
+Compare the supplied starting-plan baselines of **$29–$49/month**, free-trial allowances, and 10,000-request cost examples below. [Start the ScraperAPI free trial (5,000 credits)]({HERO_PRIMARY}), or [compare the Smartproxy (Decodo) residential pool]({HERO_SECONDARY}) before you commit.
 
 > **{DISCLOSURE}**
 
@@ -481,7 +477,7 @@ function matches(text,query){return query.split(/\s+/).every(term=>text.includes
 function update(){const query=search.value.toLowerCase().trim().slice(0,160),key=sort.value;rows.sort((a,b)=>{const x=a.dataset[key]===''?null:Number(a.dataset[key]),y=b.dataset[key]===''?null:Number(b.dataset[key]);return x===null?(y===null?0:1):y===null?-1:key==='success'?y-x:x-y});let shown=0;for(const row of rows){row.hidden=!matches(row.dataset.search,query);if(!row.hidden)shown++;body.appendChild(row)}document.getElementById('count').textContent=shown+' provider'+(shown===1?'':'s');document.getElementById('empty').hidden=shown!==0}
 search.addEventListener('input',update);sort.addEventListener('change',update);update();
 </script></body></html>
-'''.replace("__NAV__", navigation).replace("__DATE__", escape(data["generated_at"])).replace("__ROWS__", "\n".join(rows)).replace("__CARDS__", "\n".join(cards)).replace("__RESEARCH_NAV__", research_nav).replace("__RESEARCH_CARDS__", research_cards).replace("__RESEARCH_FOOTER__", research_footer).replace("__HERO_PRIMARY_URL__", HERO_PRIMARY[0]).replace("__HERO_SECONDARY_URL__", HERO_SECONDARY[0]).replace("__FOOTER_PRIMARY_URL__", FOOTER_CTA[0]).replace("__FOOTER_SECONDARY_URL__", FOOTER_CTA_SECONDARY[0])
+'''.replace("__NAV__", navigation).replace("__DATE__", escape(data["generated_at"])).replace("__ROWS__", "\n".join(rows)).replace("__CARDS__", "\n".join(cards)).replace("__RESEARCH_NAV__", research_nav).replace("__RESEARCH_CARDS__", research_cards).replace("__RESEARCH_FOOTER__", research_footer).replace("__HERO_PRIMARY_URL__", HERO_PRIMARY).replace("__HERO_SECONDARY_URL__", HERO_SECONDARY).replace("__FOOTER_PRIMARY_URL__", FOOTER_CTA).replace("__FOOTER_SECONDARY_URL__", FOOTER_CTA_SECONDARY)
 
 
 def main():
