@@ -345,8 +345,9 @@ def common_links(ds):
 
 def matrix_footer(ds):
     ds_links = "\n".join(
-        "- [%s](https://huggingface.co/datasets/%s)" % (DATASETS[k][0].split("/")[1], DATASETS[k][0])
-        for k in DATASETS if k != ds)
+        "- [%s](https://huggingface.co/datasets/%s)%s" % (
+            DATASETS[k][0].split("/")[1], DATASETS[k][0], "  ← this dataset" if k == ds else "")
+        for k in DATASETS)
     space_links = "\n".join(
         "- [%s](%s)" % (DATASETS[k][0].split("/")[1], LINKS[k]["space"]) for k in DATASETS
     )

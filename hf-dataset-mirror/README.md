@@ -114,6 +114,7 @@ cost per clean page once retries are priced.
 
 **HuggingFace Datasets**
 - [gpu-cloud-h100-a100-pricing-benchmark](https://huggingface.co/datasets/600me/gpu-cloud-h100-a100-pricing-benchmark)
+- [web-scraping-anti-bot-api-benchmark](https://huggingface.co/datasets/600me/web-scraping-anti-bot-api-benchmark)  ← this dataset
 - [residential-proxy-commercial-policy-matrix](https://huggingface.co/datasets/600me/residential-proxy-commercial-policy-matrix)
 - [global-saas-mor-vs-us-llc-fee-matrix](https://huggingface.co/datasets/600me/global-saas-mor-vs-us-llc-fee-matrix)
 
