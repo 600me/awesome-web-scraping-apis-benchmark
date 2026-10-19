@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Smartproxy (Decodo) vs ScraperAPI (2026): Raw Residential Proxy Pool vs Managed Anti-Bot Unblocker TCO</title>
+<meta name="description" content="A raw residential pool at $3.50/GB and a managed unblocker at $299/month are not competing products. Three worked scenarios with full arithmetic show where each one wins, and the 30-line hybrid router that beats both.">
+<link rel="canonical" href="https://scrape.mybskm.top/blog/smartproxy-vs-scraperapi.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="600me">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Scraping API Benchmark">
+<meta property="og:title" content="Smartproxy (Decodo) vs ScraperAPI (2026): Raw Residential Proxy Pool vs Managed Anti-Bot Unblocker TCO">
+<meta property="og:description" content="Raw residential bandwidth and managed anti-bot bypass are two different products with two different bills. Three scenarios, full arithmetic, one hybrid router.">
+<meta property="og:url" content="https://scrape.mybskm.top/blog/smartproxy-vs-scraperapi.html">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-10-19T08:05:00Z">
+<meta property="article:modified_time" content="2026-10-19T08:05:00Z">
+<meta property="article:author" content="600me">
+<meta property="article:section" content="Proxy vs Managed API Economics">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Smartproxy (Decodo) vs ScraperAPI (2026): Raw Proxy Pool vs Managed Unblocker TCO">
+<meta name="twitter:description" content="When to buy raw residential bandwidth and build the client, when to rent a managed unblocker, and the hybrid router that is cheaper than either.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Smartproxy (Decodo) vs ScraperAPI (2026): Raw Residential Proxy Pool vs Managed Anti-Bot Unblocker TCO",
+  "description": "A raw residential proxy pool and a managed anti-bot unblocker are not competing products. Three worked scenarios with full arithmetic show the break-even, and a 30-line Python hybrid router that is cheaper than either.",
+  "author": {
+    "@type": "Person",
+    "name": "600me",
+    "url": "https://scrape.mybskm.top/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Scraping API Benchmark",
+    "url": "https://scrape.mybskm.top/"
+  },
+  "datePublished": "2026-10-19T08:05:00Z",
+  "dateModified": "2026-10-19T08:05:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://scrape.mybskm.top/blog/smartproxy-vs-scraperapi.html"
+  },
+  "url": "https://scrape.mybskm.top/blog/smartproxy-vs-scraperapi.html",
+  "articleSection": "Proxy vs Managed API Economics",
+  "keywords": "webscraping, residential proxies, smartproxy, decodo, scraperapi, cloudflare, tco, python",
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<style>
+:root{color-scheme:dark;--bg:#090c12;--panel:#111722;--line:#263142;--ink:#e9eff9;--body:#ccd8e8;--muted:#a0afc2;--green:#88f5bd;--blue:#9bbdff;--amber:#e1c991}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 78% -6%,#12353188,transparent 44%),var(--bg);color:var(--ink);font:16px/1.75 system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}a:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.skip{position:absolute;left:-9999px}.skip:focus{left:16px;top:16px;z-index:20;background:var(--panel);padding:10px 14px;border-radius:8px}
+.shell{max-width:960px;margin:0 auto;padding:0 26px}
+header.site{border-bottom:1px solid var(--line);background:#090c12e6;position:sticky;top:0;backdrop-filter:blur(8px);z-index:5}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:68px;max-width:1100px}
+.brand{font:700 15px ui-monospace,monospace;color:var(--ink);white-space:nowrap}.brand b{color:var(--green)}
+header nav{display:flex;gap:20px;flex-wrap:wrap}header nav a{font-size:12.5px;color:var(--muted)}header nav a:hover{color:var(--green)}
+.backlink{margin:22px 0 0;font:12.5px ui-monospace,monospace}.backlink a{color:var(--muted)}.backlink a:hover{color:var(--green)}
+main{padding:26px 0 70px}
+.eyebrow{font:11.5px ui-monospace,monospace;color:var(--green);letter-spacing:1.8px;text-transform:uppercase;margin:12px 0 0}
+h1{font-size:clamp(29px,4.4vw,50px);line-height:1.13;letter-spacing:-1.5px;margin:18px 0;max-width:920px}
+.standfirst{font-size:18px;color:var(--muted);max-width:800px;margin:0 0 18px}
+.meta{display:flex;gap:18px;flex-wrap:wrap;font:12px ui-monospace,monospace;color:var(--muted);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:0 0 26px}
+.meta strong{color:var(--ink)}
+.ftc{border:1px solid #796239;background:#dba6430d;color:var(--amber);border-radius:10px;padding:16px 18px;font-size:13.5px;line-height:1.62;margin:0 0 30px}
+.ftc strong{color:#f0d9a3}
+.content{max-width:840px}
+.content h2{font-size:24px;letter-spacing:-.5px;margin:46px 0 12px}
+.content h3{font-size:17.5px;letter-spacing:-.2px;margin:30px 0 8px;color:#fff}
+.content p{margin:0 0 18px;color:var(--body)}
+.content strong{color:#fff}
+.content ul,.content ol{margin:0 0 20px;padding-left:22px;color:var(--body)}
+.content li{margin:0 0 8px}.content li::marker{color:var(--green)}
+.content code{font:13px ui-monospace,SFMono-Regular,monospace;background:#182231;border:1px solid #2a3648;border-radius:5px;padding:1.5px 6px;color:#b9f7d9;overflow-wrap:anywhere}
+.content pre{background:#070b11;border:1px solid var(--line);border-radius:10px;padding:16px 18px;overflow:auto;margin:0 0 22px;line-height:1.6}
+.content pre code{background:none;border:0;padding:0;font-size:12.6px;color:#c7f5df;white-space:pre}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:0 0 22px;background:#0c121b}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:600px}
+th{font:600 11px ui-monospace,monospace;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);background:#101826;text-align:left}
+th,td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}tbody tr:hover{background:#131c29}
+td.num{font-family:ui-monospace,monospace;color:var(--green);white-space:nowrap}
+tr.win td{background:#0d2118}
+.cta-panel{max-width:840px;border:1px solid #2b5e50;background:linear-gradient(100deg,#102a26,#122030);border-radius:14px;padding:22px;margin:34px 0}
+.cta-panel h2{font-size:19px;margin:0 0 6px;letter-spacing:-.3px}
+.cta-panel p{color:var(--muted);font-size:13.5px;margin:0 0 16px}
+.btn{display:inline-block;background:var(--green);color:#082318;padding:11px 16px;border-radius:8px;font:750 13.5px system-ui,sans-serif;margin:0 10px 8px 0}
+.btn:hover{background:#b5ffdb;text-decoration:none}
+.btn.alt{background:#202c3c;color:var(--ink)}.btn.alt:hover{background:#2a3a4e}
+.cta-note{font-size:11.5px!important;color:var(--muted);margin:6px 0 0!important}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);font-size:12px}
+footer nav{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:10px}
+@media(max-width:640px){.shell{padding:0 16px}.bar{flex-wrap:wrap;gap:8px;padding-top:12px;padding-bottom:12px}header nav{width:100%;gap:14px}h1{letter-spacing:-1px}table{min-width:540px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#article">Skip to article</a>
+<header class="site"><div class="shell bar"><a class="brand" href="https://scrape.mybskm.top/"><b>&#9639;</b> SCRAPE / STACK</a><nav aria-label="Sister projects"><a href="https://scrape.mybskm.top/">Live benchmark</a><a href="/calculator/">Cost calculator</a><a href="https://proxy.mybskm.top/">Residential proxies</a><a href="https://gpu.mybskm.top/">GPU cloud</a></nav></div></header>
+<div class="shell"><p class="backlink"><a href="https://scrape.mybskm.top/">&larr; Back to Live Scraping API Benchmark</a></p></div>
+<main id="article" class="shell">
+<article>
+<div class="eyebrow">PROXY POOL VS MANAGED UNBLOCKER / TCO TEARDOWN</div>
+<h1>Smartproxy (Decodo) vs ScraperAPI (2026): Raw Residential Proxy Pool vs Managed Anti-Bot Unblocker TCO</h1>
+<p class="standfirst">One product sells bandwidth and lets you build the client. The other sells a bypass and lets you skip the client. Comparing their price lists is a category error — here is the arithmetic that tells you which bill you should be paying.</p>
+<p class="meta"><span>By <strong>600me</strong></span><span><time datetime="2026-10-19T08:05:00Z">19 October 2026</time></span><span>3,022 words &middot; ~15 min read</span></p>
+<aside class="ftc"><strong>Affiliate disclosure (FTC).</strong> Some links on this page are affiliate links for Smartproxy (now Decodo) and ScraperAPI. If you buy a plan through them, I may earn a commission at no extra cost to you. Both links carry the same commission, both providers win a scenario below, and neither commission changes a single number in the tables. Prices are the vendors' own published list prices captured on 2026-10-19, not quotes, and not a promise that your targets will behave like these models. Verify current pricing and terms before purchasing.</aside>
+
+<div class="cta-panel">
+<h2>Price the workload, not the price list</h2>
+<p>Run your own page count, HTML size, block rate and JS share through the calculator before you pick a side. The three scenarios below are just three points on that surface.</p>
+<a class="btn" href="https://scrape.mybskm.top/calculator/">True-cost calculator &nearr;</a><a class="btn alt" href="https://proxy.mybskm.top/calculator/">Sticky-session calculator &nearr;</a><a class="btn alt" href="https://huggingface.co/spaces/600me/rag-web-scraping-cost-calculator">HF Space mirror &nearr;</a>
+</div>
+
+<div class="content">
+
+<p>Every architecture review about scraping infrastructure eventually reaches the same fork, and it is usually argued badly. One engineer wants to buy residential bandwidth from <strong>Smartproxy (Decodo)</strong> and drive it with <code>curl_cffi</code> or Playwright. Another wants to point a single HTTP call at <strong>ScraperAPI</strong> and let someone else own the anti-bot problem. Both are described as "the scraping vendor", both have a monthly bill, and the argument ends up comparing a per-gigabyte number against a per-month number — which is not a comparison at all.</p>
+
+<p>The two products are not substitutes. One is a <em>transport</em>: 115M+ real-user IPs across 195+ locations, billed by the gigabyte, with the client, the fingerprint, the retry policy and the challenge logic entirely your problem. The other is a <em>service</em>: you hand it a URL, it returns HTML, and the pool, the browser, the CAPTCHA handling and the retry loop are inside a black box you rent by the credit.</p>
+
+<p>That difference produces two different cost curves, and they cross. Below is the arithmetic for where they cross, three scenarios on either side of the crossing, and the routing pattern that most production teams end up with — because it is usually cheaper than committing to either product for 100% of traffic.</p>
+
+<h2>The fork in the road: two products, two invoices</h2>
+
+<p>The question an architect actually has to answer is not "which vendor is better". It is: <strong>how much of my traffic is hard, and how expensive is my own engineering hour?</strong> Everything else follows from those two numbers.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Dimension</th><th>Raw residential pool (Smartproxy / Decodo)</th><th>Managed unblocker (ScraperAPI)</th></tr></thead>
+<tbody>
+<tr><td><strong>Billing unit</strong></td><td>Gigabyte of proxied traffic. Published residential tiers run from $4.00/GB pay-as-you-go down to $2.00/GB at 1&nbsp;TB; $3.50/GB at the 10&nbsp;GB tier, $2.75/GB at 100&nbsp;GB.</td><td>API credit. A standard page is 1 credit; Amazon is 5, Google and Bing 25, LinkedIn 30, and a Cloudflare/DataDome/PerimeterX bypass adds 10 credits per request.</td></tr>
+<tr><td><strong>Published plan ladder</strong></td><td>Bandwidth subscriptions: 3&nbsp;GB at $3.75/GB ($11.25) through 100&nbsp;GB at $2.75/GB ($275), enterprise from 250&nbsp;GB.</td><td>Hobby $49 / 100k credits, Startup $149 / 1M, Business $299 / 3M, Scaling $475 / 5M, then $975 and $1,975 tiers, then linear pay-as-you-go.</td></tr>
+<tr><td><strong>What you must build</strong></td><td>The HTTP client, TLS impersonation (<code>curl_cffi</code>), session/sticky handling, retry and backoff policy, challenge detection, parser, and the monitoring that tells you a pool went bad.</td><td>One HTTP GET to an endpoint. Your code is a URL builder plus a parser. No proxy config, no browser to run, no fingerprint to rotate.</td></tr>
+<tr><td><strong>Who pays for a failure</strong></td><td>You do. A blocked request still moved bytes, and bytes are the meter. Retries multiply bandwidth, not the vendor's risk.</td><td>The vendor absorbs the retry loop inside the credit model. Its published position is that credits are consumed per delivered request rather than per attempt; confirm the exact terms for your plan.</td></tr>
+<tr><td><strong>Marginal cost of one more page</strong></td><td>Near zero if the page is small and unprotected. This is the pool's whole advantage.</td><td>One credit (or 5, or 11). Linear and predictable, but never free.</td></tr>
+<tr><td><strong>Marginal cost of one more <em>hard</em> page</strong></td><td>Steep and non-linear: retries inflate bandwidth, JS rendering inflates payload 2.4×, and every failure is billed.</td><td>Bounded by the multiplier. A Cloudflare page costs 10 credits whether it took one attempt or six.</td></tr>
+<tr><td><strong>Where the bill hides</strong></td><td>Engineering hours, render containers, and the traffic you burn on requests that never returned usable data.</td><td>Tier cliffs and credit multipliers. A workload at 1.05M credits pays the $299 tier, not a prorated $156.</td></tr>
+</tbody></table></div>
+
+<p>Read that table again and the argument dissolves. The pool is cheaper per byte and infinitely more expensive per engineer-hour. The unblocker is expensive per byte and free per engineer-hour. Which one wins is a function of your block rate, your payload size, and what an hour of your team's time is worth.</p>
+
+<h2>The cost model on both sides</h2>
+
+<p>I use the same model that ships in the public <a href="https://scrape.mybskm.top/calculator/">true-cost calculator</a>, so every number below is reproducible by moving the sliders. On the DIY side:</p>
+
+<pre><code>retry_multiplier      = 1 / (1 - block_rate)
+bandwidth_factor      = 1 + (block_rate / (1 - block_rate)) * 0.35
+js_payload_multiplier = (1 - js_share) + js_share * 2.4
+avg_kb_per_page       = html_kb * js_payload_multiplier * bandwidth_factor
+real_gb               = pages * avg_kb_per_page / 1,048,576
+proxy_cost            = real_gb * price_per_gb
+compute_cost          = pages * js_share / 100,000 * $18
+engineering_cost      = hours_per_month * $75
+DIY_total             = proxy_cost + compute_cost + engineering_cost</code></pre>
+
+<p>Two constants carry most of the argument. The <strong>0.35</strong> is the share of a challenge response that still gets billed as bandwidth: you paid to be told no. The <strong>2.4×</strong> is the payload inflation of a headless render once scripts, fonts, images and XHR traffic are counted — a 250&nbsp;KB page becomes roughly 600&nbsp;KB of metered traffic.</p>
+
+<p>On the managed side the model is a credit count and a tier lookup:</p>
+
+<pre><code>credits = pages * ((1 - js_share) * 1 + js_share * 5)
+cost    = tier_for(credits)   # 49 / 149 / 299 / 475 / ... / linear</code></pre>
+
+<p>The 5-credit JS multiplier is the calculator's planning assumption, not a vendor quote. ScraperAPI's own documentation puts a plain page at 1 credit and a Cloudflare/DataDome bypass at +10 credits, so 5 is deliberately conservative for a rendering-heavy mix and optimistic for a protected one. Every table below states which multiplier it used.</p>
+
+<h2>Scenario 1 — 1M lightweight pages/month, low block rate: the pool wins</h2>
+
+<p>A JSON or thin-HTML workload: product feeds, public APIs with a HTML fallback, documentation mirrors, SERP-adjacent pages that are not aggressively protected. 40&nbsp;KB of HTML per page, 8% first-attempt block rate, 5% of pages needing a render, 30 minutes a month of maintenance, residential at the $3.50/GB ten-gigabyte tier.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Line item</th><th>Smartproxy (Decodo) + <code>curl_cffi</code></th><th>ScraperAPI</th></tr></thead>
+<tbody>
+<tr><td>Pages / month</td><td class="num">1,000,000</td><td class="num">1,000,000</td></tr>
+<tr><td>Billed attempts (8% block ⇒ 1.087×)</td><td class="num">1,086,957</td><td class="num">n/a — retries inside the API</td></tr>
+<tr><td>Metered traffic (1.07&times; JS &times; 1.030&times; retry)</td><td class="num">42.1 GB</td><td class="num">not metered</td></tr>
+<tr><td>Bandwidth at $3.50/GB</td><td class="num">$147.21</td><td class="num">—</td></tr>
+<tr><td>Render compute (5% × $18/100k)</td><td class="num">$9.00</td><td class="num">inside credits</td></tr>
+<tr><td>Engineering (0.5 h × $75)</td><td class="num">$37.50</td><td class="num">—</td></tr>
+<tr><td>Credits consumed</td><td class="num">—</td><td class="num">1,200,000</td></tr>
+<tr><td>Plan required</td><td class="num">—</td><td class="num">Business $299</td></tr>
+<tr class="win"><td><strong>Monthly total</strong></td><td class="num"><strong>$193.71</strong></td><td class="num">$299.00</td></tr>
+<tr class="win"><td><strong>Cost per 1,000 pages</strong></td><td class="num"><strong>$0.194</strong></td><td class="num">$0.299</td></tr>
+</tbody></table></div>
+
+<p>The pool is <strong>35% cheaper</strong> here, and the gap widens at volume, because bandwidth has a real volume curve and credits do not. At the 100&nbsp;GB tier ($2.75/GB) the same workload lands at <strong>$162.16</strong>; at a $0.49/GB third-party reseller quote — the sticker analysed in the <a href="/blog/proxy-cost-audit.html">$0.49/GB proxy illusion teardown</a>, which is not a Decodo list price — it lands at <strong>$67.11</strong>, or 78% below the managed bill.</p>
+
+<p>Note the asymmetry that makes this scenario decisive. Even at <em>zero</em> maintenance hours and zero rendering, ScraperAPI cannot beat $0.149 per 1,000 pages on the Startup tier, and a 1M-page workload with any JS share at all tips over the 1M-credit cliff into the $299 tier — which is exactly where the pool's advantage stops being marginal. The managed product has no volume curve to fall down; the residential pool does.</p>
+
+<h3>Where this scenario breaks</h3>
+<p>Push the block rate to <strong>68.7%</strong> and the DIY total crosses $299 at this page size, because bandwidth alone doubles. Push the HTML to 60&nbsp;KB and the pool bill rises to <strong>$267.31</strong> — still cheaper than $299, but the margin is now a single engineer-hour. And the moment your targets start answering with Turnstile instead of a page, the block rate is not 8%, it is 35% or worse, and you are in scenario 2.</p>
+
+<h2>Scenario 2 — 250k pages/month, &gt;30% block rate, heavy headless rendering: the unblocker wins</h2>
+
+<p>Now the workload that produces the argument in the first place: e-commerce price grids and SERP pages behind Cloudflare with Turnstile on the search path. 250&nbsp;KB of HTML, 35% of first attempts blocked, 80% of pages needing a real browser, and eight engineering hours a month — about two hours a week — spent on fingerprint drift, selector repair and pool triage.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Line item</th><th>Smartproxy (Decodo) + Playwright</th><th>ScraperAPI</th></tr></thead>
+<tbody>
+<tr><td>Pages / month</td><td class="num">250,000</td><td class="num">250,000</td></tr>
+<tr><td>Billed attempts (35% block ⇒ 1.538×)</td><td class="num">384,615</td><td class="num">n/a</td></tr>
+<tr><td>Avg KB per page (2.12× JS × 1.188× retry)</td><td class="num">629.9 KB</td><td class="num">not metered</td></tr>
+<tr><td>Metered traffic</td><td class="num">150.2 GB</td><td class="num">not metered</td></tr>
+<tr><td>Bandwidth at $3.50/GB</td><td class="num">$525.62</td><td class="num">—</td></tr>
+<tr><td>Render compute (80% × $18/100k)</td><td class="num">$36.00</td><td class="num">inside credits</td></tr>
+<tr><td>Engineering (8 h × $75)</td><td class="num">$600.00</td><td class="num">—</td></tr>
+<tr><td>Credits consumed</td><td class="num">—</td><td class="num">1,050,000</td></tr>
+<tr><td>Plan required</td><td class="num">—</td><td class="num">Business $299</td></tr>
+<tr class="win"><td><strong>Monthly total</strong></td><td class="num">$1,161.62</td><td class="num"><strong>$299.00</strong></td></tr>
+<tr class="win"><td><strong>Cost per 1,000 pages</strong></td><td class="num">$4.65</td><td class="num"><strong>$1.196</strong></td></tr>
+</tbody></table></div>
+
+<p>The managed API is 74% cheaper — well past the "net saving over 65%" threshold that makes the decision non-negotiable. Three multipliers did it, and none of them is a discount:</p>
+
+<ul>
+<li><strong>Retry amplification.</strong> A 35% block rate means 1.538 billed attempts per usable page, and on a residential meter the failures are paid in bytes just like the successes.</li>
+<li><strong>Payload inflation.</strong> Headless rendering multiplies metered traffic by 2.12× at an 80% JS share. You are paying residential prices for fonts, images and analytics beacons you will never parse.</li>
+<li><strong>Engineering.</strong> Eight hours a month at $75 is $600 — more than the entire managed plan. This is the line item that never appears in the DIY column of a vendor comparison, and it is usually the decisive one.</li>
+</ul>
+
+<p>Sensitivity matters more than the headline. Drop maintenance to two hours a month and DIY falls to $711.62: still 2.4× the managed bill, still losing. Raise it to eight hours a <em>week</em> (34.7 h/month) and DIY reaches $3,164.12 — 10.6&times; the managed bill. Drop the block rate to 20% and the pool still costs $1,116.96 at these page sizes, because bandwidth — not retries — dominates once rendering is involved. The only way this scenario flips back to the pool is a much cheaper per-GB rate or a much smaller rendered payload, and neither is under your control at a protected target.</p>
+
+<h3>Where this scenario breaks</h3>
+<p>Two places. First, credit multipliers: if every one of those 250k pages sits behind Cloudflare, the real bill is not 5 credits per rendered page but 11 (1 standard + 10 bypass). That is 2.75M credits — still inside the $299 Business tier's 3M allowance, but one more multiplier notch (12+ credits per page) puts you at 3M+ and the next plan is $475. Second, freshness: a managed API's cache and retry behaviour is not yours to tune, so a workload that needs a guaranteed cold fetch at a specific second may not be serviceable at any credit count.</p>
+
+<h2>Scenario 3 — the hybrid fallback pattern that beats both</h2>
+
+<p>Here is the pattern most teams converge on after paying for both mistakes once. Route <strong>every request through the cheap path first</strong>, and escalate only the ones that actually fail. The pool handles the 95% of traffic that never needed a bypass; the managed API handles the 5% that did.</p>
+
+<p>Model: 1,000,000 pages a month, of which 950,000 are light (40&nbsp;KB, 5% block, no rendering) and 50,000 are hard (140&nbsp;KB, 45% block, 90% rendering). Half an hour of operations on each leg.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Architecture</th><th>Light leg</th><th>Hard leg</th><th>Credits</th><th>Monthly total</th><th>Per 1,000</th></tr></thead>
+<tbody>
+<tr><td>All managed (ScraperAPI)</td><td class="num">—</td><td class="num">all 1M pages</td><td class="num">1,180,000</td><td class="num">$299.00</td><td class="num">$0.299</td></tr>
+<tr><td>All DIY (pool only)</td><td class="num">$166.68</td><td class="num">$113.53</td><td class="num">—</td><td class="num">$280.21</td><td class="num">$0.280</td></tr>
+<tr class="win"><td><strong>Hybrid: pool first, escalate the 5%</strong></td><td class="num"><strong>$166.68</strong></td><td class="num">$49.00 <small>(230k credits)</small></td><td class="num">230,000</td><td class="num"><strong>$215.68</strong></td><td class="num"><strong>$0.216</strong></td></tr>
+</tbody></table></div>
+
+<p>The hybrid is 28% cheaper than all-managed and 23% cheaper than all-DIY. The reason is mechanical: the hard leg consumes only 230,000 credits, which fits the $49 Hobby tier, while pushing that same traffic through the pool costs $113.53 in bandwidth plus the engineering hours to keep a render farm alive. The cheap leg never touches a credit, so it never pushes you over a tier cliff.</p>
+
+<p>That advantage has an expiry condition, and it is worth stating plainly: the escalation logic is itself code you maintain. The hybrid only wins while the glue costs less than <strong>1.11 engineer-hours a month</strong> — that is the entire margin against the $299 all-managed bill. If you have to touch the router every week, the saving evaporates and the managed-everything architecture was the correct answer.</p>
+
+<h3>The 30-line router, Python standard library only</h3>
+
+<p>This is the whole pattern — thirty non-blank lines, standard library only. It tries the residential pool, inspects the response for the two signals that mean "this was not a page" (a challenge status code or a challenge marker in a small body), and escalates exactly those requests to the managed API. Everything is <code>urllib</code>, <code>json</code> and environment variables — no SDK, no framework, no database.</p>
+
+<pre><code>import json, os, sys, urllib.error, urllib.parse, urllib.request
+
+PROXY, SCRAPE = os.environ["RESI_PROXY_URL"], os.environ["SCRAPERAPI_KEY"]
+MARKERS = ("cf-chl", "turnstile", "Just a moment", "captcha-delivery")
+CHALLENGE_STATUS = {403, 429, 503}
+
+def _get(url, proxy=None, timeout=30):
+    handler = urllib.request.ProxyHandler({"http": proxy, "https": proxy} if proxy else {})
+    req = urllib.request.Request(url, headers={
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                      "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Accept-Language": "en-US,en;q=0.9"})
+    with urllib.request.build_opener(handler).open(req, timeout=timeout) as r:
+        return r.status, r.read().decode("utf-8", "replace")
+
+def fetch(url):
+    """Residential pool first; escalate only when the answer was not a page."""
+    try:
+        status, body = _get(url, proxy=PROXY)
+        if status not in CHALLENGE_STATUS and not (
+                len(body) &lt; 20000 and any(m in body for m in MARKERS)):
+            return body, "residential"
+    except (urllib.error.URLError, TimeoutError):
+        pass                              # a proxy failure is itself an escalation
+    endpoint = ("https://api.scraperapi.com/?api_key=%s&amp;url=%s"
+                % (SCRAPE, urllib.parse.quote(url, safe="")))
+    status, body = _get(endpoint)
+    if status != 200: raise RuntimeError("%s: HTTP %s on both paths" % (url, status))
+    return body, "managed"
+
+if __name__ == "__main__":
+    for target in sys.argv[1:]:
+        page, path = fetch(target)
+        print(json.dumps({"url": target, "path": path, "bytes": len(page)}))</code></pre>
+
+<p>One note on using it in anger: <code>urllib</code> presents a Python TLS fingerprint, which is precisely the failure mode described in the <a href="https://proxy.mybskm.top/blog/residential-proxy-sticky-session-guide.html">sticky-session and JA3 teardown</a>; in production swap <code>_get</code> for <code>curl_cffi.requests.get(..., impersonate="chrome")</code> and the escalation rate drops immediately. Measure the escalation rate before and after — that single number tells you whether you are paying for the managed API out of necessity or out of a client bug.</p>
+
+<h2>The decision rule, in one paragraph</h2>
+
+<p>Buy the pool when the payload is small, the block rate is under roughly 10%, and someone already owns the client — the arithmetic gives you a 2–4× cost advantage that survives volume growth. Buy the managed unblocker when rendering is unavoidable, more than a third of your targets answer with a challenge, and the engineering time to keep a stealth stack alive is a real line item on someone's calendar. Buy <em>both</em> when the traffic is mixed, because the hybrid routes the cheap majority through the cheap meter and confines the expensive product to the requests that actually need it — and check the escalation rate monthly, since that percentage is the only input that decides whether the hybrid still pays for itself.</p>
+
+<p>None of this is a prediction about your success rate. It is arithmetic over four numbers you can measure this week: pages per month, average HTML size, first-attempt block rate, and the JS share of your targets. Get those four right and the vendor question answers itself.</p>
+
+<h2>Measure it yourself, then decide</h2>
+
+<p>The cost calculators are public and take the same inputs used above. The CLI measures the block rate and the real cost per 1,000 usable pages against your own URL list, with no account and no dependencies, so the 8% or 35% in these tables can be replaced with your number instead of mine.</p>
+
+<ul>
+<li><strong>Scraping true-cost calculator:</strong> <a href="https://scrape.mybskm.top/calculator/">scrape.mybskm.top/calculator/</a></li>
+<li><strong>Sticky-session and concurrency-loss calculator:</strong> <a href="https://proxy.mybskm.top/calculator/">proxy.mybskm.top/calculator/</a></li>
+<li><strong>Hugging Face mirror:</strong> <a href="https://huggingface.co/spaces/600me/rag-web-scraping-cost-calculator">huggingface.co/spaces/600me/rag-web-scraping-cost-calculator</a></li>
+<li><strong>Open-source CLI (zero dependencies):</strong> <a href="https://github.com/600me/check-proxy-tax">github.com/600me/check-proxy-tax</a></li>
+</ul>
+
+<h2>Method and sources</h2>
+
+<p><strong>Vendor prices.</strong> Residential tiers and the plan ladder were read from Decodo's residential pricing page on 2026-10-19 (HTTP 200): $4.00/GB pay-as-you-go, $3.75/GB at 3&nbsp;GB, $3.50/GB at 10&nbsp;GB, $3.25/GB at 25&nbsp;GB, $3.00/GB at 50&nbsp;GB, $2.75/GB at 100&nbsp;GB, enterprise from $2.50/GB at 250&nbsp;GB to $2.00/GB at 1&nbsp;TB. ScraperAPI's plans and credit rules were read from its pricing page on the same day (HTTP 200): Hobby $49 / 100,000 credits, Startup $149 / 1,000,000, Business $299 / 3,000,000, Scaling $475 / 5,000,000, plus the published multipliers — 1 credit for a standard page, 5 for Amazon, 25 for Google and Bing, 30 for LinkedIn, and +10 credits when a Cloudflare, DataDome or PerimeterX bypass is applied.</p>
+
+<p><strong>Model constants.</strong> The retry, bandwidth, payload and tier formulas are the ones shipped in the public calculator; the 0.35 challenge-bandwidth share, the 2.4× JS payload multiplier, $18 per 100,000 renders and $75 per engineer-hour are documented planning assumptions on that page, not vendor figures. The 5-credit JS assumption on the managed side is the calculator's, and it is the assumption most likely to understate a fully protected workload — the +10 bypass multiplier is the vendor's own number and should replace it when your targets are all behind Cloudflare.</p>
+
+<p><strong>What this article does not claim.</strong> No success rate, latency or bypass result here was measured on a live target. The dollar figures are multiplications of published list prices by the stated quantities and assumptions; nothing is a quote, a promotion, or a guarantee. HTTP 200 from a vendor is not proof that a bypass works on your site. Change any input and the tables change; the method does not.</p>
+
+<p><strong>Related research.</strong> <a href="/blog/403-tax.html">The 403 Tax</a> — what credit multipliers do to a scraping bill. <a href="/blog/proxy-cost-audit.html">The $0.49/GB proxy illusion</a> — why a sticker price is not an effective price, and the CLI that measures the difference. <a href="https://gpu.mybskm.top/blog/runpod-vs-vastai-h100-a100.html">RunPod vs Vast.ai</a> — the same effective-cost method applied to GPU hours.</p>
+
+</div>
+
+<div class="cta-panel">
+<h2>Try the path your arithmetic chose</h2>
+<p>Both links carry the same commission and both providers win a scenario above. Pick with the tables, not with the discounts, and verify current pricing on the vendor page before you commit.</p>
+<a class="btn" href="https://go.272738.xyz/smartproxy?src=compare_smartproxy_scraperapi" rel="sponsored noopener">Smartproxy (Decodo) residential &nearr;</a><a class="btn alt" href="https://go.272738.xyz/scraperapi?src=compare_smartproxy_scraperapi" rel="sponsored noopener">ScraperAPI managed unblocker &nearr;</a><a class="btn alt" href="https://scrape.mybskm.top/calculator/">Run your own numbers &nearr;</a>
+<p class="cta-note">Affiliate links — see the disclosure at the top of this page.</p>
+</div>
+
+<p class="backlink"><a href="https://scrape.mybskm.top/">&larr; Back to Live Scraping API Benchmark</a></p>
+</article>
+</main>
+<footer><div class="shell"><nav aria-label="Sister projects"><a href="/calculator/">True-cost calculator</a> &middot; <a href="https://proxy.mybskm.top/">Residential Proxies</a> &middot; <a href="https://gpu.mybskm.top/">GPU Cloud</a> &middot; <a href="https://pay.mybskm.top/">Global Payments</a></nav><p>Cost analysis built on public list prices and documented planning assumptions. Affiliate links are disclosed on this page and never change the rate you pay.</p><p>&copy; 2026 Scraping API Benchmark. Prices are dated observations, not quotes or guarantees.</p></div></footer>
+</body>
+</html>

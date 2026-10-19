@@ -52,6 +52,14 @@
       "url": "https://scrape.mybskm.top/blog/proxy-cost-audit.html",
       "datePublished": "2026-10-19",
       "author": {"@type": "Person", "name": "600me"}
+    },
+    {
+      "@type": "Article",
+      "headline": "Smartproxy (Decodo) vs ScraperAPI (2026): Raw Residential Proxy Pool vs Managed Anti-Bot Unblocker TCO",
+      "description": "Where a raw residential pool beats a managed unblocker, where it loses by 74%, and the hybrid router that is cheaper than either.",
+      "url": "https://scrape.mybskm.top/blog/smartproxy-vs-scraperapi.html",
+      "datePublished": "2026-10-19",
+      "author": {"@type": "Person", "name": "600me"}
     }
   ]
 }
@@ -113,16 +121,28 @@ footer nav{margin-bottom:10px}footer nav a{color:var(--blue)}
 <div class="eyebrow">RESEARCH INDEX / ANTI-BOT ECONOMICS</div>
 <h1>Scraping API engineering research &amp; cost audits</h1>
 <p class="standfirst">Long-form teardowns for teams that have to defend a scraping bill. Every report starts from the invoice, normalizes it to cost per 1,000 <strong>usable</strong> pages, and shows the arithmetic you can re-run on your own targets.</p>
-<p class="meta"><span>Published by <strong>600me</strong></span><span>2 long-form reports</span><span>Python standard library only</span><span>Baselines dated 2026-10-17 / 2026-10-19</span></p>
+<p class="meta"><span>Published by <strong>600me</strong></span><span>3 long-form reports</span><span>Python standard library only</span><span>Baselines dated 2026-10-17 / 2026-10-19</span></p>
 
 <div class="stats" aria-label="Research scope">
-<div class="stat"><b>2</b><span>Deep-dive reports</span></div>
-<div class="stat"><b>4</b><span>Scraping APIs normalized</span></div>
+<div class="stat"><b>3</b><span>Deep-dive reports</span></div>
+<div class="stat"><b>6</b><span>Providers normalized</span></div>
 <div class="stat"><b>1.43&times;</b><span>Retry tax at 70% yield</span></div>
 </div>
 
 <div class="section-head"><h2>Published research</h2><span>MOST RECENT FIRST</span></div>
 <section class="cards" aria-label="Published articles">
+
+<article class="card">
+<span class="tag">Proxy pool vs managed unblocker / TCO</span>
+<h3><a href="/blog/smartproxy-vs-scraperapi.html">Smartproxy (Decodo) vs ScraperAPI (2026): Raw Residential Proxy Pool vs Managed Anti-Bot Unblocker TCO</a></h3>
+<p>A residential pool bills by the gigabyte and hands you the client; a managed unblocker bills by the credit and absorbs the retry loop. Three worked scenarios on the same model show where the curves cross: the pool wins at 1M lightweight pages by 35%, the managed API wins at 250k rendered pages behind Cloudflare by 74%, and a pool-first router that escalates only the 5% of hard pages beats both at $0.216 per 1,000. Includes a 30-line stdlib hybrid router.</p>
+<ul class="datas">
+<li>$193.71 vs $299 at 1M light pages</li>
+<li>$1,161.62 vs $299 at 250k hard pages</li>
+<li>Hybrid: $215.68 for 1M mixed pages</li>
+</ul>
+<div class="foot"><span>19 October 2026</span><span>3,022 words &middot; ~15 min</span><a class="read" href="/blog/smartproxy-vs-scraperapi.html">Read the comparison &rarr;</a></div>
+</article>
 
 <article class="card">
 <span class="tag">Anti-bot economics / credit multipliers</span>
