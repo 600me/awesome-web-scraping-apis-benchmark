@@ -106,8 +106,8 @@ footer nav{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:10px}
 <article>
 <div class="eyebrow">ANTI-BOT ECONOMICS / CLI COST AUDIT</div>
 <h1>The $0.49 Proxy Illusion: How a 200-Line CLI Exposes Real Scraping Costs</h1>
-<p class="standfirst">A 200-line Python CLI measures what a cheap proxy really costs per 1,000 usable requests &mdash; with real probe data, retry amplification, sampling error, and the arithmetic behind the $0.49 sticker.</p>
-<p class="meta"><span>By <strong>600me</strong></span><span><time datetime="2026-10-19T04:56:00Z">19 October 2026</time></span><span>2,203 words &middot; ~11 min read</span></p>
+<p class="standfirst">A zero-dependency Python CLI measures what a cheap proxy really costs per 1,000 usable requests &mdash; with real probe data, retry amplification, sampling error, and the arithmetic behind the $0.49 sticker.</p>
+<p class="meta"><span>By <strong>600me</strong></span><span><time datetime="2026-10-19T04:56:00Z">19 October 2026</time></span><span>2,220 words &middot; ~11 min read</span></p>
 <aside class="ftc"><strong>Affiliate disclosure (FTC).</strong> Some links on this page are affiliate links. If you buy a service through them, I may earn a commission at no extra cost to you. Commissions never change the price you pay and do not buy a ranking. All measurements come from local CLI runs on 2026-10-19. Verify current pricing, trial terms, and billing rules with each provider before purchasing.</aside>
 
 <div class="cta-panel">
@@ -118,7 +118,7 @@ footer nav{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:10px}
 <div class="content">
 <p>A proxy reseller quotes <strong>$0.49 per 1,000 requests</strong>. The spreadsheet multiplies by 2,000 and lands on <strong>$980</strong>. The plan looks cheap against every managed scraping API on the market. Then the crawler runs for a month, the invoice arrives at $980, and the dataset is 30% short — challenge pages, 403s, timeouts, and product pages that returned <code>200</code> with no product on them.</p>
 <p>Nothing in the invoice is wrong. The problem is the unit. You did not buy 2,000,000 pages. You bought 2,000,000 <strong>attempts</strong>, and only some of those attempts produced a response your pipeline could use. The moment you divide the invoice by usable pages instead of sent requests, the $0.49 number stops being a price and starts being a fiction.</p>
-<p>I wrote a small CLI to measure that gap. It is called <code>check-proxy-tax</code>, it is about 200 lines of standard-library Python, and it turns "cheap proxy" into a number you can defend in a budget meeting. This article walks through what it measures, what it found against real targets, and how the arithmetic changes a buying decision.</p>
+<p>I wrote a small CLI to measure that gap. It is called <code>check-proxy-tax</code>: the measurement core is under 200 lines of standard-library Python, and the shipped command — argument parsing, terminal table, JSON output — is still under 550. It turns "cheap proxy" into a number you can defend in a budget meeting. This article walks through what it measures, what it found against real targets, and how the arithmetic changes a buying decision.</p>
 <h2>The sticker price is priced in the wrong unit</h2>
 <p>Proxy plans are sold per request, per IP, or per gigabyte. Crawlers are paid in usable responses. Between those two units sit four failure modes that every scraping team knows and almost no pricing page mentions:</p>
 <ul>
