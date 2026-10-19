@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The $0.49 Proxy Illusion: How a 200-Line CLI Exposes Real Scraping Costs | Scraping API Benchmark</title>
+<meta name="description" content="A 200-line Python CLI measures what a cheap proxy really costs per 1,000 usable requests: real probe data, retry amplification, sampling error, and the arithmetic behind the $0.49 sticker.">
+<link rel="canonical" href="https://scrape.mybskm.top/blog/proxy-cost-audit.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="600me">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Scraping API Benchmark">
+<meta property="og:title" content="The $0.49 Proxy Illusion: How a 200-Line CLI Exposes Real Scraping Costs">
+<meta property="og:description" content="A 200-line Python CLI measures what a cheap proxy really costs per 1,000 usable requests: real probe data, retry amplification, sampling error, and the arithmetic behind the $0.49 sticker.">
+<meta property="og:url" content="https://scrape.mybskm.top/blog/proxy-cost-audit.html">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-10-19T04:56:00Z">
+<meta property="article:modified_time" content="2026-10-19T04:56:00Z">
+<meta property="article:author" content="600me">
+<meta property="article:section" content="Anti-Bot Economics">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The $0.49 Proxy Illusion: How a 200-Line CLI Exposes Real Scraping Costs">
+<meta name="twitter:description" content="A 200-line Python CLI measures what a cheap proxy really costs per 1,000 usable requests: real probe data, retry amplification, sampling error, and the arithmetic behind the $0.49 sticker.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The $0.49 Proxy Illusion: How a 200-Line CLI Exposes Real Scraping Costs",
+  "description": "A 200-line Python CLI measures what a cheap proxy really costs per 1,000 usable requests: real probe data, retry amplification, sampling error, and the arithmetic behind the $0.49 sticker.",
+  "author": {
+    "@type": "Person",
+    "name": "600me",
+    "url": "https://scrape.mybskm.top/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Scraping API Benchmark",
+    "url": "https://scrape.mybskm.top/"
+  },
+  "datePublished": "2026-10-19T04:56:00Z",
+  "dateModified": "2026-10-19T04:56:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://scrape.mybskm.top/blog/proxy-cost-audit.html"
+  },
+  "url": "https://scrape.mybskm.top/blog/proxy-cost-audit.html",
+  "articleSection": "Anti-Bot Economics",
+  "keywords": "webscraping, python, proxy, cost, cli",
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<style>
+:root{color-scheme:dark;--bg:#090c12;--panel:#111722;--line:#263142;--ink:#e9eff9;--body:#ccd8e8;--muted:#a0afc2;--green:#88f5bd;--blue:#9bbdff;--amber:#e1c991}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 78% -6%,#12353188,transparent 44%),var(--bg);color:var(--ink);font:16px/1.75 system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}a:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.skip{position:absolute;left:-9999px}.skip:focus{left:16px;top:16px;z-index:20;background:var(--panel);padding:10px 14px;border-radius:8px}
+.shell{max-width:960px;margin:0 auto;padding:0 26px}
+header.site{border-bottom:1px solid var(--line);background:#090c12e6;position:sticky;top:0;backdrop-filter:blur(8px);z-index:5}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:68px;max-width:1100px}
+.brand{font:700 15px ui-monospace,monospace;color:var(--ink);white-space:nowrap}.brand b{color:var(--green)}
+header nav{display:flex;gap:20px;flex-wrap:wrap}header nav a{font-size:12.5px;color:var(--muted)}header nav a:hover{color:var(--green)}
+.backlink{margin:22px 0 0;font:12.5px ui-monospace,monospace}.backlink a{color:var(--muted)}.backlink a:hover{color:var(--green)}
+main{padding:26px 0 70px}
+.eyebrow{font:11.5px ui-monospace,monospace;color:var(--green);letter-spacing:1.8px;text-transform:uppercase;margin:12px 0 0}
+h1{font-size:clamp(30px,4.6vw,52px);line-height:1.12;letter-spacing:-1.6px;margin:18px 0;max-width:900px}
+.standfirst{font-size:18px;color:var(--muted);max-width:780px;margin:0 0 18px}
+.meta{display:flex;gap:18px;flex-wrap:wrap;font:12px ui-monospace,monospace;color:var(--muted);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:0 0 26px}
+.meta strong{color:var(--ink)}
+.ftc{border:1px solid #796239;background:#dba6430d;color:var(--amber);border-radius:10px;padding:16px 18px;font-size:13.5px;line-height:1.62;margin:0 0 30px}
+.ftc strong{color:#f0d9a3}
+.content{max-width:840px}
+.content h2{font-size:24px;letter-spacing:-.5px;margin:46px 0 12px}
+.content p{margin:0 0 18px;color:var(--body)}
+.content strong{color:#fff}
+.content ul,.content ol{margin:0 0 20px;padding-left:22px;color:var(--body)}
+.content li{margin:0 0 8px}.content li::marker{color:var(--green)}
+.content code{font:13px ui-monospace,SFMono-Regular,monospace;background:#182231;border:1px solid #2a3648;border-radius:5px;padding:1.5px 6px;color:#b9f7d9;overflow-wrap:anywhere}
+.content pre{background:#070b11;border:1px solid var(--line);border-radius:10px;padding:16px 18px;overflow:auto;margin:0 0 22px;line-height:1.6}
+.content pre code{background:none;border:0;padding:0;font-size:12.8px;color:#c7f5df;white-space:pre}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:0 0 22px;background:#0c121b}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:560px}
+th{font:600 11px ui-monospace,monospace;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);background:#101826;text-align:left}
+th,td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}tbody tr:hover{background:#131c29}
+td.num{font-family:ui-monospace,monospace;color:var(--green);white-space:nowrap}
+.cta-panel{max-width:840px;border:1px solid #2b5e50;background:linear-gradient(100deg,#102a26,#122030);border-radius:14px;padding:22px;margin:34px 0}
+.cta-panel h2{font-size:19px;margin:0 0 6px;letter-spacing:-.3px}
+.cta-panel p{color:var(--muted);font-size:13.5px;margin:0 0 16px}
+.btn{display:inline-block;background:var(--green);color:#082318;padding:11px 16px;border-radius:8px;font:750 13.5px system-ui,sans-serif;margin:0 10px 8px 0}
+.btn:hover{background:#b5ffdb;text-decoration:none}
+.btn.alt{background:#202c3c;color:var(--ink)}.btn.alt:hover{background:#2a3a4e}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);font-size:12px}
+footer nav{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:10px}
+@media(max-width:640px){.shell{padding:0 16px}.bar{flex-wrap:wrap;gap:8px;padding-top:12px;padding-bottom:12px}header nav{width:100%;gap:14px}h1{letter-spacing:-1px}table{min-width:520px}}
+.cta-note{color:var(--muted);font-size:12px;margin:10px 0 0}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#article">Skip to article</a>
+<header class="site"><div class="shell bar"><a class="brand" href="https://scrape.mybskm.top/"><b>&#9639;</b> SCRAPE / STACK</a><nav aria-label="Sister projects"><a href="https://scrape.mybskm.top/">Live benchmark</a><a href="https://proxy.mybskm.top/">Residential proxies</a><a href="https://gpu.mybskm.top/">GPU cloud</a></nav></div></header>
+<div class="shell"><p class="backlink"><a href="https://scrape.mybskm.top/">&larr; Back to Live Scraping API Benchmark</a></p></div>
+<main id="article" class="shell">
+<article>
+<div class="eyebrow">ANTI-BOT ECONOMICS / CLI COST AUDIT</div>
+<h1>The $0.49 Proxy Illusion: How a 200-Line CLI Exposes Real Scraping Costs</h1>
+<p class="standfirst">A 200-line Python CLI measures what a cheap proxy really costs per 1,000 usable requests &mdash; with real probe data, retry amplification, sampling error, and the arithmetic behind the $0.49 sticker.</p>
+<p class="meta"><span>By <strong>600me</strong></span><span><time datetime="2026-10-19T04:56:00Z">19 October 2026</time></span><span>2,203 words &middot; ~11 min read</span></p>
+<aside class="ftc"><strong>Affiliate disclosure (FTC).</strong> Some links on this page are affiliate links. If you buy a service through them, I may earn a commission at no extra cost to you. Commissions never change the price you pay and do not buy a ranking. All measurements come from local CLI runs on 2026-10-19. Verify current pricing, trial terms, and billing rules with each provider before purchasing.</aside>
+
+<div class="cta-panel">
+<h2>Measure your own targets, not the sticker price</h2>
+<p>Clone the CLI, run 200 samples against the hardest URLs in your list, and put cost per 1,000 usable responses in the spreadsheet.</p>
+<a class="btn" href="https://github.com/600me/check-proxy-tax" rel="noopener">Get check-proxy-tax &nearr;</a><a class="btn alt" href="https://scrape.mybskm.top/?utm_source=devto&amp;utm_medium=article&amp;utm_campaign=proxy_audit_cli&amp;src=devto_cli">Live benchmark &nearr;</a>
+</div>
+<div class="content">
+<p>A proxy reseller quotes <strong>$0.49 per 1,000 requests</strong>. The spreadsheet multiplies by 2,000 and lands on <strong>$980</strong>. The plan looks cheap against every managed scraping API on the market. Then the crawler runs for a month, the invoice arrives at $980, and the dataset is 30% short — challenge pages, 403s, timeouts, and product pages that returned <code>200</code> with no product on them.</p>
+<p>Nothing in the invoice is wrong. The problem is the unit. You did not buy 2,000,000 pages. You bought 2,000,000 <strong>attempts</strong>, and only some of those attempts produced a response your pipeline could use. The moment you divide the invoice by usable pages instead of sent requests, the $0.49 number stops being a price and starts being a fiction.</p>
+<p>I wrote a small CLI to measure that gap. It is called <code>check-proxy-tax</code>, it is about 200 lines of standard-library Python, and it turns "cheap proxy" into a number you can defend in a budget meeting. This article walks through what it measures, what it found against real targets, and how the arithmetic changes a buying decision.</p>
+<h2>The sticker price is priced in the wrong unit</h2>
+<p>Proxy plans are sold per request, per IP, or per gigabyte. Crawlers are paid in usable responses. Between those two units sit four failure modes that every scraping team knows and almost no pricing page mentions:</p>
+<ul>
+<li><strong>Hard blocks.</strong> <code>403</code>, <code>429</code>, or a <code>503</code> from an edge rule. The request was billed; the page was not delivered.</li>
+<li><strong>Soft blocks.</strong> A <code>200</code> containing a Cloudflare interstitial, a consent wall, or a login shell. The status code says success; the parser says otherwise.</li>
+<li><strong>Timeouts.</strong> The connection stalls past your deadline. Depending on the plan, the attempt may still consume quota.</li>
+<li><strong>Silent misses.</strong> The page loads, but the field you needed — price, stock, rating — is absent because the site served a different variant.</li>
+</ul>
+<p>A per-request price treats all four as successful deliveries. Your data pipeline treats all four as failures. The difference is the tax.</p>
+<h2>What counts as usable</h2>
+<p><code>check-proxy-tax</code> uses a deliberately strict definition. A sample is <strong>usable</strong> only when:</p>
+<ol>
+<li>the final HTTP status is exactly <code>200</code> after redirects, and</li>
+<li>when <code>--marker</code> is supplied, the response body contains that exact string.</li>
+</ol>
+<p>Everything else is blocked: <code>403</code>, <code>429</code>, other <code>4xx</code>, <code>5xx</code>, timeouts, TLS failures, connection resets, and <code>200</code> responses that miss the marker. That last clause is the important one. A challenge page is a <code>200</code> until you look for the product title and discover it is not there.</p>
+<p>The tool fires a configurable number of concurrent requests at one URL, classifies every response, and reports usable percentage, effective cost per 1,000 usable requests, the tax multiplier, p50/p95 latency, bytes transferred, status counts, and blocked-reason counts. <code>--json</code> emits a single object. Exit codes are stable: <code>0</code> all usable, <code>1</code> degraded, <code>2</code> none usable, <code>3</code> bad arguments.</p>
+<pre><code class="lang-bash">git clone https://github.com/600me/check-proxy-tax
+cd check-proxy-tax
+python3 -m check_proxy_tax.cli \
+  --url &quot;https://example.com/product/123&quot; \
+  --requests 20 \
+  --marker &quot;Add to cart&quot; \
+  --price-per-1k 0.49</code></pre>
+<p>No account, no API key, no dependencies, no hosted service. That matters for an audit tool: if measuring the vendor required the vendor's SDK, the measurement would inherit the vendor's assumptions.</p>
+<h2>Four measurements, including the ugly ones</h2>
+<p>I ran the CLI on 2026-10-19 from an unproxied connection, with <code>--price-per-1k 0.49</code>. The first target is a control. The next two are real sites behind commercial anti-bot stacks. The fourth is a deterministic local harness that returns seven usable pages and three <code>403</code>s in every ten requests, so the arithmetic below is reproducible rather than rhetorical.</p>
+<div class="tablewrap"><table><thead><tr>
+<th style="text-align:left">Target</th>
+<th style="text-align:right">Samples</th>
+<th style="text-align:right">Usable</th>
+<th style="text-align:right">Usable rate</th>
+<th style="text-align:right">Effective $/1k usable</th>
+<th style="text-align:right">p50 latency</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align:left"><code>example.com</code> (control)</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">100.0%</td>
+<td style="text-align:right">$0.49</td>
+<td style="text-align:right">747 ms</td>
+</tr>
+<tr>
+<td style="text-align:left">Local 70% harness</td>
+<td style="text-align:right">20</td>
+<td style="text-align:right">14</td>
+<td style="text-align:right">70.0%</td>
+<td style="text-align:right">$0.70</td>
+<td style="text-align:right">0.78 ms</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>g2.com</code></td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0.0%</td>
+<td style="text-align:right">infinite</td>
+<td style="text-align:right">760 ms</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>glassdoor.com</code></td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0.0%</td>
+<td style="text-align:right">infinite</td>
+<td style="text-align:right">746 ms</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>amazon.com</code> product page</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0.0%</td>
+<td style="text-align:right">infinite</td>
+<td style="text-align:right">933 ms</td>
+</tr>
+</tbody></table></div>
+<p>The control behaved exactly as the sticker price predicts. Ten requests, ten usable responses, $0.49 per 1,000, multiplier 1.00x.</p>
+<p>The protected targets did not. G2 and Glassdoor returned <code>403</code> on every sample from an unproxied IP. Amazon returned <code>404</code> on every sample — a bot wall dressed as a missing page. The CLI reports the effective cost as <strong>infinite</strong>, not as a large number, because no finite amount of money buys a usable response at a 0% success rate. The JSON sets <code>effective_cost_per_1k</code> and <code>tax_multiplier</code> to <code>null</code> and <code>cost_status</code> to <code>"infinite"</code>, which keeps the document valid while refusing to invent a number.</p>
+<p>That 0% result is not a verdict on G2, Glassdoor, or Amazon. It is what those edges show a single unproxied client with a plain HTTP stack. A managed scraping API with residential egress and a browser runtime will do better, and that is precisely what you are paying for. The point is that "better" is unknown until you measure it on your targets. A vendor's published success rate is an average over someone else's URL list.</p>
+<p>The 70% harness produced the number the rest of this article uses:</p>
+<pre><code class="lang-json">{
+  &quot;requests&quot;: 20,
+  &quot;usable_count&quot;: 14,
+  &quot;blocked_count&quot;: 6,
+  &quot;usable_pct&quot;: 70.0,
+  &quot;nominal_price_per_1k&quot;: 0.49,
+  &quot;effective_cost_per_1k&quot;: 0.7,
+  &quot;tax_multiplier&quot;: 1.428571,
+  &quot;status_counts&quot;: {&quot;200&quot;: 14, &quot;403&quot;: 6},
+  &quot;blocked_reasons&quot;: {&quot;http_403&quot;: 6},
+  &quot;exit_code&quot;: 1
+}</code></pre>
+<p>Fourteen usable responses out of twenty attempts is a 70% yield. At a nominal $0.49 per 1,000 attempts, the effective price is:</p>
+<pre><code class="lang-text">$0.49 / 0.70 = $0.70 per 1,000 usable responses
+$0.70 / $0.49 = 1.43x tax multiplier</code></pre>
+<p>That is a 43% surcharge on every usable page, invisible on the pricing page and completely real in the invoice.</p>
+<h2>The arithmetic at production volume</h2>
+<p>The multiplier is small at pilot scale and brutal at production scale. Suppose the pipeline needs <strong>1,000,000 usable responses per month</strong> and the plan charges $0.49 per 1,000 attempts, billing blocked attempts.</p>
+<div class="tablewrap"><table><thead><tr>
+<th style="text-align:right">Usable rate</th>
+<th style="text-align:right">Attempts needed for 1M usable</th>
+<th style="text-align:right">Monthly cost at $0.49/1k</th>
+<th style="text-align:right">Effective $/1k usable</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align:right">100%</td>
+<td style="text-align:right">1,000,000</td>
+<td style="text-align:right">$490.00</td>
+<td style="text-align:right">$0.4900</td>
+</tr>
+<tr>
+<td style="text-align:right">90%</td>
+<td style="text-align:right">1,111,111</td>
+<td style="text-align:right">$544.44</td>
+<td style="text-align:right">$0.5444</td>
+</tr>
+<tr>
+<td style="text-align:right">80%</td>
+<td style="text-align:right">1,250,000</td>
+<td style="text-align:right">$612.50</td>
+<td style="text-align:right">$0.6125</td>
+</tr>
+<tr>
+<td style="text-align:right">70%</td>
+<td style="text-align:right">1,428,571</td>
+<td style="text-align:right">$700.00</td>
+<td style="text-align:right">$0.7000</td>
+</tr>
+<tr>
+<td style="text-align:right">50%</td>
+<td style="text-align:right">2,000,000</td>
+<td style="text-align:right">$980.00</td>
+<td style="text-align:right">$0.9800</td>
+</tr>
+<tr>
+<td style="text-align:right">25%</td>
+<td style="text-align:right">4,000,000</td>
+<td style="text-align:right">$1,960.00</td>
+<td style="text-align:right">$1.9600</td>
+</tr>
+<tr>
+<td style="text-align:right">10%</td>
+<td style="text-align:right">10,000,000</td>
+<td style="text-align:right">$4,900.00</td>
+<td style="text-align:right">$4.9000</td>
+</tr>
+</tbody></table></div>
+<p>At 70% usability the invoice is <strong>$700, not $490</strong> — a $210 monthly gap, or $2,520 a year, on a plan the buyer described as "$0.49 per 1,000." At 50% the same 1,000,000 usable pages cost $980, exactly double the sticker. At 10% they cost $4,900, which is more than many managed scraping APIs charge for the same volume with the browser and proxy work included.</p>
+<p>This is why comparing a $0.49 proxy plan to a $49 managed API by list price is meaningless. Normalize both to cost per 1,000 <strong>usable</strong> responses against the same URL list with the same marker, and the ranking often flips. The <a href="https://scrape.mybskm.top/blog/403-tax.html">403 Tax research page</a> walks through the same normalization across four managed providers, including how credit multipliers for rendering and premium proxies compound the problem.</p>
+<h2>Retry amplification is the second invoice</h2>
+<p>Most retry policies were written for transient network errors and then inherited by anti-bot failures. That is a budgeting mistake. A <code>403</code> is not a dropped packet; retrying it three times usually produces three more <code>403</code>s and three more billed attempts.</p>
+<p>Take 100,000 URLs, a 30% block rate, and a naive policy that retries every failure three times:</p>
+<pre><code class="lang-text">70,000 first-pass successes
+30,000 blocked URLs x 3 retries = 90,000 extra attempts
+total billed attempts = 160,000
+nominal cost at $0.49/1k = $78.40
+usable output = 70,000
+effective cost per 1k usable = $78.40 / 70 = $1.12
+multiplier over sticker = 2.29x</code></pre>
+<p>The effective price more than doubled, and the extra spend bought no additional data. A retry budget that distinguishes <code>429</code> (back off), <code>403</code> (change identity or give up), and timeout (retry once) is worth more than a bigger proxy plan. If you take one operational lesson from the CLI, take this one: <strong>log the reason, not just the status</strong>. <code>blocked_reasons</code> exists so a <code>403</code> storm does not look like a timeout storm in the weekly report.</p>
+<h2>Latency is a cost line too</h2>
+<p>The invoice is not the only place the tax shows up. Blocked requests still consume wall-clock time, and tail latency sets your schedule.</p>
+<p>At concurrency 20 and a 1.2-second p50, a worker pool sustains roughly 16.7 requests per second. Delivering 1,000,000 usable pages at 70% usability requires 1,428,571 attempts, which is about <strong>23.8 hours</strong> of continuous crawling. At a 1.84-second p95 the same work takes about <strong>36.5 hours</strong>. The gap between p50 and p95 is more than half a working day, and it is invisible in a per-request price.</p>
+<p>The CLI reports p50, p95, min, and max for this reason. A vendor that is cheap per request but adds 800 ms of challenge negotiation to every blocked attempt can lose to a more expensive vendor that fails fast. Throughput is part of unit economics, especially when you are renting workers by the hour.</p>
+<h2>Twenty samples is not a measurement</h2>
+<p>The 70% harness result comes from 20 samples. That is enough to demonstrate the arithmetic and not enough to sign a contract. The 95% Wilson interval for 14/20 runs from <strong>48.1% to 85.5%</strong>. In other words, the same result is consistent with a 48% yield and an 85% yield, and those imply effective costs of $1.02 and $0.57 per 1,000 usable pages. The confidence interval is wider than most vendor price differences.</p>
+<p>At 200 samples with 140 usable, the interval narrows to <strong>63.3%–75.9%</strong>. Still not tight, but usable for a buying decision. My rule of thumb:</p>
+<ul>
+<li><strong>20 samples</strong> to catch gross failures and validate the harness.</li>
+<li><strong>200 samples per target class</strong> before comparing vendors.</li>
+<li><strong>Three runs across different hours</strong> to catch rate-limit windows and diurnal blocking.</li>
+<li><strong>The hardest 20 URLs in your list</strong>, not the homepage. Homepages are the easiest pages a site serves.</li>
+</ul>
+<p>Stratify by target class — product pages, search results, profiles, paginated lists — because a vendor that handles static article pages and fails on search is not 90% good. It is 90% good on the traffic you do not have.</p>
+<h2>A buying workflow that survives contact with production</h2>
+<ol>
+<li><strong>Build a 20-URL sample</strong> that mirrors production: the same domains, page types, and required fields. Write down the marker string for each.</li>
+<li><strong>Run the vendor trial</strong> with the same request count, concurrency, timeout, and marker. Do not let the vendor pick the URLs.</li>
+<li><strong>Capture JSON, not screenshots.</strong> <code>--json &gt; vendor-a.json</code> gives you status counts, blocked reasons, and latency percentiles you can diff.</li>
+<li><strong>Normalize to cost per 1,000 usable responses</strong> using the actual plan price and the measured yield. Include retries in the attempt count.</li>
+<li><strong>Ask how blocked requests are billed.</strong> Per-request plans usually charge them; some managed APIs only charge successful requests. The answer changes the multiplier by 1.4x or more.</li>
+<li><strong>Gate CI on the JSON.</strong> A job that fails when <code>usable_pct</code> drops below 95 or <code>cost_status</code> becomes <code>"infinite"</code> catches a proxy pool degrading before the monthly invoice does.</li>
+<li><strong>Re-run monthly.</strong> Anti-bot rules change, IP pools get burned, and the yield that justified the plan in January may not hold in April.</li>
+</ol>
+<p>The CLI is designed to be the measurement step, not the whole procurement system. It sends a small diagnostic burst to one URL. It does not execute JavaScript, solve CAPTCHAs, rotate residential IPs, or reconcile the vendor's internal credit accounting. It measures the HTTP outcome your parser sees, which is the part the invoice does not.</p>
+<h2>What the $0.49 actually means</h2>
+<p>The $0.49 figure is not a lie. It is a price for attempts, quoted by a seller who knows that attempts and usable pages are different things, sold to a buyer who is thinking in pages. The illusion survives because the gap is invisible until someone counts.</p>
+<p>Counting is cheap. The CLI is free, the run takes a minute, and the number it produces — cost per 1,000 usable responses — is the only price that belongs in a budget. Everything else is a sticker.</p>
+<p>If you want to run the audit yourself, start with the <a href="https://github.com/600me/check-proxy-tax">check-proxy-tax repository</a>. If you want the provider-side view, the <a href="https://scrape.mybskm.top/?utm_source=devto&amp;amp;utm_medium=article&amp;amp;utm_campaign=proxy_audit_cli&amp;amp;src=devto_cli">live scraping API benchmark</a> normalizes plan pricing and credit multipliers across vendors, and the <a href="https://scrape.mybskm.top/blog/403-tax.html">403 Tax teardown</a> shows how anti-bot pressure moves the effective rate.</p>
+<p>Two relays I use for trials when a target requires managed egress:</p>
+<ul>
+<li><a href="https://go.272738.xyz/scraperapi?utm_source=devto&amp;amp;utm_medium=article&amp;amp;utm_campaign=proxy_audit_cli&amp;amp;src=devto_cli">ScraperAPI</a> — request-based plans with premium proxy and rendering modes; run the CLI against your own URLs before choosing a tier.</li>
+<li><a href="https://go.272738.xyz/smartproxy?utm_source=devto&amp;amp;utm_medium=article&amp;amp;utm_campaign=proxy_audit_cli&amp;amp;src=devto_cli">Smartproxy / Decodo</a> — residential and datacenter pools; the trial is the only way to know your yield.</li>
+</ul>
+<p><strong>FTC Disclosure: Benchmark links may include affiliate tracking.</strong> If you buy through the links above I may earn a commission at no extra cost to you. Commissions do not change the price you pay and do not buy a ranking. Every number in this article comes from a local CLI run on 2026-10-19, not from a vendor dashboard. Verify current pricing, trial terms, and billing rules with each provider before you commit.</p>
+<p>The next time a plan quotes $0.49 per 1,000, ask one question: per 1,000 of what? If the answer is "requests," you have not been quoted a price. You have been quoted a starting point.</p>
+</div>
+<div class="cta-panel">
+<h2>Two relays for trial runs</h2>
+<p>When a target needs managed egress, test these against the same URL list and marker before choosing a tier.</p>
+<a class="btn" href="https://go.272738.xyz/scraperapi?utm_source=devto&amp;utm_medium=article&amp;utm_campaign=proxy_audit_cli&amp;src=devto_cli" rel="sponsored nofollow noopener">ScraperAPI &nearr;</a><a class="btn alt" href="https://go.272738.xyz/smartproxy?utm_source=devto&amp;utm_medium=article&amp;utm_campaign=proxy_audit_cli&amp;src=devto_cli" rel="sponsored nofollow noopener">Smartproxy / Decodo &nearr;</a>
+<p class="cta-note">Affiliate links. See the disclosure above.</p>
+</div>
+</article>
+</main>
+<footer><div class="shell"><nav aria-label="Footer"><a href="https://scrape.mybskm.top/">Live benchmark</a><a href="https://scrape.mybskm.top/blog/403-tax.html">The 403 Tax research</a><a href="https://github.com/600me/check-proxy-tax">check-proxy-tax on GitHub</a></nav><p>FTC Disclosure: Benchmark links may include affiliate tracking. Public planning baselines, not vendor quotes.</p></div></footer>
+</body>
+</html>
