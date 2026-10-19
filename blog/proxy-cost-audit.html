@@ -107,7 +107,7 @@ footer nav{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:10px}
 <div class="eyebrow">ANTI-BOT ECONOMICS / CLI COST AUDIT</div>
 <h1>The $0.49 Proxy Illusion: How a 200-Line CLI Exposes Real Scraping Costs</h1>
 <p class="standfirst">A zero-dependency Python CLI measures what a cheap proxy really costs per 1,000 usable requests &mdash; with real probe data, retry amplification, sampling error, and the arithmetic behind the $0.49 sticker.</p>
-<p class="meta"><span>By <strong>600me</strong></span><span><time datetime="2026-10-19T04:56:00Z">19 October 2026</time></span><span>2,220 words &middot; ~11 min read</span></p>
+<p class="meta"><span>By <strong>600me</strong></span><span><time datetime="2026-10-19T04:56:00Z">19 October 2026</time></span><span>2,218 words &middot; ~11 min read</span></p>
 <aside class="ftc"><strong>Affiliate disclosure (FTC).</strong> Some links on this page are affiliate links. If you buy a service through them, I may earn a commission at no extra cost to you. Commissions never change the price you pay and do not buy a ranking. All measurements come from local CLI runs on 2026-10-19. Verify current pricing, trial terms, and billing rules with each provider before purchasing.</aside>
 
 <div class="cta-panel">
@@ -145,7 +145,7 @@ python3 -m check_proxy_tax.cli \
   --price-per-1k 0.49</code></pre>
 <p>No account, no API key, no dependencies, no hosted service. That matters for an audit tool: if measuring the vendor required the vendor's SDK, the measurement would inherit the vendor's assumptions.</p>
 <h2>Four measurements, including the ugly ones</h2>
-<p>I ran the CLI on 2026-10-19 from an unproxied connection, with <code>--price-per-1k 0.49</code>. The first target is a control. The next two are real sites behind commercial anti-bot stacks. The fourth is a deterministic local harness that returns seven usable pages and three <code>403</code>s in every ten requests, so the arithmetic below is reproducible rather than rhetorical.</p>
+<p>I ran the CLI on 2026-10-19 from an unproxied connection, with <code>--price-per-1k 0.49</code>. The first target is a control. Three are real sites behind commercial anti-bot stacks. The last is a deterministic local harness that returns seven usable pages and three <code>403</code>s in every ten requests, so the arithmetic below is reproducible rather than rhetorical.</p>
 <div class="tablewrap"><table><thead><tr>
 <th style="text-align:left">Target</th>
 <th style="text-align:right">Samples</th>
