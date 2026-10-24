@@ -16,7 +16,7 @@ Compare the supplied starting-plan baselines of **$29–$49/month**, free-trial 
 
 > **FTC Affiliate Disclosure: Some outbound vendor links on this page (via go.272738.xyz, such as ScraperAPI, Smartproxy/Decodo, RunPod, Vast.ai, and Firstbase) are affiliate links that may earn a commission at no extra cost to you. Unaffiliated vendors and open-source baselines are included using identical objective formulas.**
 
-**Snapshot:** 2026-10-23T17:57:28Z. **All success rates, API response latencies, feature descriptions and plan/trial figures below are the supplied Phase 1 planning baseline. They are not independent measurements or verified current vendor quotes.** The probe refreshes public pricing-page metadata only. Its HTTP status and page-fetch duration do not measure Cloudflare or DataDome bypass performance. Official pricing can differ from this preserved baseline.
+**Snapshot:** 2026-10-24T16:57:11Z. **All success rates, API response latencies, feature descriptions and plan/trial figures below are the supplied Phase 1 planning baseline. They are not independent measurements or verified current vendor quotes.** The probe refreshes public pricing-page metadata only. Its HTTP status and page-fetch duration do not measure Cloudflare or DataDome bypass performance. Official pricing can differ from this preserved baseline.
 
 ## Scraping API comparison: cost, baseline success and free trials
 
@@ -132,10 +132,10 @@ One script fetches four public pricing pages concurrently with a **60-second tim
 
 ## Public metadata sources
 
-- [ZenRows official pricing source](https://www.zenrows.com/pricing): live; last observed 2026-10-23T17:57:27Z. Latest attempt HTTP 200.
-- [ScrapingBee official pricing source](https://www.scrapingbee.com/pricing/): live; last observed 2026-10-23T17:57:27Z. Latest attempt HTTP 200.
-- [ScraperAPI official pricing source](https://www.scraperapi.com/pricing/): live; last observed 2026-10-23T17:57:27Z. Latest attempt HTTP 200.
-- [Crawlbase official pricing source](https://crawlbase.com/pricing/): live; last observed 2026-10-23T17:57:28Z. Latest attempt HTTP 200.
+- [ZenRows official pricing source](https://www.zenrows.com/pricing): live; last observed 2026-10-24T16:57:11Z. Latest attempt HTTP 200.
+- [ScrapingBee official pricing source](https://www.scrapingbee.com/pricing/): live; last observed 2026-10-24T16:57:11Z. Latest attempt HTTP 200.
+- [ScraperAPI official pricing source](https://www.scraperapi.com/pricing/): live; last observed 2026-10-24T16:57:11Z. Latest attempt HTTP 200.
+- [Crawlbase official pricing source](https://crawlbase.com/pricing/): live; last observed 2026-10-24T16:57:11Z. Latest attempt HTTP 200.
 
 Fetched price text is preserved in `data.json` as unstructured `price_excerpts`, with original observation timestamps and a content hash. Fetching a page does not validate a pricing interpretation. Cached observations retain their original age. Activated partner CTAs use attributed `go.272738.xyz` relay URLs; vendors without an activated partnership link straight to their own websites, so no outbound click depends on an inactive affiliate account.
 
