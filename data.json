@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-31T17:55:45Z",
+  "generated_at": "2026-11-01T18:33:30Z",
   "currency": "USD",
   "methodology": {
     "fallback_order": [
@@ -65,7 +65,7 @@
       "affiliated": false,
       "public_metadata": {
         "source_url": "https://www.zenrows.com/pricing",
-        "observed_at": "2026-10-31T17:55:44Z",
+        "observed_at": "2026-11-01T18:33:30Z",
         "title": "Pricing Â· Zenrows. From first agent to enterprise scale.",
         "description": "Fetch, extract, batch, and operate the web through one reliable API. Start free, scale to protected sites, browser workflows, and high-volume data pipelines.",
         "price_excerpts": [
@@ -76,12 +76,12 @@
         ],
         "content_sha256": "38e518fb73899778e1f950eeee09951ad6f5836ba5e22131412e77d162bfe505",
         "http_status": 200,
-        "page_fetch_seconds": 0.278
+        "page_fetch_seconds": 0.177
       },
       "metadata_source": "live",
       "probe": {
         "ok": true,
-        "checked_at": "2026-10-31T17:55:44Z",
+        "checked_at": "2026-11-01T18:33:30Z",
         "http_status": 200
       },
       "field_sources": {
@@ -197,7 +197,7 @@
       "affiliated": false,
       "public_metadata": {
         "source_url": "https://www.scrapingbee.com/pricing/",
-        "observed_at": "2026-10-31T17:55:44Z",
+        "observed_at": "2026-11-01T18:33:30Z",
         "title": "Pricing - ScrapingBee Web Scraping API",
         "description": "Simple, transparent pricing for ScrapingBee web scraping API. Choose from Hobby, Freelance, Startup, Business, or Business + plans. Cancel anytime.",
         "price_excerpts": [
@@ -208,12 +208,12 @@
         ],
         "content_sha256": "fccb472c645ba531c4c13d812af7c3ec18c879f7581c113a6c425f5128efde07",
         "http_status": 200,
-        "page_fetch_seconds": 0.353
+        "page_fetch_seconds": 0.273
       },
       "metadata_source": "live",
       "probe": {
         "ok": true,
-        "checked_at": "2026-10-31T17:55:44Z",
+        "checked_at": "2026-11-01T18:33:30Z",
         "http_status": 200
       },
       "field_sources": {
@@ -329,7 +329,7 @@
       "affiliated": true,
       "public_metadata": {
         "source_url": "https://www.scraperapi.com/pricing/",
-        "observed_at": "2026-10-31T17:55:44Z",
+        "observed_at": "2026-11-01T18:33:30Z",
         "title": "Compare Plans and Get Started for Free - ScraperAPI Pricing",
         "description": "Not sure which ScraperAPI plan is right for you? Quickly compare our plans to choose the one that best fits your needs and budget.",
         "price_excerpts": [
@@ -338,14 +338,14 @@
           "For low-volume scraping workflows. $149 /month $134.10 /month billed annually Start Trial 1,000,000 API",
           "me scraping workflows. $149 /month $134.10 /month billed annually Start Trial 1,000,000 API Credits 50 Conc"
         ],
-        "content_sha256": "3dde252dfab525e953f353b91126bb8d6ca8beac4c41e203cac0be534ba8a1da",
+        "content_sha256": "ed7f86d3a8af2e93eb7c8d3ead48b76bdae0167f3ba65a80639bb0e6aa14fd80",
         "http_status": 200,
-        "page_fetch_seconds": 0.342
+        "page_fetch_seconds": 0.335
       },
       "metadata_source": "live",
       "probe": {
         "ok": true,
-        "checked_at": "2026-10-31T17:55:44Z",
+        "checked_at": "2026-11-01T18:33:30Z",
         "http_status": 200
       },
       "field_sources": {
@@ -461,7 +461,7 @@
       "affiliated": false,
       "public_metadata": {
         "source_url": "https://crawlbase.com/pricing",
-        "observed_at": "2026-10-31T17:55:45Z",
+        "observed_at": "2026-11-01T18:33:30Z",
         "title": "Pricing: One Rate Card for Every Product | Crawlbase",
         "description": "One pay as you go rate card covers the Crawling API, the Crawler, Smart AI Proxy and Cloud Storage. Pay only for successful requests. Start free.",
         "price_excerpts": [
@@ -470,14 +470,14 @@
           "me grows. Rates from $3.00 down to $0.02 per 1,000 Optional hard spend cap Billed monthly in arrears, for",
           "used Start free Subscription From $99 / mo A monthly block of credits at a lower effective rate. Usage"
         ],
-        "content_sha256": "6311a5409841145ceed0545bdd491e43e8e83a894a0d2ca53e4b3d032c8cfb10",
+        "content_sha256": "22820377731df22e78bac0a123d94ad9d5f9b2eb1568c7d20affe3cea6224a42",
         "http_status": 200,
-        "page_fetch_seconds": 0.5
+        "page_fetch_seconds": 0.59
       },
       "metadata_source": "live",
       "probe": {
         "ok": true,
-        "checked_at": "2026-10-31T17:55:45Z",
+        "checked_at": "2026-11-01T18:33:30Z",
         "http_status": 200
       },
       "field_sources": {
