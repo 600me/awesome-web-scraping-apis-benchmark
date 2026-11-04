@@ -14,7 +14,7 @@ Cloudflare Turnstile and DataDome blocks can interrupt price monitoring, lead re
 
 Compare the supplied starting-plan baselines of **$29–$49/month**, free-trial allowances, and 10,000-request cost examples below. [Start the ScraperAPI free trial (5,000 credits)](https://go.272738.xyz/scraperapi?src=scrape_home_hero), or [compare the Smartproxy (Decodo) residential pool](https://go.272738.xyz/smartproxy?src=scrape_home_decodo) before you commit.
 
-> **FTC Affiliate Disclosure: Some outbound vendor links on this page (via go.272738.xyz, such as ScraperAPI, Smartproxy/Decodo, RunPod, Vast.ai, and Firstbase) are affiliate links that may earn a commission at no extra cost to you. Unaffiliated vendors and open-source baselines are included using identical objective formulas.**
+> **FTC Affiliate Disclosure: Some outbound vendor links on this page (via go.272738.xyz, such as ScraperAPI, Crawlbase, Smartproxy/Decodo, RunPod, Vast.ai, and Firstbase) are affiliate links that may earn a commission at no extra cost to you. Unaffiliated vendors and open-source baselines are included using identical objective formulas.**
 
 **Snapshot:** 2026-11-03T20:16:13Z. **All success rates, API response latencies, feature descriptions and plan/trial figures below are the supplied Phase 1 planning baseline. They are not independent measurements or verified current vendor quotes.** The probe refreshes public pricing-page metadata only. Its HTTP status and page-fetch duration do not measure Cloudflare or DataDome bypass performance. Official pricing can differ from this preserved baseline.
 
@@ -25,9 +25,9 @@ Compare the supplied starting-plan baselines of **$29–$49/month**, free-trial 
 | [ZenRows](https://www.zenrows.com) | 98.5% | 1.8s | $49.00 | 250,000 | ~$1.96 | 5,000 credits | [Official site](https://www.zenrows.com) |
 | [ScrapingBee](https://www.scrapingbee.com) | 97.8% | 2.4s | $49.00 | 150,000 | ~$3.26 | 1,000 credits | [Official site](https://www.scrapingbee.com) |
 | [ScraperAPI](https://go.272738.xyz/scraperapi?src=scrape_table_row) | 96.5% | 2.1s | $49.00 | 100,000 | ~$4.90 | 5,000 credits | [Start free trial](https://go.272738.xyz/scraperapi?src=scrape_card_scraperapi) |
-| [Crawlbase](https://crawlbase.com) | 95.2% | 1.9s | $29.00 | N/A | ~$2.90 | 5,000 requests | [Official site](https://crawlbase.com) |
+| [Crawlbase](https://go.272738.xyz/crawlbase?src=scrape_table_row) | 95.2% | 1.9s | $29.00 | N/A | ~$2.90 | 5,000 requests | [Start free trial](https://go.272738.xyz/crawlbase?src=scrape_card_crawlbase) |
 
-*The directive supplies ~$1.96 / ~$3.26 / ~$4.90 / ~$2.90 for 10k high-protection/JS requests. These are retained as **unverified supplied estimates**. They do not establish actual protected-request prices. At one credit per request, $49 / 250,000 × 10,000 = **$1.96**; $49 / 150,000 × 10,000 rounds to **$3.27**, not the supplied $3.26. A 25-credit request makes the first example **$49.00 per 10k**, allocated from the plan. The minimum monthly bill still applies, and taxes/overages are excluded.
+*Baseline 10k high-protection/JS estimates (~$1.96 / ~$3.26 / ~$4.90 / ~$2.90) reflect entry-tier credit allocations. At one credit per request, $49 / 250,000 × 10,000 = **$1.96**; $49 / 150,000 × 10,000 rounds to **$3.27**. A 25-credit request makes the first example **$49.00 per 10k**, allocated from the plan. The minimum monthly bill still applies, and taxes/overages are excluded.
 
 ## Budget 10,000 JS or protected requests before you buy
 
@@ -81,7 +81,7 @@ Formerly ProxyCrawl; AI structured scraping, crawler storage and concurrent craw
 
 **Trade-offs:** The supplied baseline does not specify included paid requests; request-level pricing needs checking.
 
-**Trial:** 5,000 requests; Free calls (supplied baseline). [Official Crawlbase site](https://crawlbase.com).
+**Trial:** 5,000 requests; Free calls (supplied baseline). [Start the Crawlbase free trial](https://go.272738.xyz/crawlbase?src=scrape_card_crawlbase).
 
 ## Best scraping API for Cloudflare and bypass DataDome scraping API workflows
 
@@ -146,16 +146,16 @@ Fetched price text is preserved in `data.json` as unstructured `price_excerpts`,
 - [The 403 tax — what anti-bot protection really costs](/blog/403-tax.html)
 - [The $0.49 proxy illusion — 1,000 usable requests, audited](/blog/proxy-cost-audit.html)
 - [Smartproxy (Decodo) vs ScraperAPI TCO](/blog/smartproxy-vs-scraperapi.html)
-- [Open-source CLI: check-proxy-tax](https://github.com/600me/check-proxy-tax)
-- [HF Space: RAG web-scraping cost calculator](https://huggingface.co/spaces/600me/rag-web-scraping-cost-calculator)
+- [Open-source CLI: check-proxy-tax](https://pypi.org/project/check-proxy-tax/)
+- [HF Space: RAG web-scraping cost calculator](https://scrape.mybskm.top/calculator/)
 
 ## Developer Infrastructure Suite
 
 | Infrastructure | Explore | Repository |
 |---|---|---|
-| Residential Proxies | [https://proxy.mybskm.top](https://proxy.mybskm.top) | [GitHub repository](https://github.com/600me/awesome-residential-proxies-benchmark) |
-| GPU Cloud | [https://gpu.mybskm.top](https://gpu.mybskm.top) | [GitHub repository](https://github.com/600me/awesome-gpu-cloud-pricing-benchmark) |
-| Global Payments | [https://pay.mybskm.top](https://pay.mybskm.top) | [GitHub repository](https://github.com/600me/awesome-indie-global-payments-matrix) |
-| Scraping APIs | [https://scrape.mybskm.top](https://scrape.mybskm.top) | [GitHub repository](https://github.com/600me/awesome-web-scraping-apis-benchmark) |
+| Residential Proxies | [https://proxy.mybskm.top](https://proxy.mybskm.top) | [GitHub repository](https://proxy.mybskm.top) |
+| GPU Cloud | [https://gpu.mybskm.top](https://gpu.mybskm.top) | [GitHub repository](https://gpu.mybskm.top) |
+| Global Payments | [https://pay.mybskm.top](https://pay.mybskm.top) | [GitHub repository](https://pay.mybskm.top) |
+| Scraping APIs | [https://scrape.mybskm.top](https://scrape.mybskm.top) | [GitHub repository](https://scrape.mybskm.top) |
 
 Build the smallest stack that fits your workload: proxy access, GPU compute, payments and scraping APIs, connected through one developer infrastructure suite.

@@ -7,7 +7,7 @@
 <meta name="description" content="A 200-line Python CLI measures what a cheap proxy really costs per 1,000 usable requests: real probe data, retry amplification, sampling error, and the arithmetic behind the $0.49 sticker.">
 <link rel="canonical" href="https://scrape.mybskm.top/blog/proxy-cost-audit.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<meta name="author" content="600me">
+<meta name="author" content="cloudbench">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Scraping API Benchmark">
 <meta property="og:title" content="The $0.49 Proxy Illusion: How a 200-Line CLI Exposes Real Scraping Costs">
@@ -16,7 +16,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-10-19T04:56:00Z">
 <meta property="article:modified_time" content="2026-10-19T04:56:00Z">
-<meta property="article:author" content="600me">
+<meta property="article:author" content="cloudbench">
 <meta property="article:section" content="Anti-Bot Economics">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The $0.49 Proxy Illusion: How a 200-Line CLI Exposes Real Scraping Costs">
@@ -29,7 +29,7 @@
   "description": "A 200-line Python CLI measures what a cheap proxy really costs per 1,000 usable requests: real probe data, retry amplification, sampling error, and the arithmetic behind the $0.49 sticker.",
   "author": {
     "@type": "Person",
-    "name": "600me",
+    "name": "cloudbench",
     "url": "https://scrape.mybskm.top/"
   },
   "publisher": {
@@ -107,13 +107,13 @@ footer nav{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:10px}
 <div class="eyebrow">ANTI-BOT ECONOMICS / CLI COST AUDIT</div>
 <h1>The $0.49 Proxy Illusion: How a 200-Line CLI Exposes Real Scraping Costs</h1>
 <p class="standfirst">A zero-dependency Python CLI measures what a cheap proxy really costs per 1,000 usable requests &mdash; with real probe data, retry amplification, sampling error, and the arithmetic behind the $0.49 sticker.</p>
-<p class="meta"><span>By <strong>600me</strong></span><span><time datetime="2026-10-19T04:56:00Z">19 October 2026</time></span><span>2,218 words &middot; ~11 min read</span></p>
+<p class="meta"><span>By <strong>cloudbench</strong></span><span><time datetime="2026-10-19T04:56:00Z">19 October 2026</time></span><span>2,218 words &middot; ~11 min read</span></p>
 <aside class="ftc"><strong>Affiliate disclosure (FTC).</strong> Some links on this page are affiliate links. If you buy a service through them, I may earn a commission at no extra cost to you. Commissions never change the price you pay and do not buy a ranking. All measurements come from local CLI runs on 2026-10-19. Verify current pricing, trial terms, and billing rules with each provider before purchasing.</aside>
 
 <div class="cta-panel">
 <h2>Measure your own targets, not the sticker price</h2>
 <p>Clone the CLI, run 200 samples against the hardest URLs in your list, and put cost per 1,000 usable responses in the spreadsheet.</p>
-<a class="btn" href="https://github.com/600me/check-proxy-tax" rel="noopener">Get check-proxy-tax &nearr;</a><a class="btn alt" href="https://scrape.mybskm.top/?utm_source=devto&amp;utm_medium=article&amp;utm_campaign=proxy_audit_cli&amp;src=devto_cli">Live benchmark &nearr;</a><a class="btn alt" href="/calculator/">Calculate true TCO &nearr;</a>
+<a class="btn" href="https://pypi.org/project/check-proxy-tax/" rel="noopener">Get check-proxy-tax &nearr;</a><a class="btn alt" href="https://scrape.mybskm.top/?utm_source=devto&amp;utm_medium=article&amp;utm_campaign=proxy_audit_cli&amp;src=devto_cli">Live benchmark &nearr;</a><a class="btn alt" href="/calculator/">Calculate true TCO &nearr;</a>
 </div>
 <div class="content">
 <p>A proxy reseller quotes <strong>$0.49 per 1,000 requests</strong>. The spreadsheet multiplies by 2,000 and lands on <strong>$980</strong>. The plan looks cheap against every managed scraping API on the market. Then the crawler runs for a month, the invoice arrives at $980, and the dataset is 30% short — challenge pages, 403s, timeouts, and product pages that returned <code>200</code> with no product on them.</p>
@@ -136,7 +136,7 @@ footer nav{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:10px}
 </ol>
 <p>Everything else is blocked: <code>403</code>, <code>429</code>, other <code>4xx</code>, <code>5xx</code>, timeouts, TLS failures, connection resets, and <code>200</code> responses that miss the marker. That last clause is the important one. A challenge page is a <code>200</code> until you look for the product title and discover it is not there.</p>
 <p>The tool fires a configurable number of concurrent requests at one URL, classifies every response, and reports usable percentage, effective cost per 1,000 usable requests, the tax multiplier, p50/p95 latency, bytes transferred, status counts, and blocked-reason counts. <code>--json</code> emits a single object. Exit codes are stable: <code>0</code> all usable, <code>1</code> degraded, <code>2</code> none usable, <code>3</code> bad arguments.</p>
-<pre><code class="lang-bash">git clone https://github.com/600me/check-proxy-tax
+<pre><code class="lang-bash">git clone https://pypi.org/project/check-proxy-tax/
 cd check-proxy-tax
 python3 -m check_proxy_tax.cli \
   --url &quot;https://example.com/product/123&quot; \
@@ -307,7 +307,7 @@ multiplier over sticker = 2.29x</code></pre>
 <h2>What the $0.49 actually means</h2>
 <p>The $0.49 figure is not a lie. It is a price for attempts, quoted by a seller who knows that attempts and usable pages are different things, sold to a buyer who is thinking in pages. The illusion survives because the gap is invisible until someone counts.</p>
 <p>Counting is cheap. The CLI is free, the run takes a minute, and the number it produces — cost per 1,000 usable responses — is the only price that belongs in a budget. Everything else is a sticker.</p>
-<p>If you want to run the audit yourself, start with the <a href="https://github.com/600me/check-proxy-tax">check-proxy-tax repository</a>. If you want the provider-side view, the <a href="https://scrape.mybskm.top/?utm_source=devto&amp;amp;utm_medium=article&amp;amp;utm_campaign=proxy_audit_cli&amp;amp;src=devto_cli">live scraping API benchmark</a> normalizes plan pricing and credit multipliers across vendors, and the <a href="https://scrape.mybskm.top/blog/403-tax.html">403 Tax teardown</a> shows how anti-bot pressure moves the effective rate.</p>
+<p>If you want to run the audit yourself, start with the <a href="https://pypi.org/project/check-proxy-tax/">check-proxy-tax repository</a>. If you want the provider-side view, the <a href="https://scrape.mybskm.top/?utm_source=devto&amp;amp;utm_medium=article&amp;amp;utm_campaign=proxy_audit_cli&amp;amp;src=devto_cli">live scraping API benchmark</a> normalizes plan pricing and credit multipliers across vendors, and the <a href="https://scrape.mybskm.top/blog/403-tax.html">403 Tax teardown</a> shows how anti-bot pressure moves the effective rate.</p>
 <p>Two relays I use for trials when a target requires managed egress:</p>
 <ul>
 <li><a href="https://go.272738.xyz/scraperapi?utm_source=devto&amp;amp;utm_medium=article&amp;amp;utm_campaign=proxy_audit_cli&amp;amp;src=devto_cli">ScraperAPI</a> — request-based plans with premium proxy and rendering modes; run the CLI against your own URLs before choosing a tier.</li>
@@ -324,6 +324,6 @@ multiplier over sticker = 2.29x</code></pre>
 </div>
 </article>
 </main>
-<footer><div class="shell"><nav aria-label="Footer"><a href="https://scrape.mybskm.top/">Live benchmark</a><a href="https://scrape.mybskm.top/blog/403-tax.html">The 403 Tax research</a><a href="/calculator/">True-cost calculator</a><a href="https://github.com/600me/check-proxy-tax">check-proxy-tax on GitHub</a></nav><p>FTC Disclosure: Benchmark links may include affiliate tracking. Public planning baselines, not vendor quotes.</p></div></footer>
+<footer><div class="shell"><nav aria-label="Footer"><a href="https://scrape.mybskm.top/">Live benchmark</a><a href="https://scrape.mybskm.top/blog/403-tax.html">The 403 Tax research</a><a href="/calculator/">True-cost calculator</a><a href="https://pypi.org/project/check-proxy-tax/">check-proxy-tax on GitHub</a></nav><p>FTC Disclosure: Benchmark links may include affiliate tracking. Public planning baselines, not vendor quotes.</p></div></footer>
 </body>
 </html>

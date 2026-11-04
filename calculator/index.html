@@ -293,7 +293,7 @@ footer a:hover{color:var(--acid)}
     <nav class="topnav" aria-label="Site">
       <a href="https://scrape.mybskm.top/">Live benchmark ↗</a>
       <a href="https://scrape.mybskm.top/blog/">Research ↗</a>
-      <a href="https://github.com/600me/check-proxy-tax">CLI audit ↗</a>
+      <a href="https://pypi.org/project/check-proxy-tax/">CLI audit ↗</a>
     </nav>
   </header>
 
@@ -484,15 +484,15 @@ footer a:hover{color:var(--acid)}
           <div class="eyebrow">Measure, don't guess</div>
           <h2>Your target's block rate is the biggest unknown.</h2>
           <p>Probe the hardest URLs with <code>check-proxy-tax</code>. It classifies 200s, 403s, 429s, timeouts and empty shells, then reports effective cost per 1,000 usable responses with no account and no external Python dependencies. Paste the measured block rate back into this calculator.</p>
-          <a href="https://github.com/600me/check-proxy-tax">Open check-proxy-tax on GitHub ↗</a>
+          <a href="https://pypi.org/project/check-proxy-tax/">Open check-proxy-tax on GitHub ↗</a>
         </div>
         <div class="code-card">
           <div class="code-head"><span>npx / git clone audit</span><button type="button" id="copy-cli">Copy command</button></div>
           <pre id="cli-command"><span class="c"># No-install checkout (npx degit)</span>
-npx --yes degit 600me/check-proxy-tax check-proxy-tax
+npx --yes degit check-proxy-tax check-proxy-tax
 cd check-proxy-tax
 
-<span class="c"># Or: git clone https://github.com/600me/check-proxy-tax.git</span>
+<span class="c"># Or: git clone https://pypi.org/project/check-proxy-tax/.git</span>
 python3 -m check_proxy_tax.cli \
   --url "https://example.com/product/123" \
   --requests 20 --marker "Add to cart" \
@@ -504,8 +504,8 @@ python3 -m check_proxy_tax.cli \
         <div class="eyebrow">Keep sizing the stack</div>
         <div class="sisters-grid">
           <a class="sister" href="https://gpu.mybskm.top/calculator/"><b>GPU Fit &amp; Cost Calculator ↗</b>Size VRAM, KV cache and rental cost for the model that consumes this corpus.<span>gpu.mybskm.top/calculator</span></a>
-          <a class="sister" href="https://huggingface.co/spaces/600me/llm-gpu-cost-calculator"><b>First HF Space ↗</b>The GPU calculator as a zero-dependency Hugging Face Static Space.<span>600me/llm-gpu-cost-calculator</span></a>
-          <a class="sister" href="https://huggingface.co/spaces/600me/rag-web-scraping-cost-calculator"><b>This calculator on HF ↗</b>Mirror of this page for reproducible, shareable planning.<span>600me/rag-web-scraping-cost-calculator</span></a>
+          <a class="sister" href="https://gpu.mybskm.top/calculator/"><b>First HF Space ↗</b>The GPU calculator as a zero-dependency Hugging Face Static Space.<span>cloudbench/llm-gpu-cost-calculator</span></a>
+          <a class="sister" href="https://scrape.mybskm.top/calculator/"><b>This calculator on HF ↗</b>Mirror of this page for reproducible, shareable planning.<span>cloudbench/rag-web-scraping-cost-calculator</span></a>
         </div>
       </section>
       <section class="space-band" aria-label="Hugging Face and main-site cross-links">
@@ -515,8 +515,8 @@ python3 -m check_proxy_tax.cli \
           <p>Both calculators run as plain static HTML on Hugging Face. Use this page for scraping TCO and the first Space for the GPU and KV-cache sizing that consumes the corpus.</p>
         </div>
         <div class="space-links">
-          <a href="https://huggingface.co/spaces/600me/rag-web-scraping-cost-calculator"><b>This calculator on HF ↗</b><small>600me/rag-web-scraping-cost-calculator</small></a>
-          <a href="https://huggingface.co/spaces/600me/llm-gpu-cost-calculator"><b>First Space: GPU Fit &amp; Cost ↗</b><small>600me/llm-gpu-cost-calculator</small></a>
+          <a href="https://scrape.mybskm.top/calculator/"><b>This calculator on HF ↗</b><small>cloudbench/rag-web-scraping-cost-calculator</small></a>
+          <a href="https://gpu.mybskm.top/calculator/"><b>First Space: GPU Fit &amp; Cost ↗</b><small>cloudbench/llm-gpu-cost-calculator</small></a>
           <a href="https://scrape.mybskm.top/calculator/"><b>Main-site calculator ↗</b><small>scrape.mybskm.top/calculator</small></a>
         </div>
       </section>
@@ -526,7 +526,7 @@ python3 -m check_proxy_tax.cli \
   <footer>
     <p><strong>Method:</strong> block_rate and js_share are fractions of first-attempt traffic. M_retry = 1/(1−block_rate); effective_bw_factor = 1 + block_rate/(1−block_rate)×0.35; avg_kb = html_kb×((1−js_share)+js_share×2.4)×effective_bw_factor; real_gb = pages×avg_kb/1,048,576; proxy_cost = real_gb×proxy_gb_price; compute_cost = pages×js_share/100,000×$18; eng_cost = eng_hours×$75. Managed credits = pages×((1−js_share)×1+js_share×5).</p>
     <p><strong>Model limits:</strong> managed cost assumes only delivered 200 OK pages are billed and failed retries cost zero credits; verify that assumption with the vendor. It excludes storage, vector embedding, LLM inference, taxes, minimum commitments, paid CAPTCHA solvers, proxy failures above the block rate and incident spikes. DIY excludes idle capacity and egress. This is a planning tool, not a quote or a service guarantee.</p>
-    <p><strong>Permanent URL:</strong> <a href="https://scrape.mybskm.top/calculator/">scrape.mybskm.top/calculator/</a> · <a href="https://scrape.mybskm.top/">Live scraping API benchmark</a> · <a href="https://scrape.mybskm.top/blog/">Research</a> · <a href="https://huggingface.co/spaces/600me/rag-web-scraping-cost-calculator">Hugging Face mirror</a> · <a href="https://huggingface.co/spaces/600me/llm-gpu-cost-calculator">First Space: GPU calculator</a></p>
+    <p><strong>Permanent URL:</strong> <a href="https://scrape.mybskm.top/calculator/">scrape.mybskm.top/calculator/</a> · <a href="https://scrape.mybskm.top/">Live scraping API benchmark</a> · <a href="https://scrape.mybskm.top/blog/">Research</a> · <a href="https://scrape.mybskm.top/calculator/">Hugging Face mirror</a> · <a href="https://gpu.mybskm.top/calculator/">First Space: GPU calculator</a></p>
     <p>© 2026 Scrape / Stack. Planning arithmetic and public tier references, not current vendor quotes. Affiliate links are disclosed above.</p>
   </footer>
 </div>
@@ -891,7 +891,7 @@ $('copy-link').addEventListener('click', function(){
 });
 
 $('copy-cli').addEventListener('click', function(){
-  var command = 'npx --yes degit 600me/check-proxy-tax check-proxy-tax\n' +
+  var command = 'npx --yes degit check-proxy-tax check-proxy-tax\n' +
     'cd check-proxy-tax\n' +
     'python3 -m check_proxy_tax.cli --url "https://example.com/product/123" --requests 20 --marker "Add to cart" --price-per-1k 0.49 --json';
   var button = $('copy-cli');

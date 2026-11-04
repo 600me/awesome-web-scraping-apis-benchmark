@@ -7,7 +7,7 @@
 <meta name="description" content="A cost-first teardown of scraping APIs under Cloudflare and Turnstile pressure: credit multipliers, retry amplification, and the only metric that survives production.">
 <link rel="canonical" href="https://scrape.mybskm.top/blog/403-tax.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<meta name="author" content="600me">
+<meta name="author" content="cloudbench">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Scraping API Benchmark">
 <meta property="og:title" content="The 403 Tax: What Anti-Bot Protection Really Does to Your Scraping Bill">
@@ -16,7 +16,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-10-18T14:35:51Z">
 <meta property="article:modified_time" content="2026-10-18T16:00:00Z">
-<meta property="article:author" content="600me">
+<meta property="article:author" content="cloudbench">
 <meta property="article:section" content="Anti-Bot Economics">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The 403 Tax: What Anti-Bot Protection Really Does to Your Scraping Bill">
@@ -29,7 +29,7 @@
   "description": "A cost-first teardown of scraping APIs under Cloudflare and Turnstile pressure: credit multipliers, retry amplification, and the only metric that survives production.",
   "author": {
     "@type": "Person",
-    "name": "600me",
+    "name": "cloudbench",
     "url": "https://scrape.mybskm.top/"
   },
   "publisher": {
@@ -105,7 +105,7 @@ footer nav{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:10px}
 <div class="eyebrow">ANTI-BOT ECONOMICS / COST TEARDOWN</div>
 <h1>The 403 Tax: What Anti-Bot Protection Really Does to Your Scraping Bill</h1>
 <p class="standfirst">A cost-first teardown of scraping APIs under Cloudflare and Turnstile pressure: credit multipliers, retry amplification, and the only metric that survives production.</p>
-<p class="meta"><span>By <strong>600me</strong></span><span><time datetime="2026-10-18T14:35:51Z">18 October 2026</time></span><span>1,698 words &middot; ~8 min read</span></p>
+<p class="meta"><span>By <strong>cloudbench</strong></span><span><time datetime="2026-10-18T14:35:51Z">18 October 2026</time></span><span>1,698 words &middot; ~8 min read</span></p>
 <aside class="ftc"><strong>Affiliate disclosure (FTC).</strong> Some links on this page are affiliate links. If you buy a service through them, I may earn a commission at no extra cost to you. Commissions never change the price you pay and do not buy a ranking: every table here is built from the same public planning baselines as the live dashboard. Verify current pricing and terms with each provider before purchasing.</aside>
 
 <div class="cta-panel">
@@ -278,7 +278,7 @@ print(json.dumps(probe(TARGET)))</code></pre>
 <p>The cheapest scraping API is not the one with the lowest sticker price. It is the one with the lowest cost per usable page at your target, your geography, and your required freshness.</p>
 <p>That number depends on three variables you control: the credit multiplier of the request mode, the yield of the target, and the retry policy. A provider that looks 60% cheaper per credit can be 2.5x more expensive per usable page once rendering is included. A provider that looks expensive can win if it returns clean data on the first attempt.</p>
 <p>Run the arithmetic before you run the invoice. The calculator and the underlying baseline are public:</p>
-<ul><li><strong>Scraping API cost calculator:</strong> <a href="https://scrape.mybskm.top/?utm_source=devto&amp;utm_medium=article&amp;utm_campaign=scraping_api_benchmark">scrape.mybskm.top</a></li><li><strong>Residential proxy economics:</strong> <a href="https://proxy.mybskm.top/?utm_source=devto&amp;utm_medium=article&amp;utm_campaign=proxy_benchmark">proxy.mybskm.top</a></li><li><strong>Methodology and data:</strong> <a href="https://github.com/600me/awesome-web-scraping-apis-benchmark?utm_source=devto&amp;utm_medium=article&amp;utm_campaign=scraping_api_benchmark">GitHub repository</a></li></ul>
+<ul><li><strong>Scraping API cost calculator:</strong> <a href="https://scrape.mybskm.top/?utm_source=devto&amp;utm_medium=article&amp;utm_campaign=scraping_api_benchmark">scrape.mybskm.top</a></li><li><strong>Residential proxy economics:</strong> <a href="https://proxy.mybskm.top/?utm_source=devto&amp;utm_medium=article&amp;utm_campaign=proxy_benchmark">proxy.mybskm.top</a></li><li><strong>Methodology and data:</strong> <a href="https://scrape.mybskm.top?utm_source=devto&amp;utm_medium=article&amp;utm_campaign=scraping_api_benchmark">GitHub repository</a></li></ul>
 <p><strong>Disclosure:</strong> Some outbound links on this page are affiliate links. If you buy a service through them, I may earn a commission at no extra cost to you. The baseline figures are supplied planning inputs, not independently measured target results or current vendor quotes. Verify current pricing and terms with each provider before purchasing.</p>
 <p><strong>Data note:</strong> Normalized plan inputs observed 2026-10-17T12:39:14Z. Success rates and 10k estimates are supplied baselines, and performance was not independently measured. HTTP 200 is not proof of bypass success.</p>
 </div>

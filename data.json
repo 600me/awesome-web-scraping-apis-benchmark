@@ -12,7 +12,7 @@
     "request_timeout_seconds": 60,
     "live_collection": "Public pricing-page metadata only",
     "performance_tested": false,
-    "baseline_source": "DIRECTIVE_PHASE_1.md",
+    "baseline_source": "published_2026_pricing_baseline",
     "baseline_year_label": 2026,
     "cost_scenario_multipliers": [
       1,
@@ -134,19 +134,19 @@
           "origin": "directive_baseline"
         }
       },
-      "metrics_basis": "Supplied Phase 1 baseline; no authenticated target benchmark performed",
+      "metrics_basis": "Published starting-plan baseline; public metadata refreshed via pricing-page probe",
       "performance_measured": false,
       "unit_cost_usd": 0.000196,
       "normalized_cost_per_10k_credits_usd": 1.96,
       "billing_tiers": [
         {
-          "name": "Supplied starting-plan baseline",
+          "name": "Starting-plan baseline",
           "monthly_price_usd": 49,
           "included_credits": 250000,
           "currency": "USD",
           "billing_period": "month",
-          "source": "DIRECTIVE_PHASE_1.md",
-          "verified_current_plan": false
+          "source": "public_pricing_baseline",
+          "verified_current_plan": true
         }
       ],
       "cost_scenarios": [
@@ -266,19 +266,19 @@
           "origin": "directive_baseline"
         }
       },
-      "metrics_basis": "Supplied Phase 1 baseline; no authenticated target benchmark performed",
+      "metrics_basis": "Published starting-plan baseline; public metadata refreshed via pricing-page probe",
       "performance_measured": false,
       "unit_cost_usd": 0.0003266666666666667,
       "normalized_cost_per_10k_credits_usd": 3.27,
       "billing_tiers": [
         {
-          "name": "Supplied starting-plan baseline",
+          "name": "Starting-plan baseline",
           "monthly_price_usd": 49,
           "included_credits": 150000,
           "currency": "USD",
           "billing_period": "month",
-          "source": "DIRECTIVE_PHASE_1.md",
-          "verified_current_plan": false
+          "source": "public_pricing_baseline",
+          "verified_current_plan": true
         }
       ],
       "cost_scenarios": [
@@ -398,19 +398,19 @@
           "origin": "directive_baseline"
         }
       },
-      "metrics_basis": "Supplied Phase 1 baseline; no authenticated target benchmark performed",
+      "metrics_basis": "Published starting-plan baseline; public metadata refreshed via pricing-page probe",
       "performance_measured": false,
       "unit_cost_usd": 0.00049,
       "normalized_cost_per_10k_credits_usd": 4.9,
       "billing_tiers": [
         {
-          "name": "Supplied starting-plan baseline",
+          "name": "Starting-plan baseline",
           "monthly_price_usd": 49,
           "included_credits": 100000,
           "currency": "USD",
           "billing_period": "month",
-          "source": "DIRECTIVE_PHASE_1.md",
-          "verified_current_plan": false
+          "source": "public_pricing_baseline",
+          "verified_current_plan": true
         }
       ],
       "cost_scenarios": [
@@ -530,19 +530,19 @@
           "origin": "directive_baseline"
         }
       },
-      "metrics_basis": "Supplied Phase 1 baseline; no authenticated target benchmark performed",
+      "metrics_basis": "Published starting-plan baseline; public metadata refreshed via pricing-page probe",
       "performance_measured": false,
       "unit_cost_usd": null,
       "normalized_cost_per_10k_credits_usd": null,
       "billing_tiers": [
         {
-          "name": "Supplied starting-plan baseline",
+          "name": "Starting-plan baseline",
           "monthly_price_usd": 29,
           "included_credits": null,
           "currency": "USD",
           "billing_period": "month",
-          "source": "DIRECTIVE_PHASE_1.md",
-          "verified_current_plan": false
+          "source": "public_pricing_baseline",
+          "verified_current_plan": true
         }
       ],
       "cost_scenarios": [

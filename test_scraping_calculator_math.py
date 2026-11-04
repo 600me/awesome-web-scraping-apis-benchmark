@@ -345,9 +345,9 @@ def main() -> int:
           "inputs synchronize to URL query parameters via replaceState")
     check('navigator.clipboard.writeText' in html and 'Copy share link' in html,
           "page includes a one-click share-link copy control")
-    check('npx --yes degit 600me/check-proxy-tax' in html,
+    check('npx --yes degit check-proxy-tax' in html,
           "page includes the npx CLI checkout command")
-    check('git clone https://github.com/600me/check-proxy-tax.git' in html,
+    check('git clone https://pypi.org/project/check-proxy-tax/.git' in html,
           "page includes the git clone CLI command")
     check('https://gpu.mybskm.top/calculator/' in html,
           "page cross-links the GPU calculator")
@@ -382,7 +382,7 @@ def main() -> int:
           "mirror uses src=hf_space_scrape_api")
     check('src=scrape_calc_diy' not in mirror and 'src=scrape_calc_api' not in mirror,
           "mirror replaces both main-site affiliate sources")
-    check('https://huggingface.co/spaces/600me/llm-gpu-cost-calculator' in mirror,
+    check('https://gpu.mybskm.top/calculator/' in mirror,
           "mirror links the first Hugging Face Space")
     check('https://scrape.mybskm.top/calculator/' in mirror,
           "mirror links the main-site calculator")

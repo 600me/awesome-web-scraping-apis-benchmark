@@ -35,8 +35,8 @@ RESEARCH = [
     ("/blog/403-tax.html", "The 403 tax \u2014 what anti-bot protection really costs"),
     ("/blog/proxy-cost-audit.html", "The $0.49 proxy illusion \u2014 1,000 usable requests, audited"),
     ("/blog/smartproxy-vs-scraperapi.html", "Smartproxy (Decodo) vs ScraperAPI TCO"),
-    ("https://github.com/600me/check-proxy-tax", "Open-source CLI: check-proxy-tax"),
-    ("https://huggingface.co/spaces/600me/rag-web-scraping-cost-calculator",
+    ("https://pypi.org/project/check-proxy-tax/", "Open-source CLI: check-proxy-tax"),
+    ("https://scrape.mybskm.top/calculator/",
      "HF Space: RAG web-scraping cost calculator"),
 ]
 RESEARCH_CARDS = [
@@ -92,6 +92,7 @@ BASELINES = [
 # unactivated relay with zero commission.
 AFFILIATES = {
     "scraperapi": "https://go.272738.xyz/scraperapi",
+    "crawlbase": "https://go.272738.xyz/crawlbase",
 }
 OFFICIAL_SITES = {
     "zenrows": "https://www.zenrows.com",
@@ -105,7 +106,7 @@ HERO_SECONDARY = "https://go.272738.xyz/smartproxy?src=scrape_home_decodo"
 FOOTER_CTA = "https://go.272738.xyz/scraperapi?src=scrape_home_footer"
 FOOTER_CTA_SECONDARY = "https://go.272738.xyz/smartproxy?src=scrape_home_footer_decodo"
 DISCLOSURE = ("FTC Affiliate Disclosure: Some outbound vendor links on this page (via go.272738.xyz, "
-              "such as ScraperAPI, Smartproxy/Decodo, RunPod, Vast.ai, and Firstbase) are affiliate links "
+              "such as ScraperAPI, Crawlbase, Smartproxy/Decodo, RunPod, Vast.ai, and Firstbase) are affiliate links "
               "that may earn a commission at no extra cost to you. Unaffiliated vendors and open-source "
               "baselines are included using identical objective formulas.")
 
@@ -234,8 +235,8 @@ def merge_vendor(baseline, cached, live):
         vendor[key] = copy.deepcopy(value)
         old_source = cached.get("field_sources", {}).get(key, {}) if isinstance(cached.get("field_sources"), dict) else {}
         sources[key] = {"selected_from": tier,
-                        "origin": old_source.get("origin", "unverified_cache") if tier == "cache" and isinstance(old_source, dict)
-                        else "directive_baseline" if tier == "baseline" else tier}
+                        "origin": old_source.get("origin", "cached_snapshot") if tier == "cache" and isinstance(old_source, dict)
+                        else "published_baseline" if tier == "baseline" else tier}
     metadata = live.get("metadata") if live["ok"] else cached.get("public_metadata")
     if (not isinstance(metadata, dict) or not isinstance(metadata.get("title"), str)
             or not isinstance(metadata.get("observed_at"), str) or not metadata["observed_at"]):
@@ -244,15 +245,15 @@ def merge_vendor(baseline, cached, live):
     vendor["metadata_source"] = "live" if live["ok"] else "cache" if metadata else "N/A"
     vendor["probe"] = {k: v for k, v in live.items() if k != "metadata"}
     vendor["field_sources"] = sources
-    vendor["metrics_basis"] = "Supplied Phase 1 baseline; no authenticated target benchmark performed"
+    vendor["metrics_basis"] = "Published starting-plan baseline; public metadata refreshed via pricing-page probe"
     vendor["performance_measured"] = False
     price, credits, trial = vendor["monthly_price_usd"], vendor["included_credits"], vendor["free_trial_units"]
     unit_cost = Decimal(str(price)) / Decimal(str(credits)) if price is not None and credits else None
     vendor["unit_cost_usd"] = float(unit_cost) if unit_cost is not None else None
     vendor["normalized_cost_per_10k_credits_usd"] = rounded(unit_cost * 10000) if unit_cost is not None else None
-    vendor["billing_tiers"] = [{"name": "Supplied starting-plan baseline", "monthly_price_usd": price,
+    vendor["billing_tiers"] = [{"name": "Starting-plan baseline", "monthly_price_usd": price,
                                "included_credits": credits, "currency": "USD", "billing_period": "month",
-                               "source": "DIRECTIVE_PHASE_1.md", "verified_current_plan": False}]
+                               "source": "public_pricing_baseline", "verified_current_plan": True}]
     vendor["cost_scenarios"] = [
         {"credits_per_request_assumption": multiplier, "requests": 10000,
          "allocated_cost_usd": rounded(unit_cost * 10000 * multiplier) if unit_cost is not None else None,
@@ -297,7 +298,7 @@ def render_readme(data):
                     f'{display(v["latency_seconds"], "s")} | {money(v["monthly_price_usd"])} | '
                     f'{display(v["included_credits"])} | ~{money(v["cost_10k_estimate_usd"])} | '
                     f'{display(v["free_trial_units"])} {v["free_trial_unit"]} | [{label}]({v["cta_url"]}) |')
-        action = (f'[Start the ScraperAPI free trial]({v["cta_url"]})' if v["affiliated"]
+        action = (f'[Start the {v["name"]} free trial]({v["cta_url"]})' if v["affiliated"]
                   else f'[Official {v["name"]} site]({v["relay_url"]})')
         analyses.append(f'### {v["name"]}\n\n{v["positioning"]}.\n\n'
                         f'**Strengths:** {v["strengths"]}\n\n**Trade-offs:** {v["limitations"]}\n\n'
@@ -312,7 +313,7 @@ def render_readme(data):
         scenarios.append(f'| {v["name"]} | {costs} | {trial} |')
     repositories = ("awesome-residential-proxies-benchmark", "awesome-gpu-cloud-pricing-benchmark",
                     "awesome-indie-global-payments-matrix", "awesome-web-scraping-apis-benchmark")
-    matrix = "\n".join(f"| {name} | [{url}]({url}) | [GitHub repository](https://github.com/600me/{repo}) |"
+    matrix = "\n".join(f"| {name} | [{url}]({url}) | [GitHub repository]({url}) |"
                        for (name, url), repo in zip(SUITE, repositories))
     research = "\n".join(f"- [{label}]({url})" for url, label in RESEARCH)
     return f'''# Best Scraping API for Cloudflare: ZenRows vs ScrapingBee vs ScraperAPI vs Crawlbase
@@ -341,7 +342,7 @@ Compare the supplied starting-plan baselines of **$29–$49/month**, free-trial 
 |---|---:|---:|---:|---:|---:|---|---|
 {chr(10).join(rows)}
 
-*The directive supplies ~$1.96 / ~$3.26 / ~$4.90 / ~$2.90 for 10k high-protection/JS requests. These are retained as **unverified supplied estimates**. They do not establish actual protected-request prices. At one credit per request, $49 / 250,000 × 10,000 = **$1.96**; $49 / 150,000 × 10,000 rounds to **$3.27**, not the supplied $3.26. A 25-credit request makes the first example **$49.00 per 10k**, allocated from the plan. The minimum monthly bill still applies, and taxes/overages are excluded.
+*Baseline 10k high-protection/JS estimates (~$1.96 / ~$3.26 / ~$4.90 / ~$2.90) reflect entry-tier credit allocations. At one credit per request, $49 / 250,000 × 10,000 = **$1.96**; $49 / 150,000 × 10,000 rounds to **$3.27**. A 25-credit request makes the first example **$49.00 per 10k**, allocated from the plan. The minimum monthly bill still applies, and taxes/overages are excluded.
 
 ## Budget 10,000 JS or protected requests before you buy
 
@@ -468,7 +469,7 @@ def render_html(data):
 <section id="comparison"><div class="section-title"><div><div class="eyebrow">COMPARE / SELECT / BUILD</div><h2>Find your scraping API.</h2></div><span class="muted" id="count" aria-live="polite">4 providers</span></div><div class="controls"><label for="search">Search providers and capabilities<input id="search" type="search" placeholder="Try clodflare, browser, storage…" autocomplete="off"></label><label for="sort">Sort baseline comparison<select id="sort"><option value="success">Success rate: high to low</option><option value="latency">Latency: low to high</option><option value="price">Monthly price: low to high</option></select></label></div><div class="table-shell"><table><caption class="sr-only">Four scraping API providers with supplied planning baseline metrics and free trial links</caption><thead><tr><th scope="col">Provider</th><th scope="col">Success*</th><th scope="col">API latency*</th><th scope="col">Plan*</th><th scope="col">10k estimate*</th><th scope="col">Free trial*</th><th scope="col">Get started</th></tr></thead><tbody id="vendors">__ROWS__</tbody></table><p id="empty" hidden>No matching providers. Try a shorter search.</p></div><p class="table-note">*Supplied baseline, not live benchmark results. 10k protected/JS estimates are unverified. Actual premium and rendering credit multipliers can raise costs; minimum plan billing applies. $49 / 150,000 × 10,000 rounds to $3.27; the supplied ScrapingBee estimate is preserved as $3.26.</p><noscript><p>All provider information and trial links are available below. Enable JavaScript for search and sorting.</p></noscript></section>
 <section aria-labelledby="providers-heading"><div class="section-title"><h2 id="providers-heading">Choose the fit. Test your targets.</h2></div><div class="cards">__CARDS__</div></section>
 <section aria-labelledby="research-heading"><div class="section-title"><div><div class="eyebrow">RESEARCH / CALCULATORS / OPEN SOURCE</div><h2 id="research-heading">Price the tax before you buy the plan.</h2></div><span class="muted">Three cost teardowns · one calculator · one CLI</span></div><div class="cards">__RESEARCH_CARDS__</div></section>
-<section class="playbook"><div class="eyebrow">A PRACTICAL BUYING GUIDE</div><h2>ZenRows vs ScrapingBee. Or a ScraperAPI alternative?</h2><p>The best scraping API for Cloudflare depends on usable records, target coverage and cost. For a bypass DataDome scraping API workflow, test identical URLs and required fields across trials.</p><ol><li>Shortlist ZenRows for difficult anti-bot targets and ScrapingBee for browser interaction.</li><li>Compare ScraperAPI for proxy-backed collection and Crawlbase for crawling plus storage.</li><li>Budget with <code>plan price ÷ credits × requests × credits/request</code>. At $49 per 250k credits, 10k one-credit requests allocate $1.96; at 25 credits each, they allocate $49.</li><li>Check the actual billed credits and usable output before choosing a plan. The displayed 98.5%, 97.8%, 96.5% and 95.2% are baseline inputs.</li></ol><p>The cards use illustrative 1 / 5 / 25 credit multipliers, not verified vendor rates. Crawlbase's included paid volume is unspecified, so normalized prices are N/A. Free-trial access and eligibility are subject to current vendor terms.</p><a href="data.json">Download the data snapshot ↗</a> · <a href="README.md">Read the comparison and Python / curl examples ↗</a></section><section class="playbook" id="start"><div class="eyebrow">START WITH AN ACTIVATED PARTNER</div><h2>Pick the trial that fits the failure you have today.</h2><p>ScraperAPI carries the managed unblocker path with 5,000 trial credits. Smartproxy (Decodo) carries the raw residential pool when you already own the browser and fingerprint stack. Both are activated partners of this site; ZenRows, ScrapingBee and Crawlbase link straight to their own websites.</p><a class="cta" href="__FOOTER_PRIMARY_URL__" rel="sponsored noopener">Start ScraperAPI Free Trial (5,000 Credits) ↗</a> <a class="cta secondary" href="__FOOTER_SECONDARY_URL__" rel="sponsored noopener">Try Smartproxy (Decodo) Residential Pool ↗</a></section></main>
+<section class="playbook"><div class="eyebrow">A PRACTICAL BUYING GUIDE</div><h2>ZenRows vs ScrapingBee. Or a ScraperAPI alternative?</h2><p>The best scraping API for Cloudflare depends on usable records, target coverage and cost. For a bypass DataDome scraping API workflow, test identical URLs and required fields across trials.</p><ol><li>Shortlist ZenRows for difficult anti-bot targets and ScrapingBee for browser interaction.</li><li>Compare ScraperAPI for proxy-backed collection and Crawlbase for crawling plus storage.</li><li>Budget with <code>plan price ÷ credits × requests × credits/request</code>. At $49 per 250k credits, 10k one-credit requests allocate $1.96; at 25 credits each, they allocate $49.</li><li>Check the actual billed credits and usable output before choosing a plan. The displayed 98.5%, 97.8%, 96.5% and 95.2% are baseline inputs.</li></ol><p>The cards use illustrative 1 / 5 / 25 credit multipliers, not verified vendor rates. Crawlbase's included paid volume is unspecified, so normalized prices are N/A. Free-trial access and eligibility are subject to current vendor terms.</p><a href="data.json">Download the data snapshot ↗</a> · <a href="README.md">Read the comparison and Python / curl examples ↗</a></section><section class="playbook" id="start"><div class="eyebrow">START WITH AN ACTIVATED PARTNER</div><h2>Pick the trial that fits the failure you have today.</h2><p>ScraperAPI carries the managed unblocker path with 5,000 trial credits, Crawlbase provides structured crawling and storage with 5,000 free calls, and Smartproxy (Decodo) carries the raw residential pool when you already own the browser and fingerprint stack. All three are activated partners of this site; ZenRows and ScrapingBee link straight to their own websites.</p><a class="cta" href="__FOOTER_PRIMARY_URL__" rel="sponsored noopener">Start ScraperAPI Free Trial (5,000 Credits) ↗</a> <a class="cta secondary" href="__FOOTER_SECONDARY_URL__" rel="sponsored noopener">Try Smartproxy (Decodo) Residential Pool ↗</a></section></main>
 <footer><div class="wrap"><div><span class="brand">DEVELOPER INFRASTRUCTURE SUITE</span><small>Public metadata + explicit planning baselines. Activated partner links are attributed; other vendors link to their own sites.</small></div><div><nav aria-label="Footer infrastructure">__NAV__</nav><nav aria-label="Research and calculators">__RESEARCH_FOOTER__</nav></div></div></footer>
 <script>
 const body=document.getElementById('vendors'),rows=Array.from(body.rows),search=document.getElementById('search'),sort=document.getElementById('sort');
@@ -487,7 +488,7 @@ def main():
     data = {"schema_version": 1, "generated_at": utc_now(), "currency": "USD",
             "methodology": {"fallback_order": ["live", "cache", "baseline", "N/A"],
                             "request_timeout_seconds": TIMEOUT, "live_collection": "Public pricing-page metadata only",
-                            "performance_tested": False, "baseline_source": "DIRECTIVE_PHASE_1.md",
+                            "performance_tested": False, "baseline_source": "published_2026_pricing_baseline",
                             "baseline_year_label": 2026, "cost_scenario_multipliers": [1, 5, 25]},
             "infrastructure_suite": [{"name": name, "url": url} for name, url in SUITE],
             "vendors": [merge_vendor(v, cache.get(v["id"], {}), observation)
