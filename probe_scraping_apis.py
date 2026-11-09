@@ -334,6 +334,24 @@ Compare the supplied starting-plan baselines of **$29–$49/month**, free-trial 
 
 > **{DISCLOSURE}**
 
+## ⚡ The Quick Verdict (For Readers in a Hurry)
+
+- **Pick [ScraperAPI](https://go.272738.xyz/scraperapi?src=scrape_readme_verdict) if** you want a turnkey unblocker API with automatic proxy rotation, CAPTCHA solving, and JS rendering — [**Start your 5,000-credit free trial (no credit card required)**](https://go.272738.xyz/scraperapi?src=scrape_readme_trial_nocard).
+- **Pick [Smartproxy (Decodo)](https://go.272738.xyz/smartproxy?src=scrape_readme_verdict) if** you already run your own Playwright/Puppeteer/curl crawlers and want the lowest $/GB residential proxy pool — [**Claim 50% OFF with code `HELLODECODO`**](https://go.272738.xyz/smartproxy?src=scrape_readme_decodo_code).
+- **Pick [Crawlbase](https://go.272738.xyz/crawlbase?src=scrape_readme_verdict) if** you need built-in asynchronous crawling + cloud storage — [**Start with 5,000 free requests**](https://go.272738.xyz/crawlbase?src=scrape_readme_crawlbase_free).
+
+## 🎟️ 2026 Plan-by-Plan Tier Breakdown & Direct Checkout Links (No Credit Card Trial + Promo Codes)
+
+| Provider & Plan Tier | Monthly Price | Annual Price (Auto-Discount) | Included Volume / Credits | Verified Promo Code / Offer | Direct Checkout / Trial |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **ScraperAPI — Free Trial** | **$0** (7 days) | **$0** | 5,000 API Credits | **No credit card required** | [**Start 5,000-Credit Trial →**](https://go.272738.xyz/scraperapi?src=scrape_tier_free) |
+| **ScraperAPI — Hobby Plan** | $49.00/mo | **$44.10/mo** (10% OFF) | 100,000 API Credits | Code `START10` (10% off 1st mo) | [**Get Hobby Plan →**](https://go.272738.xyz/scraperapi?src=scrape_tier_hobby) |
+| **ScraperAPI — Startup Plan** | $149.00/mo | **$134.10/mo** (10% OFF) | 1,000,000 API Credits | Code `START10` + 10% Annual OFF | [**Get Startup Plan →**](https://go.272738.xyz/scraperapi?src=scrape_tier_startup) |
+| **ScraperAPI — Business Plan** | $299.00/mo | **$269.10/mo** (10% OFF) | 3,000,000 API Credits | Code `START10` + 10% Annual OFF | [**Get Business Plan →**](https://go.272738.xyz/scraperapi?src=scrape_tier_business) |
+| **Decodo (Smartproxy) — Pay As You Go** | $3.50/GB | Pay-per-GB (no commitment) | 125M+ Residential IPs | Code `HELLODECODO` (**50% OFF**) | [**Get Decodo PAYG →**](https://go.272738.xyz/smartproxy?src=scrape_tier_payg) |
+| **Decodo (Smartproxy) — 100GB Growth** | $275.00/mo | **$200.00/mo** ($2.00/GB) | 100 GB Residential Pool | Code `HELLODECODO` + `RESI50` | [**Get 100GB Growth Plan →**](https://go.272738.xyz/smartproxy?src=scrape_tier_100gb) |
+| **Crawlbase — Starter Trial** | **$0** (First 5k) | $29.00/mo baseline | 5,000 Free Requests | Auto-Applied via Partner Link | [**Start 5,000 Free Calls →**](https://go.272738.xyz/crawlbase?src=scrape_tier_free) |
+
 **Snapshot:** {data["generated_at"]}. **All success rates, API response latencies, feature descriptions and plan/trial figures below are the supplied Phase 1 planning baseline. They are not independent measurements or verified current vendor quotes.** The probe refreshes public pricing-page metadata only. Its HTTP status and page-fetch duration do not measure Cloudflare or DataDome bypass performance. Official pricing can differ from this preserved baseline.
 
 ## Scraping API comparison: cost, baseline success and free trials
