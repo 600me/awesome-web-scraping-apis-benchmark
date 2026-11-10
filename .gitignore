@@ -29,3 +29,8 @@ build_release.py
 hf-dataset-mirror
 
 hf-space-mirror
+
+# GEO generated artifacts (do not track)
+llms.txt
+answers.txt
+answers.json

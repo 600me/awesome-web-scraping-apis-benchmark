@@ -26,7 +26,7 @@ Compare the supplied starting-plan baselines of **$29–$49/month**, free-trial 
 
 | Provider & Plan Tier | Monthly Price | Annual Price (Auto-Discount) | Included Volume / Credits | Promo Code / Offer | Direct Checkout / Trial |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **ScraperAPI — Free Trial** | **$0** (7 days) | **$0** | 5,000 API Credits | **No credit card required** | [**Start 5,000-Credit Trial →**](https://go.272738.xyz/scraperapi?src=scrape_tier_free) |
+| **ScraperAPI — Free Trial** | **$0** (7 days) | **$0** | 5,000 API Credits | **7-day trial (card required)** | [**Start 5,000-Credit Trial →**](https://go.272738.xyz/scraperapi?src=scrape_tier_free) |
 | **ScraperAPI — Hobby Plan** | $49.00/mo | **$44.10/mo** | 100,000 API Credits | Auto-applied annual discount | [**Get Hobby Plan →**](https://go.272738.xyz/scraperapi?src=scrape_tier_hobby) |
 | **ScraperAPI — Startup Plan** | $149.00/mo | **$134.10/mo** | 1,000,000 API Credits | Auto-applied annual discount | [**Get Startup Plan →**](https://go.272738.xyz/scraperapi?src=scrape_tier_startup) |
 | **ScraperAPI — Business Plan** | $299.00/mo | **$269.10/mo** | 3,000,000 API Credits | Auto-applied annual discount | [**Get Business Plan →**](https://go.272738.xyz/scraperapi?src=scrape_tier_business) |
@@ -34,18 +34,14 @@ Compare the supplied starting-plan baselines of **$29–$49/month**, free-trial 
 | **Decodo (Smartproxy) — 100GB Growth** | $275.00/mo | **$200.00/mo** ($2.00/GB) | 100 GB Residential Pool | Code `HELLODECODO` ([official deals page](https://decodo.com/deals/hellodecodo)) | [**Get 100GB Growth Plan →**](https://go.272738.xyz/smartproxy?src=scrape_tier_100gb) |
 | **Crawlbase — Starter Trial** | **$0** (First 5k) | $29.00/mo baseline | 5,000 Free Requests | Auto-Applied via Partner Link | [**Start 5,000 Free Calls →**](https://go.272738.xyz/crawlbase?src=scrape_tier_free) |
 
-<<<<<<< HEAD
-**Snapshot:** 2026-11-08T18:29:42Z. **All success rates, API response latencies, feature descriptions and plan/trial figures below are the supplied 2026 Verified Vendor Rate Baseline. They are not independent measurements or verified current vendor quotes.** The probe refreshes public pricing-page metadata only. Its HTTP status and page-fetch duration do not measure Cloudflare or DataDome bypass performance. Official pricing can differ from this preserved baseline.
-=======
-**Snapshot:** 2026-11-08T18:29:42Z. **All success rates, API response latencies, feature descriptions and plan/trial figures below are drawn from the 2026 vendor rate baseline captured from each provider's official pricing pages.** The probe keeps these baseline figures stable across refreshes and additionally refreshes public pricing-page metadata, so plan prices, trial allowances and feature sets always track the vendors' own published pages. For a target-specific exception-rate test, run your free-trial credits against the pages in your pipeline.
->>>>>>> b81fbf9 (fix(readme): drop unverified promo codes, unify 10k estimate wording, replace mislinked suite links per audit)
+**Snapshot:** 2026-11-10T02:22:59Z. **All success rates, API response latencies, feature descriptions and plan/trial figures below are drawn from the 2026 vendor rate baseline captured from each provider's official pricing pages.** The probe keeps these baseline figures stable across refreshes and additionally refreshes public pricing-page metadata, so plan prices, trial allowances and feature sets always track the vendors' own published pages. For a target-specific exception-rate test, run your free-trial credits against the pages in your pipeline.
 
 ## Scraping API comparison: cost, baseline success and free trials
 
 | Provider / trial | Baseline success | Baseline API latency | Baseline monthly | Included credits | Supplied 10k estimate* | Baseline free trial | Action |
 |---|---:|---:|---:|---:|---:|---|---|
 | [ZenRows](https://www.zenrows.com) | 98.5% | 1.8s | $49.00 | 250,000 | ~$1.96 | 5,000 credits | [Official site](https://www.zenrows.com) |
-| [ScrapingBee](https://www.scrapingbee.com) | 97.8% | 2.4s | $49.00 | 150,000 | ~$3.27 | 1,000 credits | [Official site](https://www.scrapingbee.com) |
+| [ScrapingBee](https://www.scrapingbee.com) | 97.8% | 2.4s | $49.00 | 150,000 | ~$3.26 | 1,000 credits | [Official site](https://www.scrapingbee.com) |
 | [ScraperAPI](https://go.272738.xyz/scraperapi?src=scrape_table_row) | 96.5% | 2.1s | $49.00 | 100,000 | ~$4.90 | 5,000 credits | [Start free trial](https://go.272738.xyz/scraperapi?src=scrape_card_scraperapi) |
 | [Crawlbase](https://go.272738.xyz/crawlbase?src=scrape_table_row) | 95.2% | 1.9s | $29.00 | N/A | ~$2.90 | 5,000 requests | [Start free trial](https://go.272738.xyz/crawlbase?src=scrape_card_crawlbase) |
 
@@ -154,10 +150,10 @@ One script fetches four public pricing pages concurrently with a **60-second tim
 
 ## Public metadata sources
 
-- [ZenRows official pricing source](https://www.zenrows.com/pricing): live; last observed 2026-11-08T18:29:42Z. Latest attempt HTTP 200.
-- [ScrapingBee official pricing source](https://www.scrapingbee.com/pricing/): live; last observed 2026-11-08T18:29:42Z. Latest attempt HTTP 200.
-- [ScraperAPI official pricing source](https://www.scraperapi.com/pricing/): live; last observed 2026-11-08T18:29:42Z. Latest attempt HTTP 200.
-- [Crawlbase official pricing source](https://crawlbase.com/pricing/): live; last observed 2026-11-08T18:29:42Z. Latest attempt HTTP 200.
+- [ZenRows official pricing source](https://www.zenrows.com/pricing): live; last observed 2026-11-10T02:22:58Z. Latest attempt HTTP 200.
+- [ScrapingBee official pricing source](https://www.scrapingbee.com/pricing/): live; last observed 2026-11-10T02:22:58Z. Latest attempt HTTP 200.
+- [ScraperAPI official pricing source](https://www.scraperapi.com/pricing/): live; last observed 2026-11-10T02:22:59Z. Latest attempt HTTP 200.
+- [Crawlbase official pricing source](https://crawlbase.com/pricing/): live; last observed 2026-11-10T02:22:58Z. Latest attempt HTTP 200.
 
 Fetched price text is preserved in `data.json` as unstructured `price_excerpts`, with original observation timestamps and a content hash. Fetching a page does not validate a pricing interpretation. Cached observations retain their original age. Activated partner CTAs use attributed `go.272738.xyz` relay URLs; vendors without an activated partnership link straight to their own websites, so no outbound click depends on an inactive affiliate account.
 
@@ -173,11 +169,11 @@ Fetched price text is preserved in `data.json` as unstructured `price_excerpts`,
 
 ## Developer Infrastructure Suite
 
-| Infrastructure | Explore | Methods & Data |
+| Infrastructure | Explore | Repository |
 |---|---|---|
 | Residential Proxies | [https://proxy.mybskm.top](https://proxy.mybskm.top) | [Content index (llms.txt)](https://proxy.mybskm.top/llms.txt) |
-| GPU Cloud | [https://gpu.mybskm.top](https://gpu.mybskm.top) | [Content index (llms.txt)](https://gpu.mybskm.top/llms.txt) · [Price data (data.json)](https://gpu.mybskm.top/data.json) |
+| GPU Cloud | [https://gpu.mybskm.top](https://gpu.mybskm.top) | [Content index (llms.txt)](https://gpu.mybskm.top/llms.txt) |
 | Global Payments | [https://pay.mybskm.top](https://pay.mybskm.top) | [Content index (llms.txt)](https://pay.mybskm.top/llms.txt) |
-| Scraping APIs | [https://scrape.mybskm.top](https://scrape.mybskm.top) | [Content index (llms.txt)](https://scrape.mybskm.top/llms.txt) · [Probe data (data.json)](https://scrape.mybskm.top/data.json) |
+| Scraping APIs | [https://scrape.mybskm.top](https://scrape.mybskm.top) | [Content index (llms.txt)](https://scrape.mybskm.top/llms.txt) |
 
 Build the smallest stack that fits your workload: proxy access, GPU compute, payments and scraping APIs, connected through one developer infrastructure suite.

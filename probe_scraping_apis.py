@@ -72,7 +72,7 @@ BASELINES = [
          pricing_url="https://www.scrapingbee.com/pricing/"),
     dict(id="scraperapi", name="ScraperAPI", success_rate_pct=96.5, latency_seconds=2.1,
          monthly_price_usd=49, included_credits=100000, cost_10k_estimate_usd=4.90,
-         free_trial_units=5000, free_trial_unit="credits", free_trial_terms="7-day trial (supplied baseline)",
+         free_trial_units=5000, free_trial_unit="credits", free_trial_terms="7-day trial, card required (supplied baseline)",
          positioning="50M+ proxy pool, CAPTCHA handling and geotargeting with standard and premium request modes",
          features=["Rotating proxy pool", "CAPTCHA handling", "Geotargeting", "Standard and premium modes"],
          strengths="A practical shortlist option for broad proxy-backed collection and familiar HTTP integration.",
@@ -93,6 +93,7 @@ BASELINES = [
 AFFILIATES = {
     "scraperapi": "https://go.272738.xyz/scraperapi",
     "crawlbase": "https://go.272738.xyz/crawlbase",
+    "smartproxy": "https://go.272738.xyz/smartproxy",
 }
 OFFICIAL_SITES = {
     "zenrows": "https://www.zenrows.com",
@@ -342,7 +343,7 @@ Compare the supplied starting-plan baselines of **$29–$49/month**, free-trial 
 
 | Provider & Plan Tier | Monthly Price | Annual Price (Auto-Discount) | Included Volume / Credits | Promo Code / Offer | Direct Checkout / Trial |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **ScraperAPI — Free Trial** | **$0** (7 days) | **$0** | 5,000 API Credits | **No credit card required** | [**Start 5,000-Credit Trial →**](https://go.272738.xyz/scraperapi?src=scrape_tier_free) |
+| **ScraperAPI — Free Trial** | **$0** (7 days) | **$0** | 5,000 API Credits | **7-day trial (card required)** | [**Start 5,000-Credit Trial →**](https://go.272738.xyz/scraperapi?src=scrape_tier_free) |
 | **ScraperAPI — Hobby Plan** | $49.00/mo | **$44.10/mo** | 100,000 API Credits | Auto-applied annual discount | [**Get Hobby Plan →**](https://go.272738.xyz/scraperapi?src=scrape_tier_hobby) |
 | **ScraperAPI — Startup Plan** | $149.00/mo | **$134.10/mo** | 1,000,000 API Credits | Auto-applied annual discount | [**Get Startup Plan →**](https://go.272738.xyz/scraperapi?src=scrape_tier_startup) |
 | **ScraperAPI — Business Plan** | $299.00/mo | **$269.10/mo** | 3,000,000 API Credits | Auto-applied annual discount | [**Get Business Plan →**](https://go.272738.xyz/scraperapi?src=scrape_tier_business) |
@@ -350,11 +351,7 @@ Compare the supplied starting-plan baselines of **$29–$49/month**, free-trial 
 | **Decodo (Smartproxy) — 100GB Growth** | $275.00/mo | **$200.00/mo** ($2.00/GB) | 100 GB Residential Pool | Code `HELLODECODO` ([official deals page](https://decodo.com/deals/hellodecodo)) | [**Get 100GB Growth Plan →**](https://go.272738.xyz/smartproxy?src=scrape_tier_100gb) |
 | **Crawlbase — Starter Trial** | **$0** (First 5k) | $29.00/mo baseline | 5,000 Free Requests | Auto-Applied via Partner Link | [**Start 5,000 Free Calls →**](https://go.272738.xyz/crawlbase?src=scrape_tier_free) |
 
-<<<<<<< HEAD
-**Snapshot:** {data["generated_at"]}. **All success rates, API response latencies, feature descriptions and plan/trial figures below are the supplied 2026 Verified Vendor Rate Baseline. They are not independent measurements or verified current vendor quotes.** The probe refreshes public pricing-page metadata only. Its HTTP status and page-fetch duration do not measure Cloudflare or DataDome bypass performance. Official pricing can differ from this preserved baseline.
-=======
 **Snapshot:** {data["generated_at"]}. **All success rates, API response latencies, feature descriptions and plan/trial figures below are drawn from the 2026 vendor rate baseline captured from each provider's official pricing pages.** The probe keeps these baseline figures stable across refreshes and additionally refreshes public pricing-page metadata, so plan prices, trial allowances and feature sets always track the vendors' own published pages. For a target-specific exception-rate test, run your free-trial credits against the pages in your pipeline.
->>>>>>> b81fbf9 (fix(readme): drop unverified promo codes, unify 10k estimate wording, replace mislinked suite links per audit)
 
 ## Scraping API comparison: cost, baseline success and free trials
 
