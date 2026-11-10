@@ -176,4 +176,14 @@ Fetched price text is preserved in `data.json` as unstructured `price_excerpts`,
 | Global Payments | [https://pay.mybskm.top](https://pay.mybskm.top) | [Content index (llms.txt)](https://pay.mybskm.top/llms.txt) |
 | Scraping APIs | [https://scrape.mybskm.top](https://scrape.mybskm.top) | [Content index (llms.txt)](https://scrape.mybskm.top/llms.txt) |
 
+### Interactive 4-Tool Suites & Long-Tail Benchmarks
+
+- [n1 Proxy, Anti-Detect & Serverless GPU 4-Tool Suite](https://proxy.mybskm.top/matrix/proxy-gpu-4-tools-suite.html)
+- [n2 AI Website Builder, Hosting & SEO 4-Tool Suite](https://proxy.mybskm.top/site-builders/builder-hosting-seo-4-tools-suite.html)
+- [n3 E-Commerce AdSpy & S2S Attribution 4-Tool Suite](https://proxy.mybskm.top/seller-tools/ecom-adspy-roas-4-tools-suite.html)
+- [n4 Workflow Automation, PDF API & AI Voice 4-Tool Suite](https://proxy.mybskm.top/ai-workflow/automation-pdf-voice-4-tools-suite.html)
+- [n5 Property Investment, BRRRR & STR PMS 4-Tool Suite](https://proxy.mybskm.top/property-tools/str-brrrr-pms-4-tools-suite.html)
+- [n6 Game Server Tickrate, Modpack RAM & NVMe 4-Tool Suite](https://proxy.mybskm.top/game-hosting/tickrate-modpack-vps-4-tools-suite.html)
+- [Google SERP 10M Queries: ScraperAPI vs Residential GB TCO](https://proxy.mybskm.top/matrix/google-serp-10m-queries-scraperapi-vs-residential-gb-tco.html)
+
 Build the smallest stack that fits your workload: proxy access, GPU compute, payments and scraping APIs, connected through one developer infrastructure suite.

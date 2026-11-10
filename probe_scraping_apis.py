@@ -314,6 +314,18 @@ def render_readme(data):
         scenarios.append(f'| {v["name"]} | {costs} | {trial} |')
     matrix = "\n".join(f"| {name} | [{url}]({url}) | [Content index (llms.txt)]({url}/llms.txt) |"
                        for name, url in SUITE)
+    suites = "\n".join([
+        "### Interactive 4-Tool Suites & Long-Tail Benchmarks",
+        "",
+        "- [n1 Proxy, Anti-Detect & Serverless GPU 4-Tool Suite](https://proxy.mybskm.top/matrix/proxy-gpu-4-tools-suite.html)",
+        "- [n2 AI Website Builder, Hosting & SEO 4-Tool Suite](https://proxy.mybskm.top/site-builders/builder-hosting-seo-4-tools-suite.html)",
+        "- [n3 E-Commerce AdSpy & S2S Attribution 4-Tool Suite](https://proxy.mybskm.top/seller-tools/ecom-adspy-roas-4-tools-suite.html)",
+        "- [n4 Workflow Automation, PDF API & AI Voice 4-Tool Suite](https://proxy.mybskm.top/ai-workflow/automation-pdf-voice-4-tools-suite.html)",
+        "- [n5 Property Investment, BRRRR & STR PMS 4-Tool Suite](https://proxy.mybskm.top/property-tools/str-brrrr-pms-4-tools-suite.html)",
+        "- [n6 Game Server Tickrate, Modpack RAM & NVMe 4-Tool Suite](https://proxy.mybskm.top/game-hosting/tickrate-modpack-vps-4-tools-suite.html)",
+        "- [Google SERP 10M Queries: ScraperAPI vs Residential GB TCO](https://proxy.mybskm.top/matrix/google-serp-10m-queries-scraperapi-vs-residential-gb-tco.html)",
+        "",
+    ])
     research = "\n".join(f"- [{label}]({url})" for url, label in RESEARCH)
     return f'''# Best Scraping API for Cloudflare: ZenRows vs ScrapingBee vs ScraperAPI vs Crawlbase
 
@@ -440,6 +452,7 @@ Fetched price text is preserved in `data.json` as unstructured `price_excerpts`,
 |---|---|---|
 {matrix}
 
+{suites}
 Build the smallest stack that fits your workload: proxy access, GPU compute, payments and scraping APIs, connected through one developer infrastructure suite.
 '''
 
