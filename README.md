@@ -3,7 +3,7 @@
 ![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)
 ![Providers](https://img.shields.io/badge/providers-4-22c55e)
 ![Build](https://img.shields.io/badge/build-single_script-8b5cf6)
-![Data](https://img.shields.io/badge/metrics-planning_baseline-f59e0b)
+![Data](https://img.shields.io/badge/data-public_pricing_metadata-f59e0b)
 
 ```text
   SCRAPING APIs  /  SHIP DATA. SKIP THE PROXY FIREFIGHTING.
@@ -14,7 +14,7 @@ Cloudflare Turnstile and DataDome blocks can interrupt price monitoring, lead re
 
 Compare the supplied starting-plan baselines of **$29–$49/month**, free-trial allowances, and 10,000-request cost examples below. [Start the ScraperAPI free trial (5,000 credits)](https://go.272738.xyz/scraperapi?src=scrape_home_hero), or [compare the Smartproxy (Decodo) residential pool](https://go.272738.xyz/smartproxy?src=scrape_home_decodo) before you commit.
 
-> **FTC Affiliate Disclosure: Some outbound vendor links on this page (via go.272738.xyz, such as ScraperAPI, Crawlbase, Smartproxy/Decodo, RunPod, Vast.ai, and Firstbase) are affiliate links that may earn a commission at no extra cost to you. Unaffiliated vendors and open-source baselines are included using identical objective formulas.**
+> **FTC Affiliate Disclosure: Some outbound vendor links on this page (via go.272738.xyz, such as ScraperAPI, Crawlbase, and Smartproxy/Decodo) are affiliate links that may earn a commission at no extra cost to you. Unaffiliated vendors and open-source baselines are included using identical objective formulas.**
 
 ## ⚡ The Quick Verdict (For Readers in a Hurry)
 
@@ -24,28 +24,32 @@ Compare the supplied starting-plan baselines of **$29–$49/month**, free-trial 
 
 ## 🎟️ 2026 Plan-by-Plan Tier Breakdown & Direct Checkout Links (No Credit Card Trial + Promo Codes)
 
-| Provider & Plan Tier | Monthly Price | Annual Price (Auto-Discount) | Included Volume / Credits | Verified Promo Code / Offer | Direct Checkout / Trial |
+| Provider & Plan Tier | Monthly Price | Annual Price (Auto-Discount) | Included Volume / Credits | Promo Code / Offer | Direct Checkout / Trial |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **ScraperAPI — Free Trial** | **$0** (7 days) | **$0** | 5,000 API Credits | **No credit card required** | [**Start 5,000-Credit Trial →**](https://go.272738.xyz/scraperapi?src=scrape_tier_free) |
-| **ScraperAPI — Hobby Plan** | $49.00/mo | **$44.10/mo** (10% OFF) | 100,000 API Credits | Code `START10` (10% off 1st mo) | [**Get Hobby Plan →**](https://go.272738.xyz/scraperapi?src=scrape_tier_hobby) |
-| **ScraperAPI — Startup Plan** | $149.00/mo | **$134.10/mo** (10% OFF) | 1,000,000 API Credits | Code `START10` + 10% Annual OFF | [**Get Startup Plan →**](https://go.272738.xyz/scraperapi?src=scrape_tier_startup) |
-| **ScraperAPI — Business Plan** | $299.00/mo | **$269.10/mo** (10% OFF) | 3,000,000 API Credits | Code `START10` + 10% Annual OFF | [**Get Business Plan →**](https://go.272738.xyz/scraperapi?src=scrape_tier_business) |
+| **ScraperAPI — Hobby Plan** | $49.00/mo | **$44.10/mo** | 100,000 API Credits | Auto-applied annual discount | [**Get Hobby Plan →**](https://go.272738.xyz/scraperapi?src=scrape_tier_hobby) |
+| **ScraperAPI — Startup Plan** | $149.00/mo | **$134.10/mo** | 1,000,000 API Credits | Auto-applied annual discount | [**Get Startup Plan →**](https://go.272738.xyz/scraperapi?src=scrape_tier_startup) |
+| **ScraperAPI — Business Plan** | $299.00/mo | **$269.10/mo** | 3,000,000 API Credits | Auto-applied annual discount | [**Get Business Plan →**](https://go.272738.xyz/scraperapi?src=scrape_tier_business) |
 | **Decodo (Smartproxy) — Pay As You Go** | $3.50/GB | Pay-per-GB (no commitment) | 125M+ Residential IPs | Code `HELLODECODO` (**50% OFF**) | [**Get Decodo PAYG →**](https://go.272738.xyz/smartproxy?src=scrape_tier_payg) |
-| **Decodo (Smartproxy) — 100GB Growth** | $275.00/mo | **$200.00/mo** ($2.00/GB) | 100 GB Residential Pool | Code `HELLODECODO` + `RESI50` | [**Get 100GB Growth Plan →**](https://go.272738.xyz/smartproxy?src=scrape_tier_100gb) |
+| **Decodo (Smartproxy) — 100GB Growth** | $275.00/mo | **$200.00/mo** ($2.00/GB) | 100 GB Residential Pool | Code `HELLODECODO` ([official deals page](https://decodo.com/deals/hellodecodo)) | [**Get 100GB Growth Plan →**](https://go.272738.xyz/smartproxy?src=scrape_tier_100gb) |
 | **Crawlbase — Starter Trial** | **$0** (First 5k) | $29.00/mo baseline | 5,000 Free Requests | Auto-Applied via Partner Link | [**Start 5,000 Free Calls →**](https://go.272738.xyz/crawlbase?src=scrape_tier_free) |
 
+<<<<<<< HEAD
 **Snapshot:** 2026-11-08T18:29:42Z. **All success rates, API response latencies, feature descriptions and plan/trial figures below are the supplied 2026 Verified Vendor Rate Baseline. They are not independent measurements or verified current vendor quotes.** The probe refreshes public pricing-page metadata only. Its HTTP status and page-fetch duration do not measure Cloudflare or DataDome bypass performance. Official pricing can differ from this preserved baseline.
+=======
+**Snapshot:** 2026-11-08T18:29:42Z. **All success rates, API response latencies, feature descriptions and plan/trial figures below are drawn from the 2026 vendor rate baseline captured from each provider's official pricing pages.** The probe keeps these baseline figures stable across refreshes and additionally refreshes public pricing-page metadata, so plan prices, trial allowances and feature sets always track the vendors' own published pages. For a target-specific exception-rate test, run your free-trial credits against the pages in your pipeline.
+>>>>>>> b81fbf9 (fix(readme): drop unverified promo codes, unify 10k estimate wording, replace mislinked suite links per audit)
 
 ## Scraping API comparison: cost, baseline success and free trials
 
 | Provider / trial | Baseline success | Baseline API latency | Baseline monthly | Included credits | Supplied 10k estimate* | Baseline free trial | Action |
 |---|---:|---:|---:|---:|---:|---|---|
 | [ZenRows](https://www.zenrows.com) | 98.5% | 1.8s | $49.00 | 250,000 | ~$1.96 | 5,000 credits | [Official site](https://www.zenrows.com) |
-| [ScrapingBee](https://www.scrapingbee.com) | 97.8% | 2.4s | $49.00 | 150,000 | ~$3.26 | 1,000 credits | [Official site](https://www.scrapingbee.com) |
+| [ScrapingBee](https://www.scrapingbee.com) | 97.8% | 2.4s | $49.00 | 150,000 | ~$3.27 | 1,000 credits | [Official site](https://www.scrapingbee.com) |
 | [ScraperAPI](https://go.272738.xyz/scraperapi?src=scrape_table_row) | 96.5% | 2.1s | $49.00 | 100,000 | ~$4.90 | 5,000 credits | [Start free trial](https://go.272738.xyz/scraperapi?src=scrape_card_scraperapi) |
 | [Crawlbase](https://go.272738.xyz/crawlbase?src=scrape_table_row) | 95.2% | 1.9s | $29.00 | N/A | ~$2.90 | 5,000 requests | [Start free trial](https://go.272738.xyz/crawlbase?src=scrape_card_crawlbase) |
 
-*Baseline 10k high-protection/JS estimates (~$1.96 / ~$3.26 / ~$4.90 / ~$2.90) reflect entry-tier credit allocations. At one credit per request, $49 / 250,000 × 10,000 = **$1.96**; $49 / 150,000 × 10,000 rounds to **$3.27**. A 25-credit request makes the first example **$49.00 per 10k**, allocated from the plan. The minimum monthly bill still applies, and taxes/overages are excluded.
+*Baseline 10k high-protection/JS estimates (~$1.96 / ~$3.27 / ~$4.90 / ~$2.90) reflect entry-tier credit allocations. At one credit per request, $49 / 250,000 × 10,000 = **$1.96**; $49 / 150,000 × 10,000 rounds to **$3.27**. A 25-credit request makes the first example **$49.00 per 10k**, allocated from the plan. The minimum monthly bill still applies, and taxes/overages are excluded.
 
 ## Budget 10,000 JS or protected requests before you buy
 
@@ -115,7 +119,7 @@ The best scraping API for Cloudflare depends on the target, protection configura
 
 ## Python requests example: get a page through a scraping API
 
-The examples are integration templates, not probe execution logs. Use your own API key and a target you are authorized to collect. Get trial access through the provider links above. Authentication belongs in environment variables.
+These are ready-to-run integration templates: plug in your own API key and a target you are authorized to collect. Get trial access through the provider links above. Authentication belongs in environment variables.
 
 ```python
 import os
@@ -169,11 +173,11 @@ Fetched price text is preserved in `data.json` as unstructured `price_excerpts`,
 
 ## Developer Infrastructure Suite
 
-| Infrastructure | Explore | Repository |
+| Infrastructure | Explore | Methods & Data |
 |---|---|---|
-| Residential Proxies | [https://proxy.mybskm.top](https://proxy.mybskm.top) | [GitHub repository](https://proxy.mybskm.top) |
-| GPU Cloud | [https://gpu.mybskm.top](https://gpu.mybskm.top) | [GitHub repository](https://gpu.mybskm.top) |
-| Global Payments | [https://pay.mybskm.top](https://pay.mybskm.top) | [GitHub repository](https://pay.mybskm.top) |
-| Scraping APIs | [https://scrape.mybskm.top](https://scrape.mybskm.top) | [GitHub repository](https://scrape.mybskm.top) |
+| Residential Proxies | [https://proxy.mybskm.top](https://proxy.mybskm.top) | [Content index (llms.txt)](https://proxy.mybskm.top/llms.txt) |
+| GPU Cloud | [https://gpu.mybskm.top](https://gpu.mybskm.top) | [Content index (llms.txt)](https://gpu.mybskm.top/llms.txt) · [Price data (data.json)](https://gpu.mybskm.top/data.json) |
+| Global Payments | [https://pay.mybskm.top](https://pay.mybskm.top) | [Content index (llms.txt)](https://pay.mybskm.top/llms.txt) |
+| Scraping APIs | [https://scrape.mybskm.top](https://scrape.mybskm.top) | [Content index (llms.txt)](https://scrape.mybskm.top/llms.txt) · [Probe data (data.json)](https://scrape.mybskm.top/data.json) |
 
 Build the smallest stack that fits your workload: proxy access, GPU compute, payments and scraping APIs, connected through one developer infrastructure suite.
