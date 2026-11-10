@@ -335,11 +335,11 @@ Compare the supplied starting-plan baselines of **$29–$49/month**, free-trial 
 
 ## ⚡ The Quick Verdict (For Readers in a Hurry)
 
-- **Pick [ScraperAPI](https://go.272738.xyz/scraperapi?src=scrape_readme_verdict) if** you want a turnkey unblocker API with automatic proxy rotation, CAPTCHA solving, and JS rendering — [**Start your 5,000-credit free trial (no credit card required)**](https://go.272738.xyz/scraperapi?src=scrape_readme_trial_nocard).
+- **Pick [ScraperAPI](https://go.272738.xyz/scraperapi?src=scrape_readme_verdict) if** you want a turnkey unblocker API with automatic proxy rotation, CAPTCHA solving, and JS rendering — [**Start your 7-day free trial (credit card required, no hidden lock-in)**](https://go.272738.xyz/scraperapi?src=scrape_readme_trial_cardrequired).
 - **Pick [Smartproxy (Decodo)](https://go.272738.xyz/smartproxy?src=scrape_readme_verdict) if** you already run your own Playwright/Puppeteer/curl crawlers and want the lowest $/GB residential proxy pool — [**Claim 50% OFF with code `HELLODECODO`**](https://go.272738.xyz/smartproxy?src=scrape_readme_decodo_code).
 - **Pick [Crawlbase](https://go.272738.xyz/crawlbase?src=scrape_readme_verdict) if** you need built-in asynchronous crawling + cloud storage — [**Start with 5,000 free requests**](https://go.272738.xyz/crawlbase?src=scrape_readme_crawlbase_free).
 
-## 🎟️ 2026 Plan-by-Plan Tier Breakdown & Direct Checkout Links (No Credit Card Trial + Promo Codes)
+## 🎟️ 2026 Plan-by-Plan Tier Breakdown & Direct Checkout Links (7-Day Card-Required Trial + Promo Codes)
 
 | Provider & Plan Tier | Monthly Price | Annual Price (Auto-Discount) | Included Volume / Credits | Promo Code / Offer | Direct Checkout / Trial |
 | :--- | :--- | :--- | :--- | :--- | :--- |
