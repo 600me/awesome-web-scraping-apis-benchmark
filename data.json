@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-10T20:36:09Z",
+  "generated_at": "2026-11-12T21:05:51Z",
   "currency": "USD",
   "methodology": {
     "fallback_order": [
@@ -65,7 +65,7 @@
       "affiliated": false,
       "public_metadata": {
         "source_url": "https://www.zenrows.com/pricing",
-        "observed_at": "2026-11-10T20:36:09Z",
+        "observed_at": "2026-11-12T21:05:50Z",
         "title": "Pricing Â· Zenrows. From first agent to enterprise scale.",
         "description": "Fetch, extract, batch, and operate the web through one reliable API. Start free, scale to protected sites, browser workflows, and high-volume data pipelines.",
         "price_excerpts": [
@@ -74,14 +74,14 @@
           "h Reliable web data in production. $ 58 /mo 250K credits/month Everything in Build 50 concurrent request",
           "ded Growth Scale across your team. $ 166 /mo 1.2M credits/month Everything in Launch 100 concurrent reque"
         ],
-        "content_sha256": "4780e114a121604056cf3d0cf09576bd57105873ad3c4db02963305f98b9f5ea",
+        "content_sha256": "fb63dc7e09d313cb626f415a5111a19b767550c7ca269c324cb0f6e1e53fe32e",
         "http_status": 200,
-        "page_fetch_seconds": 0.187
+        "page_fetch_seconds": 0.196
       },
       "metadata_source": "live",
       "probe": {
         "ok": true,
-        "checked_at": "2026-11-10T20:36:09Z",
+        "checked_at": "2026-11-12T21:05:50Z",
         "http_status": 200
       },
       "field_sources": {
@@ -197,7 +197,7 @@
       "affiliated": false,
       "public_metadata": {
         "source_url": "https://www.scrapingbee.com/pricing/",
-        "observed_at": "2026-11-10T20:36:09Z",
+        "observed_at": "2026-11-12T21:05:50Z",
         "title": "Pricing - ScrapingBee Web Scraping API",
         "description": "Simple, transparent pricing for ScrapingBee web scraping API. Choose from Hobby, Freelance, Startup, Business, or Business + plans. Cancel anytime.",
         "price_excerpts": [
@@ -206,14 +206,14 @@
           "Startup (Recommended) Recommended $99 /mo API Credits: 1,000,000 Concurrent requests: 100 JavaScript r",
           "now with the Startup plan Business $249 /mo API Credits: 3,000,000 Concurrent requests: 200 JavaScript r"
         ],
-        "content_sha256": "3ff714c8962fef1bddf743519e61ccfa84db1bac4bfcb695bb1e28bacaf26753",
+        "content_sha256": "719f72b68cb0b8d6e9f23363aa63707580e249ebe23cf2b0a7c67a2f4685dd7d",
         "http_status": 200,
-        "page_fetch_seconds": 0.236
+        "page_fetch_seconds": 0.295
       },
       "metadata_source": "live",
       "probe": {
         "ok": true,
-        "checked_at": "2026-11-10T20:36:09Z",
+        "checked_at": "2026-11-12T21:05:50Z",
         "http_status": 200
       },
       "field_sources": {
@@ -329,7 +329,7 @@
       "affiliated": true,
       "public_metadata": {
         "source_url": "https://www.scraperapi.com/pricing/",
-        "observed_at": "2026-11-10T20:36:09Z",
+        "observed_at": "2026-11-12T21:05:50Z",
         "title": "Compare Plans and Get Started for Free - ScraperAPI Pricing",
         "description": "Not sure which ScraperAPI plan is right for you? Quickly compare our plans to choose the one that best fits your needs and budget.",
         "price_excerpts": [
@@ -338,14 +338,14 @@
           "For low-volume scraping workflows. $149 /month $134.10 /month billed annually Start Trial 1,000,000 API",
           "me scraping workflows. $149 /month $134.10 /month billed annually Start Trial 1,000,000 API Credits 50 Conc"
         ],
-        "content_sha256": "059239d04600c7db73fd22abaeb123228c337a5acc03af151c9a09157b8f2407",
+        "content_sha256": "c55ffe6d2e4ad0cb9f7971ac5347e88ae79af13e0550e0f63e955999fbf913c3",
         "http_status": 200,
-        "page_fetch_seconds": 0.286
+        "page_fetch_seconds": 0.163
       },
       "metadata_source": "live",
       "probe": {
         "ok": true,
-        "checked_at": "2026-11-10T20:36:09Z",
+        "checked_at": "2026-11-12T21:05:50Z",
         "http_status": 200
       },
       "field_sources": {
@@ -461,7 +461,7 @@
       "affiliated": true,
       "public_metadata": {
         "source_url": "https://crawlbase.com/pricing",
-        "observed_at": "2026-11-10T20:36:09Z",
+        "observed_at": "2026-11-12T21:05:51Z",
         "title": "Pricing: One Rate Card for Every Product | Crawlbase",
         "description": "One pay as you go rate card covers the Crawling API, the Crawler, Smart AI Proxy and Cloud Storage. Pay only for successful requests. Start free.",
         "price_excerpts": [
@@ -470,14 +470,14 @@
           "me grows. Rates from $3.00 down to $0.02 per 1,000 Optional hard spend cap Billed monthly in arrears, for",
           "used Start free Subscription From $99 / mo A monthly block of credits at a lower effective rate. Usage"
         ],
-        "content_sha256": "d6566e20c00c1ed883f99cdcabdca5ff0209777baebc23a2ce47f276ff3d7940",
+        "content_sha256": "fd0654ca71b2247d0139ec5507033dd78af43f117ca5726bfe20dfa51ea90b51",
         "http_status": 200,
-        "page_fetch_seconds": 0.434
+        "page_fetch_seconds": 0.663
       },
       "metadata_source": "live",
       "probe": {
         "ok": true,
-        "checked_at": "2026-11-10T20:36:09Z",
+        "checked_at": "2026-11-12T21:05:51Z",
         "http_status": 200
       },
       "field_sources": {
