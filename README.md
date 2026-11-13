@@ -34,7 +34,7 @@ Compare the supplied starting-plan baselines of **$29–$49/month**, free-trial 
 | **Decodo (Smartproxy) — 100GB Growth** | $275.00/mo | **$200.00/mo** ($2.00/GB) | 100 GB Residential Pool | Code `HELLODECODO` ([official deals page](https://decodo.com/deals/hellodecodo)) | [**Get 100GB Growth Plan →**](https://go.272738.xyz/smartproxy?src=scrape_tier_100gb) |
 | **Crawlbase — Starter Trial** | **$0** (First 5k) | $29.00/mo baseline | 5,000 Free Requests | Auto-Applied via Partner Link | [**Start 5,000 Free Calls →**](https://go.272738.xyz/crawlbase?src=scrape_tier_free) |
 
-**Snapshot:** 2026-11-12T21:05:51Z. **All success rates, API response latencies, feature descriptions and plan/trial figures below are drawn from the 2026 vendor rate baseline captured from each provider's official pricing pages.** The probe keeps these baseline figures stable across refreshes and additionally refreshes public pricing-page metadata, so plan prices, trial allowances and feature sets always track the vendors' own published pages. For a target-specific exception-rate test, run your free-trial credits against the pages in your pipeline.
+**Snapshot:** 2026-11-13T20:39:09Z. **All success rates, API response latencies, feature descriptions and plan/trial figures below are drawn from the 2026 vendor rate baseline captured from each provider's official pricing pages.** The probe keeps these baseline figures stable across refreshes and additionally refreshes public pricing-page metadata, so plan prices, trial allowances and feature sets always track the vendors' own published pages. For a target-specific exception-rate test, run your free-trial credits against the pages in your pipeline.
 
 ## Scraping API comparison: cost, baseline success and free trials
 
@@ -150,10 +150,10 @@ One script fetches four public pricing pages concurrently with a **60-second tim
 
 ## Public metadata sources
 
-- [ZenRows official pricing source](https://www.zenrows.com/pricing): live; last observed 2026-11-12T21:05:50Z. Latest attempt HTTP 200.
-- [ScrapingBee official pricing source](https://www.scrapingbee.com/pricing/): live; last observed 2026-11-12T21:05:50Z. Latest attempt HTTP 200.
-- [ScraperAPI official pricing source](https://www.scraperapi.com/pricing/): live; last observed 2026-11-12T21:05:50Z. Latest attempt HTTP 200.
-- [Crawlbase official pricing source](https://crawlbase.com/pricing/): live; last observed 2026-11-12T21:05:51Z. Latest attempt HTTP 200.
+- [ZenRows official pricing source](https://www.zenrows.com/pricing): live; last observed 2026-11-13T20:39:09Z. Latest attempt HTTP 200.
+- [ScrapingBee official pricing source](https://www.scrapingbee.com/pricing/): live; last observed 2026-11-13T20:39:09Z. Latest attempt HTTP 200.
+- [ScraperAPI official pricing source](https://www.scraperapi.com/pricing/): live; last observed 2026-11-13T20:39:09Z. Latest attempt HTTP 200.
+- [Crawlbase official pricing source](https://crawlbase.com/pricing/): live; last observed 2026-11-13T20:39:09Z. Latest attempt HTTP 200.
 
 Fetched price text is preserved in `data.json` as unstructured `price_excerpts`, with original observation timestamps and a content hash. Fetching a page does not validate a pricing interpretation. Cached observations retain their original age. Activated partner CTAs use attributed `go.272738.xyz` relay URLs; vendors without an activated partnership link straight to their own websites, so no outbound click depends on an inactive affiliate account.
 
